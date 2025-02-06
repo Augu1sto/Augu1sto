@@ -1,0 +1,513 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【FE学习-CSS】字体/文本等样式化 | 若叶</title><meta name="keywords" content="CSS"><meta name="author" content="Augu1sto"><meta name="copyright" content="Augu1sto"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="font和文本样式⁍ font简写顺序： font-style, font-variant, font-weight, font-stretch, font-size, line-height, and font-family.  必需：font-size 和 font-family font-size 和 line-height 属性之间必须放一个正斜杠  网页安全字体（通用）⁍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【FE学习-CSS】字体&#x2F;文本等样式化">
+<meta property="og:url" content="https://augu1sto.github.io/augu1sto/2b1512a54a3e/index.html">
+<meta property="og:site_name" content="若叶">
+<meta property="og:description" content="font和文本样式⁍ font简写顺序： font-style, font-variant, font-weight, font-stretch, font-size, line-height, and font-family.  必需：font-size 和 font-family font-size 和 line-height 属性之间必须放一个正斜杠  网页安全字体（通用）⁍">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://augu1sto.github.io/augu1sto/img/cover03.jpg">
+<meta property="article:published_time" content="2022-03-26T14:19:37.000Z">
+<meta property="article:modified_time" content="2022-03-26T16:39:22.911Z">
+<meta property="article:author" content="Augu1sto">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augu1sto.github.io/augu1sto/img/cover03.jpg"><link rel="shortcut icon" href="/augu1sto/img/favicon.png"><link rel="canonical" href="https://augu1sto.github.io/augu1sto/2b1512a54a3e/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-oEsTyOVPwJ"/><link rel="stylesheet" href="/augu1sto/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/augu1sto/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【FE学习-CSS】字体/文本等样式化',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-27 00:39:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="google-site-verification" content="a1IrzpkO5Jd9_eZl1_IwZSZ779M4c5LPUf7oSBp4G58" /><link rel="stylesheet" href="/self/material.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/augu1sto/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/augu1sto/img/cover03.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/augu1sto/">若叶</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【FE学习-CSS】字体/文本等样式化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-26T14:19:37.000Z" title="发表于 2022-03-26 22:19:37">2022-03-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-26T16:39:22.911Z" title="更新于 2022-03-27 00:39:22">2022-03-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/augu1sto/categories/FE%E5%AD%A6%E4%B9%A0/">FE学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【FE学习-CSS】字体/文本等样式化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="font和文本样式">font和文本样式<a class="header-anchor" href="#font和文本样式">⁍</a></h2>
+<p>font简写顺序： <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-style"><code>font-style</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant"><code>font-variant</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-weight"><code>font-weight</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-stretch"><code>font-stretch</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size"><code>font-size</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-height"><code>line-height</code></a>, and <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-family"><code>font-family</code></a>.</p>
+<ul>
+<li>必需：<code>font-size</code> 和 <code>font-family</code></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size"><code>font-size</code></a> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-height"><code>line-height</code></a> 属性之间必须放一个正斜杠</li>
+</ul>
+<h3 id="网页安全字体（通用）">网页安全字体（通用）<a class="header-anchor" href="#网页安全字体（通用）">⁍</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">字体名称</td>
+<td style="text-align:left">泛型</td>
+<td style="text-align:left">注意</td>
+</tr>
+<tr>
+<td style="text-align:left">Arial</td>
+<td style="text-align:left">sans-serif</td>
+<td style="text-align:left">通常认为最佳做法还是添加 Helvetica 作为 Arial 的首选替代品，尽管它们的字体面几乎相同，但 Helvetica 被认为具有更好的形状，即使Arial更广泛地可用。</td>
+</tr>
+<tr>
+<td style="text-align:left">Courier New</td>
+<td style="text-align:left">monospace</td>
+<td style="text-align:left">某些操作系统有一个 Courier New 字体的替代（可能较旧的）版本叫Courier。使用Courier New作为Courier的首选替代方案，被认为是最佳做法。</td>
+</tr>
+<tr>
+<td style="text-align:left">Georgia</td>
+<td style="text-align:left">serif</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Times New Roman</td>
+<td style="text-align:left">serif</td>
+<td style="text-align:left">某些操作系统有一个 Times New Roman 字体的替代（可能较旧的）版本叫 Times。使用Times作为Times New Roman的首选替代方案，被认为是最佳做法。</td>
+</tr>
+<tr>
+<td style="text-align:left">Trebuchet MS</td>
+<td style="text-align:left">sans-serif</td>
+<td style="text-align:left">您应该小心使用这种字体——它在移动操作系统上并不广泛。</td>
+</tr>
+<tr>
+<td style="text-align:left">Verdana</td>
+<td style="text-align:left">sans-serif</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>详见 <a target="_blank" rel="noopener" href="http://www.cssfontstack.com/">cssfontstack.com</a></p>
+<h3 id="通用字体族-默认字体">通用字体族/默认字体<a class="header-anchor" href="#通用字体族-默认字体">⁍</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>serif</code></td>
+<td style="text-align:left">衬线体</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>sans-serif</code></td>
+<td style="text-align:left">无衬线体</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>monospace</code></td>
+<td style="text-align:left">等宽字体</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>cursive</code></td>
+<td style="text-align:left">手写体</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>fantasy</code></td>
+<td style="text-align:left">装饰体</td>
+</tr>
+</tbody>
+</table>
+<h3 id="font-family">font-family<a class="header-anchor" href="#font-family">⁍</a></h3>
+<ul>
+<li>有空格或特殊符号需要用单引号包围</li>
+<li>与字体族重名要用双引号包围</li>
+<li><strong>字体栈</strong> ( <strong>font stack</strong> ) 用逗号分隔</li>
+</ul>
+<h3 id="相关其他属性">相关其他属性<a class="header-anchor" href="#相关其他属性">⁍</a></h3>
+<ul>
+<li><code>font-style</code>：<code>normal</code>/<code>italic</code>/<code>oblique</code>（模拟斜体）</li>
+<li><code>font-weight</code>：字重 <code>normal</code>/<code>bold</code>/<code>bolder</code>/<code>light</code>/<code>lighter</code>/<code>100</code>~<code>900</code>（100的倍数）</li>
+<li><code>font-size</code>：…</li>
+</ul>
+<div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>其他样式</span></div>
+    <div class="hide-content"><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant"><code>font-variant</code></a>: 在小型大写字母和普通文本选项之间切换。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-kerning"><code>font-kerning</code></a>: 开启或关闭字体间距选项。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-feature-settings"><code>font-feature-settings</code></a>: 开启或关闭不同的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/OpenType">OpenType</a> 字体特性。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant-alternates"><code>font-variant-alternates</code></a>: 控制给定的自定义字体的替代字形的使用。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant-caps"><code>font-variant-caps</code></a>: 控制大写字母替代字形的使用。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-east-asian"><code>font-variant-east-asian</code> (en-US)</a>: 控制东亚文字替代字形的使用, 像日语和汉语。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant-ligatures"><code>font-variant-ligatures</code></a>: 控制文本中使用的连写和上下文形式。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant-numeric"><code>font-variant-numeric</code></a>: 控制数字，分式和序标的替代字形的使用。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant-position"><code>font-variant-position</code></a>: 控制位于上标或下标处，字号更小的替代字形的使用。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size-adjust"><code>font-size-adjust</code></a>: 独立于字体的实际大小尺寸，调整其可视大小尺寸。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-stretch"><code>font-stretch</code></a>: 在给定字体的可选拉伸版本中切换。</li>
+</ul>
+</div></div>
+<h3 id="文本样式">文本样式<a class="header-anchor" href="#文本样式">⁍</a></h3>
+<p>属于文本设置的范畴，但本质是给字本身添加样式</p>
+<h4 id="文字阴影"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_text/Fundamentals#%E6%96%87%E5%AD%97%E9%98%B4%E5%BD%B1">文字阴影</a><a class="header-anchor" href="#文字阴影">⁍</a></h4>
+<p>你可以为你的文本应用阴影，使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-shadow"><code>text-shadow</code></a> 属性。这最多需要 4 个值，如下例所示：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">4px</span> <span class="hljs-number">4px</span> <span class="hljs-number">5px</span> red;<br></code></pre></td></tr></table></figure>
+<p>4 个属性如下:</p>
+<ol>
+<li>水平偏移，通常用px做单位。必须指定。</li>
+<li>垂直偏移。必须指定。</li>
+<li>模糊半径 ，默认为0，这意味着没有模糊。</li>
+<li>阴影的基础颜色，默认为 <code>black</code>.</li>
+</ol>
+<p>可以用逗号分隔，设置多重阴影</p>
+<h4 id="text-transform"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-transform"><code>text-transform</code></a><a class="header-anchor" href="#text-transform">⁍</a></h4>
+<ul>
+<li><code>none</code>: 防止任何转型。</li>
+<li><code>uppercase</code>: 将所有文本转为大写。</li>
+<li><code>lowercase</code>: 将所有文本转为小写。</li>
+<li><code>capitalize</code>: 转换所有单词让其首字母大写。</li>
+<li><code>full-width</code>: 将所有字形转换成全角，即固定宽度的正方形，类似于等宽字体，允许拉丁字符和亚洲语言字形（如中文，日文，韩文）对齐。</li>
+</ul>
+<h4 id="text-decoration"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration"><code>text-decoration</code></a><a class="header-anchor" href="#text-decoration">⁍</a></h4>
+<ul>
+<li><code>none</code>: 取消已经存在的任何文本装饰。</li>
+<li><code>underline</code>: 文本下划线.</li>
+<li><code>overline</code>: 文本上划线</li>
+<li><code>line-through</code>: 穿过文本的线</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration"><code>text-decoration</code></a> 是一个缩写形式，它由 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-line"><code>text-decoration-line</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-style"><code>text-decoration-style</code></a> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-color"><code>text-decoration-color</code></a> 构成</p>
+<h2 id="文本布局">文本布局<a class="header-anchor" href="#文本布局">⁍</a></h2>
+<h3 id="inline和block">inline和block<a class="header-anchor" href="#inline和block">⁍</a></h3>
+<p>以正常的横向书写来讲，块级就是控制文本的纵向样式，行内就是控制文本的横向样式</p>
+<ul>
+<li>块级方向：当前书写模式下块级元素放置的顺序</li>
+<li>行内方向：行内元素书写的方向</li>
+</ul>
+<p>书写方式可以通过<code>writing-mode</code>来指定，<code>text-orientation</code>可以用作改变文本方向</p>
+<h3 id="文本对齐（inline）">文本对齐（inline）<a class="header-anchor" href="#文本对齐（inline）">⁍</a></h3>
+<p>用<code>text-align</code>：<code>left</code>/<code>right</code>/<code>center</code>/<code>justify</code>（两端对齐）</p>
+<p>在CSS3中，新增了<code>start</code>、<code>end</code>，根据书写方向进行调整</p>
+<h3 id="行高（block）">行高（block）<a class="header-anchor" href="#行高（block）">⁍</a></h3>
+<p><code>line-height</code></p>
+<ul>
+<li>
+<p>可以设置为无单位的值，相当于乘以 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size"><code>font-size</code></a></p>
+</li>
+<li>
+<p>如果<code>font-size</code>是14px，<code>line-height</code>是18px，则多出来的4px，会被 <strong>分成两半</strong> 到上部分和下部分</p>
+</li>
+<li>
+<p>继承时，行高根据父元素的字号计算，而不根据子元素计算；而使用无单位的数字则没有这个问题，会应用到当前元素及所有其元素上，各元素根据自身行高进行计算</p>
+</li>
+</ul>
+<h3 id="字母和单词间距（inline）">字母和单词间距（inline）<a class="header-anchor" href="#字母和单词间距（inline）">⁍</a></h3>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/letter-spacing"><code>letter-spacing</code></a> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/word-spacing"><code>word-spacing</code></a> 属性允许你设置你的文本中的字母与字母之间的间距、或是单词与单词之间的间距。（必须有单位，除了默认0）</p>
+<p>可能会受到<code>text-align:justify;</code>的影响</p>
+<div class="hide-toggle" ><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>其他样式</span></div>
+    <div class="hide-content"><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-indent"><code>text-indent</code></a>: 指定文本内容的第一行前面应该留出多少的水平空间。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-overflow"><code>text-overflow</code></a>: 定义如何向用户表示存在被隐藏的溢出内容。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/white-space"><code>white-space</code></a>: 定义如何处理元素内部的空白和换行。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/word-break"><code>word-break</code></a>: 指定是否能在单词内部换行。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/direction"><code>direction</code></a>: 定义文本的方向 (这取决于语言，并且通常最好让HTML来处理这部分，因为它是和文本内容相关联的。)</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/hyphens"><code>hyphens</code></a>: 为支持的语言开启或关闭连字符。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-break"><code>line-break</code></a>: 对东亚语言采用更强或更弱的换行规则。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-align-last"><code>text-align-last</code></a>: 定义一个块或行的最后一行，恰好位于一个强制换行前时，如何对齐。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-orientation"><code>text-orientation</code></a>: 定义行内文本的方向。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow-wrap"><code>word-wrap</code></a>: 指定浏览器是否可以在单词内换行以避免超出范围。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode"><code>writing-mode</code></a>: 定义文本行布局为水平还是垂直，以及后继文本流的方向。</li>
+</ul>
+</div></div>
+<h2 id="样式列表">样式列表<a class="header-anchor" href="#样式列表">⁍</a></h2>
+<ul>
+<li>缩进通过<code>&lt;ul&gt;</code>/<code>&lt;ol&gt;</code>的<code>padding-left</code>控制</li>
+<li>符号样式通过 <code>list-style-type/position/image</code>控制
+<ul>
+<li>取消圆点：<code>list-style(-type):none;</code></li>
+<li><code>position</code>有<code>inside/outside（默认）</code>两种，表示序号是否嵌入文本内</li>
+</ul>
+</li>
+<li>管理计数一般通过HTML标签实现，例如<code>&lt;ol start=&quot;4&quot; reversed&gt;</code>、<code>&lt;li value=&quot;2&quot;&gt;</code></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_text/Styling_lists">样式列表 - 学习 Web 开发 | MDN (mozilla.org)</a></p>
+<h2 id="样式化链接">样式化链接<a class="header-anchor" href="#样式化链接">⁍</a></h2>
+<h3 id="伪类">伪类<a class="header-anchor" href="#伪类">⁍</a></h3>
+<h3 id="常见属性">常见属性<a class="header-anchor" href="#常见属性">⁍</a></h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/color"><code>color</code></a> 文字的颜色</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor"><code>cursor</code></a> 鼠标光标的样式，你不应该把这个关掉，除非你有非常好的理由。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/outline"><code>outline</code></a> 文字的轮廓 (轮廓有点像边框，唯一的区别是边框占用了盒模型的空间，而轮廓没有； 它只是设置在背景图片的顶部)。outline 是一个有用的辅助功能，所以在把它关掉之前考虑清楚；你至少应该将悬停 (hover) 状态的样式同时应用到选中 (focus) 状态上。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration"><code>text-decoration</code></a></li>
+<li><code>border</code></li>
+<li><code>background</code></li>
+</ul>
+<h3 id="链接中插入图标">链接中插入图标<a class="header-anchor" href="#链接中插入图标">⁍</a></h3>
+<p>给链接设置背景图片实现</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href*=<span class="hljs-string">&quot;http&quot;</span>]</span> &#123;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;https://mdn.mozillademos.org/files/12982/external-link-52.png&#x27;</span>) no-repeat <span class="hljs-number">100%</span> <span class="hljs-number">0</span>; <span class="hljs-comment">/*放在最右边，top距离0*/</span><br>  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">16px</span> <span class="hljs-number">16px</span>;<br>  <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">19px</span>; <span class="hljs-comment">/*为背景图片留出空间*/</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="样式化链接为按钮"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_text/Styling_links#%E6%A0%B7%E5%BC%8F%E5%8C%96%E9%93%BE%E6%8E%A5%E4%B8%BA%E6%8C%89%E9%92%AE">样式化链接为按钮</a><a class="header-anchor" href="#样式化链接为按钮">⁍</a></h3>
+<p>略</p>
+<h2 id="font-face-web文本"><code>@font-face</code>/Web文本<a class="header-anchor" href="#font-face-web文本">⁍</a></h2>
+<mark class="hl-label orange">TODO!</mark> 
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_text/Web_fonts">Web 字体 - 学习 Web 开发 | MDN (mozilla.org)</a></p>
+<ol>
+<li>在CSS开始定义<code>@font-face</code>块，用<code>font-family</code>定义名称，<code>src</code>指定字体链接</li>
+<li>可以自定义本地font套件或者使用google fonts来插入在线字体服务</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Augu1sto</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://augu1sto.github.io/augu1sto/2b1512a54a3e/">https://augu1sto.github.io/augu1sto/2b1512a54a3e/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://augu1sto.github.io/augu1sto" target="_blank">若叶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/augu1sto/tags/CSS/">CSS</a></div><div class="post_share"><div class="social-share" data-image="/augu1sto/img/cover03.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/augu1sto/8bbf92a860de/"><img class="prev-cover" src="/augu1sto/img/cover06.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【FE学习-CSS】盒模型</div></div></a></div><div class="next-post pull-right"><a href="/augu1sto/d207e9f19477/"><img class="next-cover" src="/augu1sto/img/cover03.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【FE学习-CSS】CSS重点知识总结</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/augu1sto/0259cd9b6703/" title="【CSS】nth-child和nth-of-type的区别"><img class="cover" src="/augu1sto/img/cover04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-31</div><div class="title">【CSS】nth-child和nth-of-type的区别</div></div></a></div><div><a href="/augu1sto/5888660a1014/" title="【CSS】格式化上下文"><img class="cover" src="/augu1sto/img/cover05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-31</div><div class="title">【CSS】格式化上下文</div></div></a></div><div><a href="/augu1sto/d207e9f19477/" title="【FE学习-CSS】CSS重点知识总结"><img class="cover" src="/augu1sto/img/cover03.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-23</div><div class="title">【FE学习-CSS】CSS重点知识总结</div></div></a></div><div><a href="/augu1sto/4e4d47a5c8d7/" title="【FE学习-CSS】CSS布局"><img class="cover" src="/augu1sto/img/cover06.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-31</div><div class="title">【FE学习-CSS】CSS布局</div></div></a></div><div><a href="/augu1sto/0117eb7c6a8f/" title="【FE学习-CSS】图形以及动画"><img class="cover" src="/augu1sto/img/cover05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-08</div><div class="title">【FE学习-CSS】图形以及动画</div></div></a></div><div><a href="/augu1sto/c33b3b0f62e6/" title="【FE学习-CSS】基础CSS"><img class="cover" src="/augu1sto/img/cover02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-22</div><div class="title">【FE学习-CSS】基础CSS</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/augu1sto/img/avatar.png" onerror="this.onerror=null;this.src='/augu1sto/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Augu1sto</div><div class="author-info__description">Articles | Notes | Ideas</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/augu1sto"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/augu1sto" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yingu081@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://codepen.io/augu1sto" target="_blank" title="CodePen"><i class="fab fa-codepen"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">【缓慢重新建站中】https://github.com/augu1sto/e31c317e1400/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#font%E5%92%8C%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">font和文本样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E5%AE%89%E5%85%A8%E5%AD%97%E4%BD%93%EF%BC%88%E9%80%9A%E7%94%A8%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">网页安全字体（通用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%AD%97%E4%BD%93%E6%97%8F-%E9%BB%98%E8%AE%A4%E5%AD%97%E4%BD%93"><span class="toc-number">1.2.</span> <span class="toc-text">通用字体族&#x2F;默认字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#font-family"><span class="toc-number">1.3.</span> <span class="toc-text">font-family</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%85%B6%E4%BB%96%E5%B1%9E%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">相关其他属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">文本样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E9%98%B4%E5%BD%B1"><span class="toc-number">1.5.1.</span> <span class="toc-text">文字阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#text-transform"><span class="toc-number">1.5.2.</span> <span class="toc-text">text-transform</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#text-decoration"><span class="toc-number">1.5.3.</span> <span class="toc-text">text-decoration</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B8%83%E5%B1%80"><span class="toc-number">2.</span> <span class="toc-text">文本布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inline%E5%92%8Cblock"><span class="toc-number">2.1.</span> <span class="toc-text">inline和block</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%AF%B9%E9%BD%90%EF%BC%88inline%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">文本对齐（inline）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E9%AB%98%EF%BC%88block%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">行高（block）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E6%AF%8D%E5%92%8C%E5%8D%95%E8%AF%8D%E9%97%B4%E8%B7%9D%EF%BC%88inline%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">字母和单词间距（inline）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">样式列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E5%8C%96%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">样式化链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E7%B1%BB"><span class="toc-number">4.1.</span> <span class="toc-text">伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="toc-number">4.2.</span> <span class="toc-text">常见属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E6%A0%87"><span class="toc-number">4.3.</span> <span class="toc-text">链接中插入图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E5%8C%96%E9%93%BE%E6%8E%A5%E4%B8%BA%E6%8C%89%E9%92%AE"><span class="toc-number">4.4.</span> <span class="toc-text">样式化链接为按钮</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#font-face-web%E6%96%87%E6%9C%AC"><span class="toc-number">5.</span> <span class="toc-text">@font-face&#x2F;Web文本</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/eb3eaf548f9c/" title="test"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test"/></a><div class="content"><a class="title" href="/augu1sto/eb3eaf548f9c/" title="test">test</a><time datetime="2022-12-11T17:32:20.000Z" title="发表于 2022-12-12 01:32:20">2022-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/aba77dc25685/" title="test-12"><img src="/augu1sto/img/cover02.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test-12"/></a><div class="content"><a class="title" href="/augu1sto/aba77dc25685/" title="test-12">test-12</a><time datetime="2022-12-11T15:15:35.000Z" title="发表于 2022-12-11 23:15:35">2022-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING..."><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="【公告】重新建站ING..."/></a><div class="content"><a class="title" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING...">【公告】重新建站ING...</a><time datetime="2022-11-30T13:52:27.000Z" title="发表于 2022-11-30 21:52:27">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解"><img src="/augu1sto/img/cover03.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="Array.prototype.unshift方法详解"/></a><div class="content"><a class="title" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解">Array.prototype.unshift方法详解</a><time datetime="2022-09-05T11:56:53.000Z" title="发表于 2022-09-05 19:56:53">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/4cf012bad379/" title="深拷贝"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="深拷贝"/></a><div class="content"><a class="title" href="/augu1sto/4cf012bad379/" title="深拷贝">深拷贝</a><time datetime="2022-09-03T12:28:50.000Z" title="发表于 2022-09-03 20:28:50">2022-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Augu1sto</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/augu1sto/js/utils.js"></script><script src="/augu1sto/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/augu1sto/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><div class="aplayer no-destroy" data-id="6990698783" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/augu1sto/live2dw/lib/L2Dwidget.min.js?b0f017d930c51acc4f4f9e757bdd83e9"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/augu1sto/live2dw/assets/kasumi_event128.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":30,"vOffset":0},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"text":["kira kira doki doki","大家我全都喜欢","poppipa pippopa"]},"log":false});</script></body></html>

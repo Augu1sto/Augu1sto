@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Electron-vue开发实战（二）| Main进程开发 | 若叶</title><meta name="keywords" content="Electron,vue"><meta name="author" content="Augu1sto"><meta name="copyright" content="Augu1sto"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="认识目录⁍ 使用vue-cli创建的electron工程文件目录大体结构[1]如下： 12345678910111213141516171819202122232425262728293031323334353637my-project├─ .electron-vue│  └─ &lt;build&#x2F;development&gt;.js files├─ build│  └─ icons&#x2F;├─ dis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Electron-vue开发实战（二）| Main进程开发">
+<meta property="og:url" content="https://augu1sto.github.io/augu1sto/79d34a519ec6/index.html">
+<meta property="og:site_name" content="若叶">
+<meta property="og:description" content="认识目录⁍ 使用vue-cli创建的electron工程文件目录大体结构[1]如下： 12345678910111213141516171819202122232425262728293031323334353637my-project├─ .electron-vue│  └─ &lt;build&#x2F;development&gt;.js files├─ build│  └─ icons&#x2F;├─ dis">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://augu1sto.github.io/augu1sto/img/cover02.jpg">
+<meta property="article:published_time" content="2022-02-25T02:15:29.000Z">
+<meta property="article:modified_time" content="2022-03-04T13:14:40.628Z">
+<meta property="article:author" content="Augu1sto">
+<meta property="article:tag" content="Electron">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augu1sto.github.io/augu1sto/img/cover02.jpg"><link rel="shortcut icon" href="/augu1sto/img/favicon.png"><link rel="canonical" href="https://augu1sto.github.io/augu1sto/79d34a519ec6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-oEsTyOVPwJ"/><link rel="stylesheet" href="/augu1sto/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/augu1sto/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Electron-vue开发实战（二）| Main进程开发',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-04 21:14:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="google-site-verification" content="a1IrzpkO5Jd9_eZl1_IwZSZ779M4c5LPUf7oSBp4G58" /><link rel="stylesheet" href="/self/material.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/augu1sto/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/augu1sto/img/cover02.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/augu1sto/">若叶</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Electron-vue开发实战（二）| Main进程开发</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-25T02:15:29.000Z" title="发表于 2022-02-25 10:15:29">2022-02-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-04T13:14:40.628Z" title="更新于 2022-03-04 21:14:40">2022-03-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/augu1sto/categories/Electron-vue%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/">Electron-vue开发实战</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Electron-vue开发实战（二）| Main进程开发"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="认识目录">认识目录<a class="header-anchor" href="#认识目录">⁍</a></h2>
+<p>使用vue-cli创建的electron工程文件目录大体结构<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs bash">my-project<br>├─ .electron-vue<br>│  └─ &lt;build/development&gt;.js files<br>├─ build<br>│  └─ icons/<br>├─ dist<br>│  ├─ electron/<br>│  └─ web/<br>├─ node_modules/<br>├─ src<br>│  ├─ main <span class="hljs-comment"># 主进程</span><br>│  │  ├─ index.dev.js <span class="hljs-comment"># 开发模式</span><br>│  │  └─ index.js <span class="hljs-comment"># 主进程</span><br>│  ├─ renderer <span class="hljs-comment"># 渲染进程</span><br>│  │  ├─ components/<br>│  │  ├─ router/<br>│  │  ├─ store/<br>│  │  ├─ App.vue<br>│  │  └─ main.js<br>│  └─ index.ejs<br>├─ static/ <span class="hljs-comment"># 资源文件</span><br>├─ <span class="hljs-built_in">test</span><br>│  ├─ e2e<br>│  │  ├─ specs/<br>│  │  ├─ index.js<br>│  │  └─ utils.js<br>│  ├─ unit<br>│  │  ├─ specs/<br>│  │  ├─ index.js<br>│  │  └─ karma.config.js<br>│  └─ .eslintrc<br>├─ .babelrc<br>├─ .eslintignore<br>├─ .eslintrc.js<br>├─ .gitignore<br>├─ package.json <span class="hljs-comment"># 配置文件</span><br>└─ README.md<br></code></pre></td></tr></table></figure>
+<p>electron有多种文件结构，例如将所有应用的代码都放在app目录中，资源文件位于static目录</p>
+<p>我们重点关注的是主进程、渲染进程和配置文件，其中开发主要集中在渲染进程中</p>
+<h2 id="package-json-3">package.json[^3]<a class="header-anchor" href="#package-json-3">⁍</a></h2>
+<p>许多Node项目中都会有package.json清单文件，它是electron项目的依赖文件，核心参数之一是应用的主入口。</p>
+<p>对于纯electron应用：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;main&quot;</span>:<span class="hljs-string">&quot;./app/main.js&quot;</span>,<br>    <span class="hljs-attr">&quot;scripts&quot;</span>:&#123;<br>        <span class="hljs-attr">&quot;start&quot;</span>:<span class="hljs-string">&quot;electron .&quot;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>dist目录全称是distribution。在某些框架中，因为开发和发布是的内容或者代码形式是不一样的（比如利用Grunt压缩等等)，这时候就需要一个存放最终发布版本的代码，这就是dist文件夹的用处。<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<hr>
+<p>上面的代码根据<a href="%E3%80%8AElectron%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%AC2%E7%AB%A0">3</a>中对electron应用的讲解，electron-vue框架搭建出来，这里显示的有些不一样，可能涉及到发布/开发模式的问题？不知道以后编译啊之类的会不会就有区别；看PicGo的项目这里差别也很大</p>
+</blockquote>
+<h2 id="主进程-src-main">主进程 <code>src/main</code><a class="header-anchor" href="#主进程-src-main">⁍</a></h2>
+<p>在<a href="%E3%80%8AElectron%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%AC2%E7%AB%A0">3</a>的纯electron应用中，它将主进程写入<code>main.js</code>文件中，作为项目的入口；而在electron-vue框架中，主进程在<code>src/main/index.js</code>中。代码的整体结构是相似的。</p>
+<p>在main进程中主要需要掌握以下知识</p>
+<h3 id="app模块"><a target="_blank" rel="noopener" href="https://electronjs.org/docs/api/app">app</a>模块<a class="header-anchor" href="#app模块">⁍</a></h3>
+<p><code>app</code>可以处理应用的生命周期与配置，是electron应用的骨架。它掌管着整个应用的生命周期钩子，以及很多其他事件钩子。</p>
+<p>引用模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// method 1</span><br><span class="hljs-keyword">const</span> &#123;app&#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;electron&#x27;</span>)<br><span class="hljs-comment">// method 2 (electron-vue框架内置)</span><br><span class="hljs-keyword">import</span> &#123; app &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;electron&#x27;</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>app的常用生命周期钩子如下：</p>
+<ul>
+<li>
+<p><code>will-finish-launching</code> 在应用完成基本启动进程之后触发</p>
+</li>
+<li>
+<p><code>ready</code> 当electron完成初始化后触发（<mark>必须</mark>）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createWindow</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">// 创建窗口</span><br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">   * Initial window options</span><br><span class="hljs-comment">   */</span><br>	<span class="hljs-comment">// ...</span><br>&#125;<br><br>app.on(<span class="hljs-string">&#x27;ready&#x27;</span>, createWindow) <span class="hljs-comment">// 调用createWindow创建窗口</span><br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>window-all-closed</code> 所有窗口都关闭的时候触发，在windows和linux里，所有窗口都退出的时候<strong>通常</strong>是应用退出的时候</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">app.on(<span class="hljs-string">&#x27;window-all-closed&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (process.platform !== <span class="hljs-string">&#x27;darwin&#x27;</span>) &#123; <span class="hljs-comment">// 当操作系统不是darwin（macOS）的话</span><br>    app.quit() <span class="hljs-comment">// 退出应用</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>before-quit</code> 退出应用之前的时候触发</p>
+</li>
+<li>
+<p><code>will-quit</code> 即将退出应用的时候触发</p>
+</li>
+<li>
+<p><code>quit</code> 应用退出的时候触发(用法见<code>window-all-closed</code>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>事件钩子</p>
+<ul>
+<li>
+<p><code>active</code>（仅macOS）当应用处于激活状态时</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">app.on(<span class="hljs-string">&#x27;activate&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (mainWindow === <span class="hljs-literal">null</span>) &#123;<br>    createWindow()<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>browser-window-created</code> 当一个BrowserWindow被创建的时候</p>
+</li>
+<li>
+<p><code>browser-window-focus</code> 当一个BrowserWindow处于激活状态的时候</p>
+</li>
+</ul>
+<p>这些钩子需要配合一些具体场景来做出具体的操作。比如当一个BrowserWindow处于激活状态的时候修改窗口的title值。</p>
+</li>
+<li>
+<p>其他常用的方法：</p>
+<ul>
+<li>
+<p><code>app.quit()</code> 用于退出应用</p>
+</li>
+<li>
+<p><code>app.getPath(name)</code> 用于获取一些系统目录，对于存放应用的配置文件等很有用</p>
+</li>
+<li>
+<p><code>app.focus()</code> 用于激活应用，不同系统激活逻辑<a target="_blank" rel="noopener" href="https://electronjs.org/docs/api/app#appfocus">不一样</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>而我们通常会在<code>ready</code>的时候执行创建应用窗口、创建应用菜单、创建应用快捷键等初始化操作。而在<code>will-quit</code>或者<code>quit</code>的时候执行一些清空操作，比如解绑应用快捷键。</p>
+<h3 id="browserwindow渲染器进程"><a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest/api/browser-window">BrowserWindow</a>渲染器进程<a class="header-anchor" href="#browserwindow渲染器进程">⁍</a></h3>
+<p>主进程可以使用<code>BrowserWindow</code>模块创建多个独立的、互相隔离的渲染器进程（即应用窗口）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; app, BrowserWindow &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;electron&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>创建<code>BrowserWindow</code>实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> mainWindow = <span class="hljs-literal">null</span>;<br><span class="hljs-comment">// ...</span><br>mainWindow = <span class="hljs-keyword">new</span> BrowserWindow();<br></code></pre></td></tr></table></figure>
+<h4 id="常见配置和方法">常见配置和方法<a class="header-anchor" href="#常见配置和方法">⁍</a></h4>
+<p>可以通过添加参数来改变配置</p>
+<p>一个BrowserWindow的常用配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-built_in">window</span> = <span class="hljs-literal">null</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createWindow</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">window</span> = <span class="hljs-keyword">new</span> BrowserWindow(&#123;<br>    <span class="hljs-attr">height</span>: <span class="hljs-number">900</span>, <span class="hljs-comment">// 高</span><br>    <span class="hljs-attr">width</span>: <span class="hljs-number">400</span>, <span class="hljs-comment">// 宽</span><br>    <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 创建后是否显示</span><br>    <span class="hljs-attr">frame</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否创建frameless窗口</span><br>    <span class="hljs-attr">fullscreenable</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否允许全屏</span><br>    <span class="hljs-attr">center</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否出现在屏幕居中的位置</span><br>    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;#fff&#x27;</span> <span class="hljs-comment">// 背景色，用于transparent和frameless窗口</span><br>    <span class="hljs-attr">titleBarStyle</span>: <span class="hljs-string">&#x27;xxx&#x27;</span> <span class="hljs-comment">// 标题栏的样式，有hidden、hiddenInset、customButtonsOnHover等</span><br>    <span class="hljs-attr">resizable</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否允许拉伸大小</span><br>    <span class="hljs-attr">transparent</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否是透明窗口（仅macOS）</span><br>    <span class="hljs-attr">vibrancy</span>: <span class="hljs-string">&#x27;ultra-dark&#x27;</span>, <span class="hljs-comment">// 窗口模糊的样式（仅macOS）</span><br>    <span class="hljs-attr">webPreferences</span>: &#123;<br>      <span class="hljs-attr">backgroundThrottling</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// 当页面被置于非激活窗口的时候是否停止动画和计时器</span><br>    &#125;<br>    <span class="hljs-comment">// ... 以及其他可选配置</span><br>  &#125;)<br><br>  <span class="hljs-built_in">window</span>.loadURL(url)<br><br>  <span class="hljs-built_in">window</span>.on(<span class="hljs-string">&#x27;closed&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123; <span class="hljs-built_in">window</span> = <span class="hljs-literal">null</span> &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>PicGo主窗口写法参考：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> createSettingWindow = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> options = &#123;<br>    <span class="hljs-attr">height</span>: <span class="hljs-number">450</span>,<br>    <span class="hljs-attr">width</span>: <span class="hljs-number">800</span>,<br>    <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">frame</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">center</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">fullscreenable</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">resizable</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;PicGo&#x27;</span>,<br>    <span class="hljs-attr">vibrancy</span>: <span class="hljs-string">&#x27;ultra-dark&#x27;</span>,<br>    <span class="hljs-attr">transparent</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">titleBarStyle</span>: <span class="hljs-string">&#x27;hidden&#x27;</span>,<br>    <span class="hljs-attr">webPreferences</span>: &#123;<br>      <span class="hljs-attr">backgroundThrottling</span>: <span class="hljs-literal">false</span><br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (process.platform === <span class="hljs-string">&#x27;win32&#x27;</span>) &#123; <span class="hljs-comment">// 针对windows平台做出不同的配置</span><br>    options.show = <span class="hljs-literal">true</span> <span class="hljs-comment">// 创建即展示</span><br>    options.frame = <span class="hljs-literal">false</span> <span class="hljs-comment">// 创建一个frameless窗口</span><br>    options.backgroundColor = <span class="hljs-string">&#x27;#3f3c37&#x27;</span> <span class="hljs-comment">// 背景色</span><br>  &#125;<br>  settingWindow = <span class="hljs-keyword">new</span> BrowserWindow(options)<br><br>  settingWindow.loadURL(settingWinURL)<br><br>  settingWindow.on(<span class="hljs-string">&#x27;closed&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    settingWindow = <span class="hljs-literal">null</span><br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在PicGo项目中，window的配置被保存在<code>main/apis/app/window/windowList.ts</code>中，然后<code>export</code>出去，在<code>windowManager</code>里对窗口进行统一管理</p>
+</blockquote>
+<p>跟<code>app</code>模块一样，<code>BrowserWindow</code>也有很多常用的事件钩子：</p>
+<ul>
+<li><code>closed</code> 当窗口被关闭的时候</li>
+<li><code>focus</code> 当窗口被激活的时候</li>
+<li><code>show</code> 当窗口展示的时候</li>
+<li><code>hide</code> 当窗口被隐藏的时候</li>
+<li><code>maxmize</code> 当窗口最大化时</li>
+<li><code>minimize</code> 当窗口最小化时</li>
+<li><code>...</code></li>
+</ul>
+<p>当然，也依然有很多实用的方法：</p>
+<ul>
+<li><code>BrowserWindow.getFocusedWindow()</code> [静态方法]获取激活的窗口</li>
+<li><code>win.close()</code> [实例方法，下同]关闭窗口</li>
+<li><code>win.focus()</code> 激活窗口</li>
+<li><code>win.show()</code> 显示窗口</li>
+<li><code>win.hide()</code> 隐藏窗口</li>
+<li><code>win.maximize()</code> 最大化窗口</li>
+<li><code>win.minimize()</code> 最小化窗口</li>
+<li><code>win.restore()</code> 从最小化窗口恢复</li>
+<li><code>...</code></li>
+</ul>
+<p>比如上述说到的，windows的顶部的操作区（放大、缩小、关闭按钮）就可以通过icon模拟+实例方法来实现</p>
+<h4 id="将html文档加载到主窗口">将html文档加载到主窗口<a class="header-anchor" href="#将html文档加载到主窗口">⁍</a></h4>
+<p>方法一：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">mainWindow.webContents.loadFile(<span class="hljs-string">&#x27;index.html&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<p>方法二：（electron-vue框架自带）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">const</span> winURL = process.env.NODE_ENV === <span class="hljs-string">&#x27;development&#x27;</span><br>  ? `http:<span class="hljs-comment">//localhost:9080` // 开发模式的话走webpack-dev-server的url</span><br>  : `file:<span class="hljs-comment">//$&#123;__dirname&#125;/index.html`</span><br><br><span class="hljs-comment">//...</span><br>	mainWindow.loadURL(winURL)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>__dirname</code>变量是Node全局可用的一个变量，它的值是当前正被执行的Node应用的完整路径。</p>
+</blockquote>
+<p><code>win.webContents</code>此窗口拥有的 <code>WebContents</code> 对象。 所有与网页相关的事件和操作都将通过它完成。</p>
+<ul>
+<li>
+<p><code>win.loadURL(url[, options])</code>与<a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest/api/web-contents#contentsloadurlurl-options"><code>webContents.loadURL(url[, options\])</code></a> 相同。</p>
+</li>
+<li>
+<p><code>win.loadFile(filePath[, options])</code>与 <code>webContents.loadFile</code>相同， <code>filePath</code> 应该是一个与你的应用程序的根路径相关的HTML文件路径。</p>
+</li>
+</ul>
+<p>两者在用法上有一定差别，可以参考<a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest/api/browser-window#winloadurlurl-options">BrowserWindow | Electron (electronjs.org)</a></p>
+<h4 id="优雅地显示窗口">优雅地显示窗口<a class="header-anchor" href="#优雅地显示窗口">⁍</a></h4>
+<p>在加载页面时，渲染进程第一次完成绘制时，如果窗口还没有被显示，渲染进程会发出 <code>ready-to-show</code> 事件 。 在此事件后显示窗口将没有视觉闪烁</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; app, BrowserWindow &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;electron&#x27;</span>);<br><br><span class="hljs-keyword">let</span> mainWindow = <span class="hljs-literal">null</span>;<br><br>app.on(<span class="hljs-string">&#x27;ready&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  mainWindow = <span class="hljs-keyword">new</span> BrowserWindow(&#123; <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span> &#125;); <span class="hljs-comment">// 设置为false</span><br><br>  mainWindow.loadURL(<span class="hljs-string">`file://<span class="hljs-subst">$&#123;__dirname&#125;</span>/index.html`</span>);<br><br>  mainWindow.once(<span class="hljs-string">&#x27;ready-to-show&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    mainWindow.show();<br>  &#125;);<br><br>  mainWindow.on(<span class="hljs-string">&#x27;closed&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    mainWindow = <span class="hljs-literal">null</span>;<br>  &#125;);<br>&#125;);<br></code></pre></td></tr></table></figure>
+<h3 id="tray系统托盘"><a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest/api/tray">Tray</a>系统托盘<a class="header-anchor" href="#tray系统托盘">⁍</a></h3>
+<p>添加图标和上下文菜单到系统通知区。在windows里，<code>Tray</code>配合上图标之后就是windows右下角的应用图标</p>
+<p>windows和macOS里，图标的大小都是<code>16*16</code>px。</p>
+<p>官网代码（配合Menu使用）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; app, Menu, Tray &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;electron&#x27;</span>)<br><br><span class="hljs-keyword">let</span> tray = <span class="hljs-literal">null</span><br>app.whenReady().then(<span class="hljs-function">() =&gt;</span> &#123;<br>  tray = <span class="hljs-keyword">new</span> Tray(<span class="hljs-string">&#x27;/path/to/my/icon&#x27;</span>)<br>  <span class="hljs-keyword">const</span> contextMenu = Menu.buildFromTemplate([<br>    &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Item1&#x27;</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;radio&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Item2&#x27;</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;radio&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Item3&#x27;</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;radio&#x27;</span>, <span class="hljs-attr">checked</span>: <span class="hljs-literal">true</span> &#125;,<br>    &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Item4&#x27;</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;radio&#x27;</span> &#125;<br>  ])<br>  tray.setToolTip(<span class="hljs-string">&#x27;This is my application.&#x27;</span>)<br>  tray.setContextMenu(contextMenu)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>在 Windows 上, 建议使用 <code>ICO</code> 图标来获得最佳视觉效果。</li>
+</ul>
+<p>如果要在所有平台上保持完全相同的行为, 则不应依赖 <code>click</code> 事件, 并且始终将上下文菜单附加到任务栏图标。</p>
+<p>macOS下顶部栏的图标通常都是走<code>黑白</code>路线，所以可以为两种系统分别准备不同的图标。<code>PicGo</code>里<code>Tray</code>的生成代码大致如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createTray</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> menubarPic = process.platform === <span class="hljs-string">&#x27;darwin&#x27;</span> ? <span class="hljs-string">`<span class="hljs-subst">$&#123;__static&#125;</span>/menubar.png`</span> : <span class="hljs-string">`<span class="hljs-subst">$&#123;__static&#125;</span>/menubar-nodarwin.png`</span><br>  tray = <span class="hljs-keyword">new</span> Tray(menubarPic) <span class="hljs-comment">// 指定图片的路径</span><br>  <span class="hljs-comment">// ... 其他代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>注意上述代码里有一个<code>$&#123;__static&#125;</code>的变量。该变量是<code>electron-vue</code>为我们暴露出来的项目根目录下的<code>static</code>文件夹的路径。通过这个路径，在开发和生产阶段都能很好的定位你的静态资源所在的目录。是个很方便的变量。</p>
+<p>Tray支持很多有用的事件。其中最关键的两个是<code>click</code>和<code>right-click</code>。分别对应鼠标左键点击和鼠标右键点击事件。</p>
+<h4 id="鼠标左键点击事件">鼠标左键点击事件<a class="header-anchor" href="#鼠标左键点击事件">⁍</a></h4>
+<ul>
+<li>在macOS系统下，鼠标左键点击Tray的icon可能会出现配置菜单，也有可能会出现应用窗口。</li>
+<li>在windows下，鼠标左键点击Tray的icon通常会出现应用的窗口。</li>
+</ul>
+<h4 id="鼠标右键点击事件">鼠标右键点击事件<a class="header-anchor" href="#鼠标右键点击事件">⁍</a></h4>
+<ul>
+<li>在macOS系统下，鼠标右键点击Tray的icon通常会出现配置菜单。</li>
+<li>在windows系统下，同上。</li>
+</ul>
+<p>PicGo举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createTray</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> menubarPic = process.platform === <span class="hljs-string">&#x27;darwin&#x27;</span> ? <span class="hljs-string">`<span class="hljs-subst">$&#123;__static&#125;</span>/menubar.png`</span> : <span class="hljs-string">`<span class="hljs-subst">$&#123;__static&#125;</span>/menubar-nodarwin.png`</span><br>  tray = <span class="hljs-keyword">new</span> Tray(menubarPic)<br>  <span class="hljs-keyword">const</span> contextMenu = <span class="hljs-comment">// ...菜单</span><br>  tray.on(<span class="hljs-string">&#x27;right-click&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123; <span class="hljs-comment">// 右键点击</span><br>    <span class="hljs-built_in">window</span>.hide() <span class="hljs-comment">// 隐藏小窗口</span><br>    tray.popUpContextMenu(contextMenu) <span class="hljs-comment">// 打开菜单</span><br>  &#125;)<br>  tray.on(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123; <span class="hljs-comment">// 左键点击</span><br>    <span class="hljs-keyword">if</span> (process.platform === <span class="hljs-string">&#x27;darwin&#x27;</span>) &#123; <span class="hljs-comment">// 如果是macOS</span><br>      toggleWindow() <span class="hljs-comment">// 打开或关闭小窗口</span><br>    &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// 如果是windows</span><br>      <span class="hljs-built_in">window</span>.hide() <span class="hljs-comment">// 隐藏小窗口</span><br>      <span class="hljs-keyword">if</span> (settingWindow === <span class="hljs-literal">null</span>) &#123; <span class="hljs-comment">// 如果主窗口不存在就创建一个</span><br>        createSettingWindow()<br>        settingWindow.show()<br>      &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// 如果主窗口在，就显示并激活</span><br>        settingWindow.show()<br>        settingWindow.focus()<br>      &#125;<br>    &#125;<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="menu"><a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest/api/menu">Menu</a><a class="header-anchor" href="#menu">⁍</a></h3>
+<p><code>new Menu()</code>创建新菜单。</p>
+<p>主要分两种。</p>
+<ul>
+<li>
+<p>第一种是app的菜单。对于macOS来说就是顶部栏左侧区域的菜单项。对于windows而言就是一个窗口的标题栏下方的菜单区。</p>
+<p>可以通过<code>Menu.setApplicationMenu()</code>来实现。</p>
+</li>
+<li>
+<p>第二种是类似于右键菜单的菜单。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> contextMenu = Menu.buildFromTemplate([<br>   &#123;<br>     <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;关于&#x27;</span>,<br>     click () &#123;<br>       dialog.showMessageBox(&#123;<br>         <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;PicGo&#x27;</span>,<br>         <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;PicGo&#x27;</span>,<br>         <span class="hljs-attr">detail</span>: <span class="hljs-string">`Version: <span class="hljs-subst">$&#123;pkg.version&#125;</span>\nAuthor: Molunerfinn\nGithub: https://github.com/Molunerfinn/PicGo`</span><br>       &#125;)<br>     &#125;<br>   &#125;,<br>   &#123;<br>     <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;打开详细窗口&#x27;</span>,<br>     click () &#123;<br>       <span class="hljs-keyword">if</span> (settingWindow === <span class="hljs-literal">null</span>) &#123;<br>         createSettingWindow()<br>         settingWindow.show()<br>       &#125; <span class="hljs-keyword">else</span> &#123;<br>         settingWindow.show()<br>         settingWindow.focus()<br>       &#125;<br>     &#125;<br>   &#125;,<br>   &#123;<br>     <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;选择默认图床&#x27;</span>,<br>     <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;submenu&#x27;</span>,<br>     <span class="hljs-attr">submenu</span>: [<br>       &#123;<br>         <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;微博图床&#x27;</span>,<br>         <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;radio&#x27;</span>,<br>         <span class="hljs-attr">checked</span>: db.read().get(<span class="hljs-string">&#x27;picBed.current&#x27;</span>).value() === <span class="hljs-string">&#x27;weibo&#x27;</span>,<br>         click () &#123;<br>           db.read().set(<span class="hljs-string">&#x27;picBed.current&#x27;</span>, <span class="hljs-string">&#x27;weibo&#x27;</span>)<br>             .write()<br>         &#125;<br>       &#125;,<br>       &#123;<br>         <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;七牛图床&#x27;</span>,<br>         <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;radio&#x27;</span>,<br>         <span class="hljs-attr">checked</span>: db.read().get(<span class="hljs-string">&#x27;picBed.current&#x27;</span>).value() === <span class="hljs-string">&#x27;qiniu&#x27;</span>,<br>         click () &#123;<br>           db.read().set(<span class="hljs-string">&#x27;picBed.current&#x27;</span>, <span class="hljs-string">&#x27;qiniu&#x27;</span>)<br>             .write()<br>         &#125;<br>       &#125;<br>     ]<br>   &#125;,<br>   &#123;<br>     <span class="hljs-attr">role</span>: <span class="hljs-string">&#x27;quit&#x27;</span>,<br>     <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;退出&#x27;</span><br>   &#125;<br> ])<br><br> tray.on(<span class="hljs-string">&#x27;right-click&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>   tray.popUpContextMenu(contextMenu)<br> &#125;)                                  <br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>组成<code>Menu</code>的是一个一个的<code>MenuItem</code>。它们有很多类型：</p>
+<ol>
+<li>normal</li>
+<li>separator</li>
+<li>submenu</li>
+<li>checkbox</li>
+<li>radio</li>
+</ol>
+<p>以及很多角色：</p>
+<ol>
+<li>quit</li>
+<li>copy</li>
+<li>redo</li>
+<li>undo</li>
+<li>minimize</li>
+<li>close</li>
+<li>reload</li>
+<li>…</li>
+</ol>
+<p>通常来说，配置的菜单项基本从类型里来组合。</p>
+<p>如果没有在创建app菜单里指定这些操作的快捷键的话，那么一些常见的快捷操作就无法在你的app里使用了。比如<code>ctrl+c</code>或者<code>command+c</code>复制这个操作，如果你没有通过<code>Menu.setApplicationMenu()</code>来设定这个快捷键的话，那么在你的electron应用里就无法执行复制的操作了。</p>
+<blockquote>
+<p>注意，如果在开发模式下直接只使用如下快捷键的话，一些调试快捷键比如<code>F12</code>或者<code>command+shift+i</code>打开控制台的操作就无法使用了。所以在开发模式下不需要创建这些快捷键菜单。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> createMenu = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">&#x27;development&#x27;</span>) &#123;<br>    <span class="hljs-keyword">const</span> template = [&#123;<br>      <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Edit&#x27;</span>,<br>      <span class="hljs-attr">submenu</span>: [<br>        &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Undo&#x27;</span>, <span class="hljs-attr">accelerator</span>: <span class="hljs-string">&#x27;CmdOrCtrl+Z&#x27;</span>, <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;undo:&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Redo&#x27;</span>, <span class="hljs-attr">accelerator</span>: <span class="hljs-string">&#x27;Shift+CmdOrCtrl+Z&#x27;</span>, <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;redo:&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;separator&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Cut&#x27;</span>, <span class="hljs-attr">accelerator</span>: <span class="hljs-string">&#x27;CmdOrCtrl+X&#x27;</span>, <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;cut:&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Copy&#x27;</span>, <span class="hljs-attr">accelerator</span>: <span class="hljs-string">&#x27;CmdOrCtrl+C&#x27;</span>, <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;copy:&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Paste&#x27;</span>, <span class="hljs-attr">accelerator</span>: <span class="hljs-string">&#x27;CmdOrCtrl+V&#x27;</span>, <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;paste:&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Select All&#x27;</span>, <span class="hljs-attr">accelerator</span>: <span class="hljs-string">&#x27;CmdOrCtrl+A&#x27;</span>, <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;selectAll:&#x27;</span> &#125;,<br>        &#123;<br>          <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Quit&#x27;</span>,<br>          <span class="hljs-attr">accelerator</span>: <span class="hljs-string">&#x27;CmdOrCtrl+Q&#x27;</span>,<br>          click () &#123;<br>            app.quit()<br>          &#125;<br>        &#125;<br>      ]<br>    &#125;]<br>    menu = Menu.buildFromTemplate(template)<br>    Menu.setApplicationMenu(menu)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>可以通过<code>accelerator</code>指定你想要的快捷键。诸如<code>Shift</code>、<code>Ctrl</code>、<code>Cmd</code>等键位缩写。如果是组合键，就加上<code>+</code>。尤其注意到，因为macOS和windows键位的差异，所以有一个很好用的键位缩写<code>CmdOrCtrl</code>，即如果是在macOS上就是<code>Cmd</code>，在windows上就是<code>Ctrl</code>。</p>
+<p>菜单项的点击事件可以直接通过<code>click</code>属性来指定。先通过了<code>Menu.buildFromTemplate()</code>这个方法创建了菜单，然后再在右键点击<code>Tray</code>图标的时候将其弹（PopUp)出来。</p>
+<p>当然也有其他构建菜单的方法。可以通过Menu实例的<code>append</code>方法来加入<code>Menu Item</code>。</p>
+<h2 id="总结">总结<a class="header-anchor" href="#总结">⁍</a></h2>
+<p>本文主要还是结合了PicGo项目对Electron主进程有了大致的了解</p>
+<p>PicGo项目本身对功能的划分比较明确，它的入口是<code>backgroung.js</code>，通过它来调用<code>main/lifeCycle/index.js</code>，在其中来进行ready/quit等，并调用写入其他文件里的窗口创建/菜单创建等。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://molunerfinn.com/electron-vue-1/#%E8%BF%9B%E4%B8%80%E6%AD%A5%E4%BB%8B%E7%BB%8D">Electron-vue开发实战0——Electron-vue入门 | MARKSZのBlog (molunerfinn.com)</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000002712805">在一些开源框架中，dist文件夹是什么意思 - SegmentFault 思否</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Augu1sto</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://augu1sto.github.io/augu1sto/79d34a519ec6/">https://augu1sto.github.io/augu1sto/79d34a519ec6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://augu1sto.github.io/augu1sto" target="_blank">若叶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/augu1sto/tags/Electron/">Electron</a><a class="post-meta__tags" href="/augu1sto/tags/vue/">vue</a></div><div class="post_share"><div class="social-share" data-image="/augu1sto/img/cover02.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/augu1sto/ab2a829608be/"><img class="prev-cover" src="/augu1sto/img/cover05.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Electron-vue开发实战（三）| Render进程开发</div></div></a></div><div class="next-post pull-right"><a href="/augu1sto/2b4514c3bfcc/"><img class="next-cover" src="/augu1sto/img/cover04.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Leetcode|位运算</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/augu1sto/4f10b549e4ad/" title="Electron-vue开发实战|总记录"><img class="cover" src="/augu1sto/img/cover05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-20</div><div class="title">Electron-vue开发实战|总记录</div></div></a></div><div><a href="/augu1sto/d1ff406f9f51/" title="Electron-vue开发实战（一）| 入门与安装(踩坑实录)"><img class="cover" src="/augu1sto/img/cover06.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-20</div><div class="title">Electron-vue开发实战（一）| 入门与安装(踩坑实录)</div></div></a></div><div><a href="/augu1sto/8b4126167da0/" title="Electron-vue开发实战（一）plus| Node16.8.0不降级安装Electron-vue+ElementUI开发环境"><img class="cover" src="/augu1sto/img/cover01.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">Electron-vue开发实战（一）plus| Node16.8.0不降级安装Electron-vue+ElementUI开发环境</div></div></a></div><div><a href="/augu1sto/a6ae5aa3a06c/" title="Electron-vue开发实战（四）| VSCODE调试主进程"><img class="cover" src="/augu1sto/img/cover03.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-02</div><div class="title">Electron-vue开发实战（四）| VSCODE调试主进程</div></div></a></div><div><a href="/augu1sto/7acb8e0037c2/" title="Electron-vue开发实战（总集篇Ⅰ）| Hexo-Manager开发阶段性总结与下一步计划"><img class="cover" src="/augu1sto/img/cover06.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-04</div><div class="title">Electron-vue开发实战（总集篇Ⅰ）| Hexo-Manager开发阶段性总结与下一步计划</div></div></a></div><div><a href="/augu1sto/301e18d1b58e/" title="Electron-vue开发实战（五）| 主进程调用CMD"><img class="cover" src="/augu1sto/img/cover02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-02</div><div class="title">Electron-vue开发实战（五）| 主进程调用CMD</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/augu1sto/img/avatar.png" onerror="this.onerror=null;this.src='/augu1sto/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Augu1sto</div><div class="author-info__description">Articles | Notes | Ideas</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/augu1sto"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/augu1sto" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yingu081@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://codepen.io/augu1sto" target="_blank" title="CodePen"><i class="fab fa-codepen"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">【缓慢重新建站中】https://github.com/augu1sto/e31c317e1400/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">认识目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package-json-3"><span class="toc-number">2.</span> <span class="toc-text">package.json[^3]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%BF%9B%E7%A8%8B-src-main"><span class="toc-number">3.</span> <span class="toc-text">主进程 src&#x2F;main</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#app%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.</span> <span class="toc-text">app模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#browserwindow%E6%B8%B2%E6%9F%93%E5%99%A8%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">BrowserWindow渲染器进程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">常见配置和方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86html%E6%96%87%E6%A1%A3%E5%8A%A0%E8%BD%BD%E5%88%B0%E4%B8%BB%E7%AA%97%E5%8F%A3"><span class="toc-number">3.2.2.</span> <span class="toc-text">将html文档加载到主窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E9%9B%85%E5%9C%B0%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3"><span class="toc-number">3.2.3.</span> <span class="toc-text">优雅地显示窗口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tray%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98"><span class="toc-number">3.3.</span> <span class="toc-text">Tray系统托盘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87%E5%B7%A6%E9%94%AE%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.3.1.</span> <span class="toc-text">鼠标左键点击事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87%E5%8F%B3%E9%94%AE%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.3.2.</span> <span class="toc-text">鼠标右键点击事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#menu"><span class="toc-number">3.4.</span> <span class="toc-text">Menu</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/eb3eaf548f9c/" title="test"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test"/></a><div class="content"><a class="title" href="/augu1sto/eb3eaf548f9c/" title="test">test</a><time datetime="2022-12-11T17:32:20.000Z" title="发表于 2022-12-12 01:32:20">2022-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/aba77dc25685/" title="test-12"><img src="/augu1sto/img/cover02.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test-12"/></a><div class="content"><a class="title" href="/augu1sto/aba77dc25685/" title="test-12">test-12</a><time datetime="2022-12-11T15:15:35.000Z" title="发表于 2022-12-11 23:15:35">2022-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING..."><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="【公告】重新建站ING..."/></a><div class="content"><a class="title" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING...">【公告】重新建站ING...</a><time datetime="2022-11-30T13:52:27.000Z" title="发表于 2022-11-30 21:52:27">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解"><img src="/augu1sto/img/cover03.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="Array.prototype.unshift方法详解"/></a><div class="content"><a class="title" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解">Array.prototype.unshift方法详解</a><time datetime="2022-09-05T11:56:53.000Z" title="发表于 2022-09-05 19:56:53">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/4cf012bad379/" title="深拷贝"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="深拷贝"/></a><div class="content"><a class="title" href="/augu1sto/4cf012bad379/" title="深拷贝">深拷贝</a><time datetime="2022-09-03T12:28:50.000Z" title="发表于 2022-09-03 20:28:50">2022-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Augu1sto</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/augu1sto/js/utils.js"></script><script src="/augu1sto/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/augu1sto/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><div class="aplayer no-destroy" data-id="6990698783" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/augu1sto/live2dw/lib/L2Dwidget.min.js?b0f017d930c51acc4f4f9e757bdd83e9"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/augu1sto/live2dw/assets/kasumi_event128.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":30,"vOffset":0},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"text":["kira kira doki doki","大家我全都喜欢","poppipa pippopa"]},"log":false});</script></body></html>

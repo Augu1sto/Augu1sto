@@ -1,0 +1,411 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>前端学习资源与计划 | 若叶</title><meta name="keywords" content="Javascript,HTML,CSS,Vue"><meta name="author" content="Augu1sto"><meta name="copyright" content="Augu1sto"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="写在前面： 写这篇文章主要是为了激励自己x 其实之前一直从众想做java后端来着，但我发现我为数不多的项目经历无一不会关注界面怎么写。 最近面了一个开发岗之后决定直视自己的内心。 但是我对前端的了解也只是局限于不是很熟练的HTML&#x2F;CSS，虽然写Electron-vue的项目有用Js和vue，但其实并不了解。。一边用一遍搜索来着。。还是要打好基础才好！ 下面整理一下看到的资源和课程，加油努力啦！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端学习资源与计划">
+<meta property="og:url" content="https://augu1sto.github.io/augu1sto/46167eae39eb/index.html">
+<meta property="og:site_name" content="若叶">
+<meta property="og:description" content="写在前面： 写这篇文章主要是为了激励自己x 其实之前一直从众想做java后端来着，但我发现我为数不多的项目经历无一不会关注界面怎么写。 最近面了一个开发岗之后决定直视自己的内心。 但是我对前端的了解也只是局限于不是很熟练的HTML&#x2F;CSS，虽然写Electron-vue的项目有用Js和vue，但其实并不了解。。一边用一遍搜索来着。。还是要打好基础才好！ 下面整理一下看到的资源和课程，加油努力啦！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://augu1sto.github.io/augu1sto/img/cover04.jpg">
+<meta property="article:published_time" content="2022-03-16T15:30:38.000Z">
+<meta property="article:modified_time" content="2022-03-20T13:22:36.769Z">
+<meta property="article:author" content="Augu1sto">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augu1sto.github.io/augu1sto/img/cover04.jpg"><link rel="shortcut icon" href="/augu1sto/img/favicon.png"><link rel="canonical" href="https://augu1sto.github.io/augu1sto/46167eae39eb/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-oEsTyOVPwJ"/><link rel="stylesheet" href="/augu1sto/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/augu1sto/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '前端学习资源与计划',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-20 21:22:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="google-site-verification" content="a1IrzpkO5Jd9_eZl1_IwZSZ779M4c5LPUf7oSBp4G58" /><link rel="stylesheet" href="/self/material.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/augu1sto/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/augu1sto/img/cover04.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/augu1sto/">若叶</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">前端学习资源与计划</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-16T15:30:38.000Z" title="发表于 2022-03-16 23:30:38">2022-03-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-20T13:22:36.769Z" title="更新于 2022-03-20 21:22:36">2022-03-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/augu1sto/categories/FE%E5%AD%A6%E4%B9%A0/">FE学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="前端学习资源与计划"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p><strong>写在前面：</strong></p>
+<p>写这篇文章主要是为了激励自己x</p>
+<p>其实之前一直从众想做java后端来着，但我发现我为数不多的项目经历无一不会关注界面怎么写。</p>
+<p>最近面了一个开发岗之后决定直视自己的内心。</p>
+<p>但是我对前端的了解也只是局限于不是很熟练的HTML/CSS，虽然写Electron-vue的项目有用Js和vue，但其实并不了解。。一边用一遍搜索来着。。还是要打好基础才好！</p>
+<p>下面整理一下看到的资源和课程，加油努力啦！</p>
+</blockquote>
+<hr>
+<h2 id="学习资源">学习资源<a class="header-anchor" href="#学习资源">⁍</a></h2>
+<h3 id="要学什么">要学什么<a class="header-anchor" href="#要学什么">⁍</a></h3>
+<h4 id="html-css">HTML/CSS<a class="header-anchor" href="#html-css">⁍</a></h4>
+<p>因为本科学过网页设计的课程，有一定HTML和CSS的基础，决定遵循<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的建议，快速把下面几本书（前三本）先过一遍。当然CSS的基础会相对弱一些，因为记不住qaq，可能会码一些<a target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn/">freecodecamp.org</a>上的练习，记录在github仓库中，再找一些网站的总结。同时根据一些常见面试题查漏补缺。</p>
+<p>代码环境主要是VSCode+Live server本地热启动服务器的方式实时预览。</p>
+<ul class="contains-task-list">
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 《HTML&amp;CSS设计与构建网站》（1-9&amp;最后两章？）</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://wangdoc.com/html/index.html">HTML 教程 - 网道 (wangdoc.com)</a></li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 《HTML5秘籍》（1-4）</p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 《CSS揭秘》（相对比较新的一本书）</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.baidu.com/link?url=w-a1twkjllUiZDwXVJ0JeS58ZcHBVZt6JmGXuLy9FqyDyPqJmbd03P2SAKNN273AAEfo2d5XtSeYszlzjE7NSa&amp;wd=&amp;eqid=ecb977750006deb5000000066236c1ba">GitHub - cssmagic/CSS-Secrets: 《CSS 揭秘》这本书的大… (baidu.com)</a></li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 《CSS实战手册》</p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 《CSS权威指南》</p>
+</li>
+</ul>
+<h4 id="javascript-es6">Javascript -&gt; ES6<a class="header-anchor" href="#javascript-es6">⁍</a></h4>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18a4y1L7kD?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click">微软官方 JavaScript 入门教程【完结撒花】_哔哩哔哩_bilibili</a></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://wangdoc.com/javascript/">JavaScript 教程 - 网道 (wangdoc.com)</a> （包含AJAX等）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://wangdoc.com/es6/">ES6 教程 - 网道 (wangdoc.com)</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://www.amazon.cn/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E6%B3%BD%E5%8D%A1%E6%96%AF/dp/B007OQQVMY/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1414744358&amp;sr=1-1&amp;keywords=javascript+%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1">《javascript高级程序设计》</a>，然后<a target="_blank" rel="noopener" href="http://www.amazon.cn/O-Reilly%E7%B2%BE%E5%93%81%E5%9B%BE%E4%B9%A6%E7%B3%BB%E5%88%97-JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97-%E5%BC%97%E5%85%B0%E7%BA%B3%E6%A0%B9/dp/B007VISQ1Y/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1414744401&amp;sr=1-1&amp;keywords=javascript+%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97">《javascript权威指南》</a></p>
+<h4 id="axios">axios<a class="header-anchor" href="#axios">⁍</a></h4>
+<p><a target="_blank" rel="noopener" href="https://www.axios-http.cn/">Axios 中文文档 | Axios 中文网 | Axios 是一个基于 promise 的网络请求库，可以用于浏览器和 node.js (axios-http.cn)</a></p>
+<h5 id="webapi">webapi<a class="header-anchor" href="#webapi">⁍</a></h5>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://wangdoc.com/webapi/">Web API 教程 - 网道 (wangdoc.com)</a></li>
+</ul>
+<h4 id="vue">vue<a class="header-anchor" href="#vue">⁍</a></h4>
+<ul class="contains-task-list">
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 官网文档：  <a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/">Vue.js (vuejs.org)</a></p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 官方入门视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zZ4y1R7H8?from=search&amp;seid=14382011260230935067&amp;spm_id_from=333.337.0.0">【译】Vue Mastery Intro to Vue3 — Vue3 入门教程_哔哩哔哩_bilibili</a></p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12J411m7MG?p=2">黑马程序员vue前端基础教程-4个小时带你快速入门vue_哔哩哔哩_bilibili</a></p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox">  简单的mini-vue: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rt4y1B7sC/?spm_id_from=333.788.recommend_more_video.7">手写 mini-vue_哔哩哔哩_bilibili</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/cuixiaorui/mini-vue">GitHub - cuixiaorui/mini-vue: 实现最简 vue3 模型( Help you learn more efficiently vue3 source code )</a></li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 作者教学亲自讲解vue高级特性：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1d4411v7UX/?spm_id_from=333.788.recommend_more_video.0">尤雨溪教你写vue 高级vue教程 源码分析 中文字幕翻译完毕_哔哩哔哩_bilibili</a></p>
+<ul>
+<li>讲义： <a target="_blank" rel="noopener" href="https://vue-course-doc.vercel.app/">https://vue-course-doc.vercel.app/</a></li>
+<li>github源码： <a target="_blank" rel="noopener" href="https://github.com/zhengguorong/vue-advanced-workshop">https://github.com/zhengguorong/vue-advanced-workshop</a></li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rC4y187Vw?spm_id_from=333.999.0.0">跟尤雨溪一起解读Vue3源码【中英字幕】- Vue Mastery_哔哩哔哩_bilibili</a></p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1SZ4y1x7a9/?spm_id_from=333.788.recommend_more_video.3">【课程】Vue 3响应式原理 (Vue 3 Reactivity)【中英字幕】- Vue Mastery_哔哩哔哩_bilibili</a></p>
+</li>
+</ul>
+<p>react</p>
+<p>nodejs</p>
+<p>echarts等</p>
+<p>可以参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv10431130">2022年web前端开发学习路线图 - 哔哩哔哩 (bilibili.com)</a></p>
+<h3 id="网站">网站<a class="header-anchor" href="#网站">⁍</a></h3>
+<p><a target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn/">免费学习编程 - Python、JavaScript、Java、Git 等 (freecodecamp.org)</a></p>
+<p>一个可以学习html/css/javascript/nodejs/react等并在线编程测试的网站，同时可以实现一些小项目并获取认证</p>
+<h2 id="面试">面试<a class="header-anchor" href="#面试">⁍</a></h2>
+<p>几个前端面试知识库：（待探索和整理）</p>
+<p><a target="_blank" rel="noopener" href="https://lucifer.ren/fe-interview/#/">大前端面试宝典 - 图解前端 (lucifer.ren)</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.h-camel.com/index.html">前端面试每日3+1-以前端面试题来驱动学习，提倡每日学习与思考，每天进步一点！ (h-camel.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://lgwebdream.github.io/FE-Interview/">前端面试 (lgwebdream.github.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://mitianyi.gitbook.io/frontend-interview-guide/">序章 - 前端面试指南 (gitbook.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/ta/review-frontend">前端校招面试题目合集_HTML/CSS/前端基础_牛客网 (nowcoder.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.chenqaq.com/">介绍 - 前端面试小册 (chenqaq.com)</a></p>
+<h2 id="项目计划">项目计划<a class="header-anchor" href="#项目计划">⁍</a></h2>
+<h2 id="其他">其他<a class="header-anchor" href="#其他">⁍</a></h2>
+<p>⭐ <a target="_blank" rel="noopener" href="https://github.com/helloqingfeng/Awsome-Front-End-learning-resource">helloqingfeng/Awsome-Front-End-learning-resource: GitHub最全的前端资源汇总仓库（包括前端学习、开发资源、求职面试等）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kwgg2020.com/">前端导航 (kwgg2020.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://dwqs.gitbooks.io/frontenddevhandbook/content/">前端开发者手册 · Front-end Developer HandBook (gitbooks.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nicejade/Front-end-tutorial">nicejade/Front-end-tutorial: 最全的资源教程-前端涉及的所有知识体系，并在 Nice Front-end Tutorial 持续更新； (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/helloqingfeng/Awsome-Front-End-learning-resource">helloqingfeng/Awsome-Front-End-learning-resource: GitHub最全的前端资源汇总仓库（包括前端学习、开发资源、求职面试等）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/javascript/">https://www.ruanyifeng.com/blog/javascript/</a></p>
+<p>⭐ <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/11/javascript.html">JavaScript 全栈工程师培训教程 - 阮一峰的网络日志 (ruanyifeng.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://wangdoc.com/">网道 - 互联网开发文档 (wangdoc.com)</a></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-learning">GitHub - qiu-deqing/FE-learning: 结合个人经历总结的前端入门方法</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Augu1sto</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://augu1sto.github.io/augu1sto/46167eae39eb/">https://augu1sto.github.io/augu1sto/46167eae39eb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://augu1sto.github.io/augu1sto" target="_blank">若叶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/augu1sto/tags/Javascript/">Javascript</a><a class="post-meta__tags" href="/augu1sto/tags/HTML/">HTML</a><a class="post-meta__tags" href="/augu1sto/tags/CSS/">CSS</a><a class="post-meta__tags" href="/augu1sto/tags/Vue/">Vue</a></div><div class="post_share"><div class="social-share" data-image="/augu1sto/img/cover04.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/augu1sto/efb254aacb6e/"><img class="prev-cover" src="/augu1sto/img/cover02.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">nowcoder-前端面试题-HTML部分</div></div></a></div><div class="next-post pull-right"><a href="/augu1sto/743ac4e0b3e7/"><img class="next-cover" src="/augu1sto/img/cover06.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hexo建站与美化 | 关于Butterfly主题一些高级功能和修改方法的记录</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解"><img class="cover" src="/augu1sto/img/cover03.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-05</div><div class="title">Array.prototype.unshift方法详解</div></div></a></div><div><a href="/augu1sto/efb254aacb6e/" title="nowcoder-前端面试题-HTML部分"><img class="cover" src="/augu1sto/img/cover02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-18</div><div class="title">nowcoder-前端面试题-HTML部分</div></div></a></div><div><a href="/augu1sto/698e04067f30/" title="【FE学习-HTML】HTML重点汇总"><img class="cover" src="/augu1sto/img/cover03.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-20</div><div class="title">【FE学习-HTML】HTML重点汇总</div></div></a></div><div><a href="/augu1sto/0259cd9b6703/" title="【CSS】nth-child和nth-of-type的区别"><img class="cover" src="/augu1sto/img/cover04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-31</div><div class="title">【CSS】nth-child和nth-of-type的区别</div></div></a></div><div><a href="/augu1sto/5888660a1014/" title="【CSS】格式化上下文"><img class="cover" src="/augu1sto/img/cover05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-31</div><div class="title">【CSS】格式化上下文</div></div></a></div><div><a href="/augu1sto/d207e9f19477/" title="【FE学习-CSS】CSS重点知识总结"><img class="cover" src="/augu1sto/img/cover03.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-23</div><div class="title">【FE学习-CSS】CSS重点知识总结</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/augu1sto/img/avatar.png" onerror="this.onerror=null;this.src='/augu1sto/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Augu1sto</div><div class="author-info__description">Articles | Notes | Ideas</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/augu1sto"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/augu1sto" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yingu081@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://codepen.io/augu1sto" target="_blank" title="CodePen"><i class="fab fa-codepen"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">【缓慢重新建站中】https://github.com/augu1sto/e31c317e1400/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">学习资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E5%AD%A6%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">要学什么</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#html-css"><span class="toc-number">1.1.1.</span> <span class="toc-text">HTML&#x2F;CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#javascript-es6"><span class="toc-number">1.1.2.</span> <span class="toc-text">Javascript -&gt; ES6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#axios"><span class="toc-number">1.1.3.</span> <span class="toc-text">axios</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#webapi"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">webapi</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue"><span class="toc-number">1.1.4.</span> <span class="toc-text">vue</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99"><span class="toc-number">1.2.</span> <span class="toc-text">网站</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95"><span class="toc-number">2.</span> <span class="toc-text">面试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%AE%A1%E5%88%92"><span class="toc-number">3.</span> <span class="toc-text">项目计划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">4.</span> <span class="toc-text">其他</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/eb3eaf548f9c/" title="test"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test"/></a><div class="content"><a class="title" href="/augu1sto/eb3eaf548f9c/" title="test">test</a><time datetime="2022-12-11T17:32:20.000Z" title="发表于 2022-12-12 01:32:20">2022-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/aba77dc25685/" title="test-12"><img src="/augu1sto/img/cover02.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test-12"/></a><div class="content"><a class="title" href="/augu1sto/aba77dc25685/" title="test-12">test-12</a><time datetime="2022-12-11T15:15:35.000Z" title="发表于 2022-12-11 23:15:35">2022-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING..."><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="【公告】重新建站ING..."/></a><div class="content"><a class="title" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING...">【公告】重新建站ING...</a><time datetime="2022-11-30T13:52:27.000Z" title="发表于 2022-11-30 21:52:27">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解"><img src="/augu1sto/img/cover03.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="Array.prototype.unshift方法详解"/></a><div class="content"><a class="title" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解">Array.prototype.unshift方法详解</a><time datetime="2022-09-05T11:56:53.000Z" title="发表于 2022-09-05 19:56:53">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/4cf012bad379/" title="深拷贝"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="深拷贝"/></a><div class="content"><a class="title" href="/augu1sto/4cf012bad379/" title="深拷贝">深拷贝</a><time datetime="2022-09-03T12:28:50.000Z" title="发表于 2022-09-03 20:28:50">2022-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Augu1sto</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/augu1sto/js/utils.js"></script><script src="/augu1sto/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/augu1sto/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><div class="aplayer no-destroy" data-id="6990698783" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/augu1sto/live2dw/lib/L2Dwidget.min.js?b0f017d930c51acc4f4f9e757bdd83e9"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/augu1sto/live2dw/assets/kasumi_event128.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":30,"vOffset":0},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"text":["kira kira doki doki","大家我全都喜欢","poppipa pippopa"]},"log":false});</script></body></html>

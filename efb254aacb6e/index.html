@@ -1,0 +1,1037 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nowcoder-前端面试题-HTML部分 | 若叶</title><meta name="keywords" content="HTML"><meta name="author" content="Augu1sto"><meta name="copyright" content="Augu1sto"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="该文章由自制脚本抓取 Augu1sto&#x2F;getNowcoder-interviewList: 将牛客上的面试题集锦保存为markdown文件 (github.com) 对格式进行了一定调整，详细内容有待细化更新  浏览器页面有哪三层构成，分别是什么，作用是什么?⁍  构成：结构层、表示层、行为层 分别是：HTML、CSS、JavaScript 作用：HTML实现页面结构，CSS完成页面的表现与风格">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nowcoder-前端面试题-HTML部分">
+<meta property="og:url" content="https://augu1sto.github.io/augu1sto/efb254aacb6e/index.html">
+<meta property="og:site_name" content="若叶">
+<meta property="og:description" content="该文章由自制脚本抓取 Augu1sto&#x2F;getNowcoder-interviewList: 将牛客上的面试题集锦保存为markdown文件 (github.com) 对格式进行了一定调整，详细内容有待细化更新  浏览器页面有哪三层构成，分别是什么，作用是什么?⁍  构成：结构层、表示层、行为层 分别是：HTML、CSS、JavaScript 作用：HTML实现页面结构，CSS完成页面的表现与风格">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://augu1sto.github.io/augu1sto/img/cover02.jpg">
+<meta property="article:published_time" content="2022-03-18T09:31:11.000Z">
+<meta property="article:modified_time" content="2022-03-20T13:22:36.761Z">
+<meta property="article:author" content="Augu1sto">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augu1sto.github.io/augu1sto/img/cover02.jpg"><link rel="shortcut icon" href="/augu1sto/img/favicon.png"><link rel="canonical" href="https://augu1sto.github.io/augu1sto/efb254aacb6e/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-oEsTyOVPwJ"/><link rel="stylesheet" href="/augu1sto/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/augu1sto/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'nowcoder-前端面试题-HTML部分',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-20 21:22:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="google-site-verification" content="a1IrzpkO5Jd9_eZl1_IwZSZ779M4c5LPUf7oSBp4G58" /><link rel="stylesheet" href="/self/material.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/augu1sto/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/augu1sto/img/cover02.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/augu1sto/">若叶</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">nowcoder-前端面试题-HTML部分</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-18T09:31:11.000Z" title="发表于 2022-03-18 17:31:11">2022-03-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-20T13:22:36.761Z" title="更新于 2022-03-20 21:22:36">2022-03-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/augu1sto/categories/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="nowcoder-前端面试题-HTML部分"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note no-icon flat"><p>该文章由自制脚本抓取 <a target="_blank" rel="noopener" href="https://github.com/Augu1sto/getNowcoder-interviewList">Augu1sto/getNowcoder-interviewList: 将牛客上的面试题集锦保存为markdown文件 (github.com)</a></p>
+<p>对格式进行了一定调整，详细内容有待细化更新</p>
+</div>
+<h2 id="浏览器页面有哪三层构成，分别是什么，作用是什么">浏览器页面有哪三层构成，分别是什么，作用是什么?<a class="header-anchor" href="#浏览器页面有哪三层构成，分别是什么，作用是什么">⁍</a></h2>
+<ul>
+<li>构成：结构层、表示层、行为层</li>
+<li>分别是：HTML、CSS、JavaScript</li>
+<li>作用：HTML实现页面结构，CSS完成页面的表现与风格，JavaScript实现一些客户端的功能与业务。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/09ad0bbbee75416189e665df9095507f">Discussion</a></li>
+</ul>
+<h2 id="html5的优点与缺点？">HTML5的优点与缺点？<a class="header-anchor" href="#html5的优点与缺点？">⁍</a></h2>
+<p><strong>优点：</strong></p>
+<ul>
+<li>a、网络标准统一、HTML5本身是由W3C推荐出来的。</li>
+<li>b、多设备、跨平台</li>
+<li>c、即时更新。</li>
+<li>d、提高可用性和改进用户的友好体验；</li>
+<li>e、有几个新的标签，这将有助于开发人员定义重要的内容；</li>
+<li>f、可以给站点带来更多的多媒体元素(视频和音频)；</li>
+<li>g、可以很好的替代Flash和Silverlight；</li>
+<li>h、涉及到网站的抓取和索引的时候，对于SEO很友好；</li>
+<li>i、被大量应用于移动应用程序和游戏。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>a、安全：像之前Firefox4的websocket和透明代理的实现存在严重的安全问题，同时webstorage、websocket这样的功能很容易被黑客利用，来盗取用户的信息和资料。</li>
+<li>b、完善性：许多特性各浏览器的支持程度也不一样。</li>
+<li>c、技术门槛：HTML5简化开发者工作的同时代表了有许多新的属性和API需要开发者学习，像webworker、websocket、webstorage等新特性，后台甚至浏览器原理的知识，机遇的同时也是巨大的挑战</li>
+<li>d、性能：某些平台上的引擎问题导致HTML5性能低下。</li>
+<li>e、浏览器兼容性：最大缺点，IE9以下浏览器几乎全军覆没。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/590a510de9bd49d491e6afd8088403d8">Discussion</a></li>
+</ul>
+<h2 id="doctype作用-严格模式与混杂模式如何区分？它们有何意义">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?<a class="header-anchor" href="#doctype作用-严格模式与混杂模式如何区分？它们有何意义">⁍</a></h2>
+<p><strong>回答1：</strong></p>
+<ul>
+<li>（1）、声明位于文档中的最前面，处于标签之前。告知浏览器的解析器，用什么文档类型规范来解析这个文档。</li>
+<li>（2）、严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行。</li>
+<li>（3）、在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。</li>
+<li>（4）、DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。</li>
+</ul>
+<p><strong>回答2：</strong></p>
+<ul>
+<li>doctype声明指出阅读程序应该用什么规则集来解释文档中的标记。在Web文档的情况下，“阅读程序”通常是浏览器或者校验器这样的一个程序，“规则”则是W3C所发布的一个 <strong>文档类型定义（DTD）</strong> 中包含的规则。</li>
+<li>(1)声明位于文档中的最前面的位置，处于标签之前。此标签可告知浏览器文档使用哪种HTML或XHTML规范。该标签可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的HTML文档。</li>
+<li>(2)所谓的标准模式是指，浏览器按W3C标准解析执行代码；怪异模式则是使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以我们称之为怪异模式。严格模式是浏览器根据web标准去解析页面，是一种要求严格的DTD，不允许使用任何表现层的语法，如</li>
+<li>。严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行混杂模式则是一种向后兼容的解析方法，说的透明点就是可以实现IE5.5以下版本浏览器的渲染模式。</li>
+<li>(3)浏览器解析时到底使用标准模式还是怪异模式，与你网页中的DTD声明直接相关，DTD声明定义了标准文档的类型（标准模式解析）文档类型，会使浏览器使用相应的方式加载网页并显示，忽略DTD声明,将使网页进入怪异模式。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/b982fd49d6ce4ff39b10dd6b5476199b">Discussion</a></li>
+</ul>
+<h2 id="html5有哪些新特性、移除了哪些元素？">HTML5有哪些新特性、移除了哪些元素？<a class="header-anchor" href="#html5有哪些新特性、移除了哪些元素？">⁍</a></h2>
+<ul>
+<li>
+<p>Html5新增了27个元素，废弃了16个元素，根据现有的标准规范，把HTML5的元素按优先级定义为结构性属性、级块性元素、行内语义性元素和交互性元素4大类。</p>
+</li>
+<li>
+<p><strong>结构性元素</strong> 主要负责web上下文结构的定义</p>
+</li>
+<li>
+<p>section：在web页面应用中，该元素也可以用于区域的章节描述。</p>
+</li>
+<li>
+<p>header：页面主体上的头部，header元素往往在一对body元素中。</p>
+</li>
+<li>
+<p>footer：页面的底部（页脚），通常会标出网站的相关信息。</p>
+</li>
+<li>
+<p>nav：专门用于菜单导航、链接导航的元素，是navigator的缩写。</p>
+</li>
+<li>
+<p>article：用于表现一篇文章的主体内容，一般为文字集中显示的区域。</p>
+</li>
+<li>
+<p><strong>级块性元素</strong> 主要完成web页面区域的划分，确保内容的有效分割。</p>
+</li>
+<li>
+<p>aside：用于表达注记、贴士、侧栏、摘要、插入的引用等作为补充主体的内容。</p>
+</li>
+<li>
+<p>figure：是对多个元素进行组合并展示的元素，通常与figcaption联合使用。</p>
+</li>
+<li>
+<p>code：表示一段代码块。</p>
+</li>
+<li>
+<p>dialog：用于表达人与人之间的对话，该元素包含dt和dd这两个组合元素，dt用于表示说话者，而dd用来表示说话内容。</p>
+</li>
+<li>
+<p><strong>行内语义性元素</strong> 主要完成web页面具体内容的引用和描述，是丰富内容展示的基础。</p>
+</li>
+<li>
+<p>meter：表示特定范围内的数值，可用于工资、数量、百分比等。</p>
+</li>
+<li>
+<p>time：表示时间值。</p>
+</li>
+<li>
+<p>progress：用来表示进度条，可通过对其max、min、step等属性进行控制，完成对进度的表示和监视。</p>
+</li>
+<li>
+<p>video：视频元素，用于支持和实现视频文件的直接播放，支持缓冲预载和多种视频媒体格式。</p>
+</li>
+<li>
+<p>audio：音频元素，用于支持和实现音频文件的直接播放，支持缓冲预载和多种音频媒体格式。</p>
+</li>
+<li>
+<p><strong>交互性元素</strong> 主要用于功能性的内容表达，会有一定的内容和数据的关联，是各种事件的基础。</p>
+</li>
+<li>
+<p>details：用来表示一段具体的内容，但是内容默认可能不显示，通过某种手段（如单击）与legend交互才会显示出来。</p>
+</li>
+<li>
+<p>datagrid：用来控制客户端数据与显示，可以由动态脚本及时更新。</p>
+</li>
+<li>
+<p>menu：主要用于交互菜单（曾被废弃又被重新启用的元素）。</p>
+</li>
+<li>
+<p>command：用来处理命令按钮。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/a99c642a9fd94424a68b03c7675a05b8">Discussion</a></p>
+<h2 id="你做的网页在哪些浏览器测试过-这些浏览器的内核分别是什么">你做的网页在哪些浏览器测试过,这些浏览器的内核分别是什么?<a class="header-anchor" href="#你做的网页在哪些浏览器测试过-这些浏览器的内核分别是什么">⁍</a></h2>
+<ul>
+<li>a、IE: trident内核</li>
+<li>b、Firefox：gecko内核</li>
+<li>c、Safari: webkit内核</li>
+<li>d、Opera: 以前是presto内核，Opera现已改用GoogleChrome的Blink内核</li>
+<li>e、Chrome: Blink(基于webkit，Google与OperaSoftware共同开发)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/b0885d300d0f4229bb3f28e91bfcc065">Discussion</a></p>
+<h2 id="每个html文件里开头都有个很重要的东西，doctype，知道这是干什么的吗？">每个HTML文件里开头都有个很重要的东西，Doctype，知道这是干什么的吗？<a class="header-anchor" href="#每个html文件里开头都有个很重要的东西，doctype，知道这是干什么的吗？">⁍</a></h2>
+<ul>
+<li>声明位于文档中的最前面的位置，处于标签之前。此标签可告知浏览器文档使用哪种HTML或XHTML规范。（重点：告诉浏览器按照何种规范解析页面）<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/d35ebf720e89492bac565582878ad356">Discussion</a></li>
+</ul>
+<h2 id="说说你对html5认识-（是什么-为什么）">说说你对HTML5认识?（是什么,为什么）<a class="header-anchor" href="#说说你对html5认识-（是什么-为什么）">⁍</a></h2>
+<p><strong>是什么</strong></p>
+<ul>
+<li>HTML5指的是包括HTML、CSS和JavaScript在内的一套技术组合。它希望能够减少网页浏览器对于需要插件的丰富性网络应用服务（Plug-in-BasedRichInternetApplication，RIA），例如：AdobeFlash、MicrosoftSilverlight与OracleJavaFX的需求，并且提供更多能有效加强网络应用的标准集。HTML5是HTML最新版本，2014年10月由万维网联盟（W3C）完成标准制定。目标是替换1999年所制定的HTML4.01和XHTML1.0标准，以期能在互联网应用迅速发展的时候，使网络标准达到匹配当代的网络需求。</li>
+</ul>
+<p><strong>为什么</strong></p>
+<ul>
+<li>HTML4陈旧不能满足日益发展的互联网需要，特别是移动互联网。为了增强浏览器功能Flash被广泛使用，但安全与稳定堪忧，不适合在移动端使用（耗电、触摸、不开放）。</li>
+<li>HTML5增强了浏览器的原生功能，符合HTML5规范的浏览器功能将更加强大，减少了Web应用对插件的依赖，让用户体验更好，让开发更加方便，另外W3C从推出HTML4.0到5.0之间共经历了17年，HTML的变化很小，这并不符合一个好产品的演进规则。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/b05a61f9e66b4ccaa15d092131c78e4c">Discussion</a></li>
+</ul>
+<h2 id="对web标准以及w3c的理解与认识">对WEB标准以及W3C的理解与认识?<a class="header-anchor" href="#对web标准以及w3c的理解与认识">⁍</a></h2>
+<ul>
+<li>标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外链css和js脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/1a9aea79311f4789bfd381acfe8810b2">Discussion</a></li>
+</ul>
+<h2 id="html5行内元素有哪些-块级元素有哪些-空元素有哪些">HTML5行内元素有哪些,块级元素有哪些, 空元素有哪些?<a class="header-anchor" href="#html5行内元素有哪些-块级元素有哪些-空元素有哪些">⁍</a></h2>
+<ol>
+<li>
+<p><strong>行内元素</strong></p>
+<ul>
+<li>
+<p>a-锚点</p>
+</li>
+<li>
+<p>*abbr-缩写</p>
+</li>
+<li>
+<p>*acronym-首字</p>
+</li>
+<li>
+<p>*b-粗体(不推荐)</p>
+</li>
+<li>
+<p>*bdo-bidioverride</p>
+</li>
+<li>
+<p>*big-大字体</p>
+</li>
+<li>
+<p>*br-换行</p>
+</li>
+<li>
+<p>*cite-引用</p>
+</li>
+<li>
+<p>*code-计算机代码(在引用源码的时候需要)</p>
+</li>
+<li>
+<p>*dfn-定义字段</p>
+</li>
+<li>
+<p>*em-强调</p>
+</li>
+<li>
+<p>*font-字体设定(不推荐)</p>
+</li>
+<li>
+<p>*i-斜体</p>
+</li>
+<li>
+<p>*img-图片</p>
+</li>
+<li>
+<p>*input-输入框</p>
+</li>
+<li>
+<p>*kbd-定义键盘文本</p>
+</li>
+<li>
+<p>*label-表格标签</p>
+</li>
+<li>
+<p>*q-短引用</p>
+</li>
+<li>
+<p>*s-中划线(不推荐)</p>
+</li>
+<li>
+<p>*samp-定义范例计算机代码</p>
+</li>
+<li>
+<p>*select-项目选择</p>
+</li>
+<li>
+<p>*small-小字体文本</p>
+</li>
+<li>
+<p>*span-常用内联容器，定义文本内区块</p>
+</li>
+<li>
+<p>*strike-中划线</p>
+</li>
+<li>
+<p>*strong-粗体强调</p>
+</li>
+<li>
+<p>*sub-下标</p>
+</li>
+<li>
+<p>*sup-上标</p>
+</li>
+<li>
+<p>*textarea-多行文本输入框</p>
+</li>
+<li>
+<p>*tt-电传文本</p>
+</li>
+<li>
+<p>*u-下划线</p>
+</li>
+<li>
+<p>*var-定义变量</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>块元素</strong> (blockelement)</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>*address-地址</p>
+</li>
+<li>
+<p>*blockquote-块引用</p>
+</li>
+<li>
+<p>*center-居中对齐块</p>
+</li>
+<li>
+<p>*dir-目录列表</p>
+</li>
+<li>
+<p>*div-常用块级容易，也是csslayout的主要标签</p>
+</li>
+<li>
+<p>*dl-定义列表</p>
+</li>
+<li>
+<p>*fieldset-form控制组</p>
+</li>
+<li>
+<p>*form-交互表单</p>
+</li>
+<li>
+<p>*h1-大标题</p>
+</li>
+<li>
+<p>*h2-副标题</p>
+</li>
+<li>
+<p>*h3-3级标题</p>
+</li>
+<li>
+<p>*h4-4级标题</p>
+</li>
+<li>
+<p>*h5-5级标题</p>
+</li>
+<li>
+<p>*h6-6级标题</p>
+</li>
+<li>
+<p>*hr-水平分隔线</p>
+</li>
+<li>
+<p>*isindex-inputprompt</p>
+</li>
+<li>
+<p>*menu-菜单列表</p>
+</li>
+<li>
+<p>*noframes-frames可选内容，（对于不支持frame的浏览器显示此区块内容</p>
+</li>
+<li>
+<p>*noscript-）可选脚本内容（对于不支持script的浏览器显示此内容）</p>
+</li>
+<li>
+<p>*ol-排序表单</p>
+</li>
+<li>
+<p>*p-段落</p>
+</li>
+<li>
+<p>*pre-格式化文本</p>
+</li>
+<li>
+<p>*table-表格</p>
+</li>
+<li>
+<p>*ul-非排序列表</p>
+</li>
+<li>
+<p><strong>可变元素</strong></p>
+<p>可变元素为根据上下文语境决定该元素为块元素或者内联元素。</p>
+<ul>
+<li>*applet-javaapplet</li>
+<li>*button-按钮</li>
+<li>*del-删除文本</li>
+<li>*iframe-inlineframe</li>
+<li>*ins-插入的文本</li>
+<li>*map-图片区块(map)</li>
+<li>*object-object对象</li>
+<li>*script-客户端脚本</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>空元素</strong> (在HTML[1]元素中，没有内容的HTML元素被称为空元素)</li>
+</ol>
+<ul>
+<li>
+<p>&lt;br/&gt;//换行</p>
+</li>
+<li>
+<p>&lt;hr&gt;//分隔线</p>
+</li>
+<li>
+<p>&lt;input&gt;//文本框等</p>
+</li>
+<li>
+<p>&lt;img&gt;//图片</p>
+</li>
+<li>
+<p>&lt;link&gt;&lt;meta&gt;<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/82be034e331a47c9893b2ceef5b8b8b3">Discussion</a></p>
+</li>
+</ul>
+<h2 id="什么是webgl-它有什么优点">什么是WebGL,它有什么优点?<a class="header-anchor" href="#什么是webgl-它有什么优点">⁍</a></h2>
+<ul>
+<li>WebGL（全写WebGraphicsLibrary）是一种3D绘图标准，这种绘图技术标准允许把JavaScript和OpenGLES2.0结合在一起，通过增加OpenGLES2.0的一个JavaScript绑定，WebGL可以为HTML5Canvas提供硬件3D加速渲染，这样Web开发人员就可以借助系统显卡来在浏览器里更流畅地展示3D场景和模型了，还能创建复杂的导航和数据视觉化。显然，WebGL技术标准免去了开发网页专用渲染插件的麻烦，可被用于创建具有复杂3D结构的网站页面，甚至可以用来设计3D网页游戏等等。</li>
+<li>WebGL完美地解决了现有的Web交互式三维动画的两个问题：
+<ul>
+<li>第一，它通过HTML脚本本身实现Web交互式三维动画的制作，无需任何浏览器插件支持;</li>
+<li>第二，它利用底层的图形硬件加速功能进行的图形渲染，是通过统一的、标准的、跨平台的OpenGL接口实现的。</li>
+</ul>
+</li>
+<li>通俗说WebGL中canvas绘图中的3D版本。因为原生的WebGL很复杂，我们经常会使用一些三方的库，如three.js等，这些库多数用于HTML5游戏开发。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/b981e41cb07549f0bc8ef75c5a8d4690">Discussion</a></li>
+</ul>
+<h2 id="请你描述一下-cookies，sessionstorage-和-localstorage-的区别">请你描述一下 cookies，sessionStorage 和 localStorage 的区别?<a class="header-anchor" href="#请你描述一下-cookies，sessionstorage-和-localstorage-的区别">⁍</a></h2>
+<ul>
+<li>sessionStorage和localStorage是HTML5WebStorageAPI提供的，可以方便的在web请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。</li>
+<li>sessionStorage、localStorage、cookie都是在 <strong>浏览器端</strong> 存储的数据，其中sessionStorage的概念很特别，引入了一个“浏览器窗口”的概念。sessionStorage是在同源的同窗口（或tab）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁。同时“独立”打开的不同窗口，即使是同一页面，sessionStorage对象也是不同的</li>
+<li>cookies会发送到 <strong>服务器端</strong> 。其余两个不会。</li>
+<li>Microsoft指出InternetExplorer8增加cookie限制为每个域名50个，但IE7似乎也允许每个域名50个cookie。Firefox每个域名cookie限制为50个。Opera每个域名cookie限制为30个。Firefox和Safari允许cookie多达4097个字节，包括名（name）、值（value）和等号。Opera许cookie多达4096个字节，包括：名（name）、值（value）和等号。InternetExplorer允许cookie多达4095个字节，包括：名（name）、值（value）和等号。</li>
+</ul>
+<p><strong>区别</strong></p>
+<ul>
+<li>-Cookie
+<ul>
+<li>+每个域名存储量比较小（各浏览器不同，大致4K）</li>
+<li>+所有域名的存储量有限制（各浏览器不同，大致4K）</li>
+<li>+有个数限制（各浏览器不同）</li>
+<li>+会随请求发送到服务器</li>
+</ul>
+</li>
+<li>-LocalStorage
+<ul>
+<li>+永久存储</li>
+<li>+单个域名存储量比较大（推荐5MB，各浏览器不同）</li>
+<li>+总体数量无限制</li>
+</ul>
+</li>
+<li>-SessionStorage
+<ul>
+<li>+只在Session内有效</li>
+<li>+存储量更大（推荐没有限制，但是实际上各浏览器也不同）<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/27c08b3666e84e69874ea6e97e40afdb">Discussion</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="说说你对html语义化的理解">说说你对HTML语义化的理解?<a class="header-anchor" href="#说说你对html语义化的理解">⁍</a></h2>
+<p>(1)什么是HTML语义化？</p>
+<ul>
+<li>&lt;基本上都是围绕着几个主要的标签，像标题（H1~H6）、列表（li）、强调（strong em）等等&gt;</li>
+<li>根据内容的结构化（内容语义化），选择合适的标签（代码语义化）便于开发者阅读和写出更优雅的代码的同时让浏览器的爬虫和机器很好地解析。</li>
+</ul>
+<p>(2)为什么要语义化？</p>
+<ul>
+<li>为了在没有CSS的情况下，页面也能呈现出很好地内容结构、代码结构:为了裸奔时好看；</li>
+<li>用户体验：例如title、alt用于解释名词或解释图片信息、label标签的活用；</li>
+<li>有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；</li>
+<li>方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；</li>
+<li>便于团队开发和维护，语义化更具可读性，是下一步网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。</li>
+</ul>
+<p>(3)语义化标签</p>
+<ul>
+<li>&lt;header&gt;&lt;/header&gt;</li>
+<li>&lt;footer&gt;&lt;/footer&gt;</li>
+<li>&lt;nav&gt;&lt;/nav&gt;</li>
+<li>&lt;section&gt;&lt;/section&gt;</li>
+<li>&lt;article&gt;&lt;/article&gt;SM:用来在页面中表示一套结构完整且独立的内容部分</li>
+<li>&lt;aside&gt;&lt;/aside&gt;SM:主题的附属信息(用途很广，主要就是一个附属内容)，如果article里面为一篇文章的话，那么文章的作者以及信息内容就是这篇文章的附属内容了</li>
+<li>&lt;figure&gt;&lt;/figure&gt;SM:媒体元素，比如一些视频，图片啊等等</li>
+<li>&lt;datalist&gt;&lt;/datalist&gt;</li>
+<li>SM:选项列表，与input元素配合使用，来定义input可能的值</li>
+<li>&lt;details&gt;&lt;/details&gt;</li>
+<li>SM:用于描述文档或者文档某个部分的细节，默认属性为open</li>
+<li>ps:配合summary一起使用<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/fe26e5b66a394139a61be8266689c7ea">Discussion</a></li>
+</ul>
+<h2 id="link和-import的区别">link和@import的区别?<a class="header-anchor" href="#link和-import的区别">⁍</a></h2>
+<ul>
+<li>XML/HTML代码</li>
+<li>&lt;linkrel=‘stylesheet’ rev=‘stylesheet’ href='CSS文件’type='text/css’media=‘all’/&gt;</li>
+<li>XML/HTML代码</li>
+<li>&lt;styletype='text/css’media=‘screen’&gt;</li>
+<li>@importurl(‘CSS文件’);</li>
+<li>&lt;/style&gt;</li>
+<li>两者都是外部引用CSS的方式，但是存在一定的区别：</li>
+<li>区别1：link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。</li>
+<li>区别2：link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。</li>
+<li>区别3：link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。</li>
+<li>区别4：link支持使用Javascript控制DOM去改变样式；而@import不支持。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/ae9f71f950e64c9d82b1b396b7f3bec5">Discussion</a></li>
+</ul>
+<h2 id="说说你对svg理解">说说你对SVG理解?<a class="header-anchor" href="#说说你对svg理解">⁍</a></h2>
+<ul>
+<li>SVG可缩放矢量图形（ScalableVectorGraphics）是基于可扩展标记语言（XML），用于描述二维矢量图形的一种图形格式。SVG是W3C(‘WorldWideWebConSortium’即’国际互联网标准组织’)在2000年8月制定的一种新的二维矢量图形格式，也是规范中的网络矢量图形标准。SVG严格遵从XML语法，并用文本格式的描述性语言来描述图像内容，因此是一种和图像分辨率无关的矢量图形格式。SVG于2003年1月14日成为W3C推荐标准。</li>
+<li>特点：</li>
+<li>(1)任意放缩</li>
+<li>用户可以任意缩放图像显示，而不会破坏图像的清晰度、细节等。</li>
+<li>(2)文本独立</li>
+<li>SVG图像中的文字独立于图像，文字保留可编辑和可搜寻的状态。也不会再有字体的限制，用户系统即使没有安装某一字体，也会看到和他们制作时完全相同的画面。</li>
+<li>(3)较小文件</li>
+<li>总体来讲，SVG文件比那些GIF和JPEG格式的文件要小很多，因而下载也很快。</li>
+<li>(4)超强显示效果</li>
+<li>SVG图像在屏幕上总是边缘清晰，它的清晰度适合任何屏幕分辨率和打印分辨率。</li>
+<li>(5)超级颜色控制</li>
+<li>SVG图像提供一个1600万种颜色的调色板，支持ICC颜色描述文件标准、RGB、线X填充、渐变和蒙版。</li>
+<li>(6)交互X和智能化。SVG面临的主要问题一个是如何和已经占有重要市场份额的矢量图形格式Flash竞争的问题，另一个问题就是SVG的本地运行环境下的厂家支持程度。</li>
+<li>浏览器支持：</li>
+<li>InternetExplorer9，火狐，谷歌Chrome，Opera和Safari都支持SVG。</li>
+<li>IE8和早期版本都需要一个插件-如AdobeSVG浏览器，这是免费提供的。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/c5982f8b70ba427aab804643e12ab44d">Discussion</a></li>
+</ul>
+<h2 id="html全局属性-global-attribute-有哪些">HTML全局属性(global attribute)有哪些?<a class="header-anchor" href="#html全局属性-global-attribute-有哪些">⁍</a></h2>
+<ul>
+<li>参考资料：MDN:htmlglobalattribute或者W3CHTMLglobal-attributesaccesskey:设置快捷键，提供快速访问元素如aaa在windows下的firefox中按alt+shift+a可激活元素class:为元素设置类标识，多个类名用空格分开，CSS和javascript可通过class属性获取元素contenteditable:指定元素内容是否可编辑contextmenu:自定义鼠标右键弹出菜单内容data-*:为元素增加自定义属性dir:设置元素文本方向draggable:设置元素是否可拖拽dropzone:设置元素拖放类型：copy,move,linkhidden:表示一个元素是否与文档。样式上会导致元素不显示，但是不能用这个属性实现样式效果id:元素id，文档内唯一lang:元素内容的的语言spellcheck:是否启动拼写和语法检查style:行内css样式tabindex:设置元素可以获得焦点，通过tab可以导航title:元素相关的建议信息translate:元素和子孙节点内容是否需要本地化<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/5505ebcd04df48dd91e32977cb9a9b11">Discussion</a></li>
+</ul>
+<h2 id="说说超链接target属性的取值和作用？">说说超链接target属性的取值和作用？<a class="header-anchor" href="#说说超链接target属性的取值和作用？">⁍</a></h2>
+<ul>
+<li>target这个属性指定所链接的页面在浏览器窗口中的打开方式。</li>
+<li>它的参数值主要有：</li>
+<li>a、_blank：在新浏览器窗口中打开链接文件</li>
+<li>b、_parent：将链接的文件载入含有该链接框架的父框架集或父窗口中。如果含有该链接的框架不是嵌套的，则在浏览器全屏窗口中载入链接的文件，就象_self参数一。</li>
+<li>c、_self：在同一框架或窗口中打开所链接的文档。此参数为默认值，通常不用指定。但是我不太理解。</li>
+<li>d、_top：在当前的整个浏览器窗口中打开所链接的文档，因而会删除所有框架。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/e79c30255a4844028998097f4f75c85e">Discussion</a></li>
+</ul>
+<h2 id="data-属性的作用是什么？"><code>data-</code>属性的作用是什么？<a class="header-anchor" href="#data-属性的作用是什么？">⁍</a></h2>
+<ul>
+<li><code>data-</code>为H5新增的为前端开发者提供自定义的属性，这些属性集可以通过对象的<code>dataset</code>属性获取，不支持该属性的浏览器可以通过<code>getAttribute</code>方法获取:</li>
+<li>需要注意的是：<code>data-</code>之后的以连字符分割的多个单词组成的属性，获取的时候使用驼峰风格。所有主流浏览器都支持data-*属性。</li>
+<li>即：当没有合适的属性和元素时，自定义的data属性是能够存储页面或App的私有的自定义数据。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/6b7dbb4ce186400b857a7afd64b72346">Discussion</a></li>
+</ul>
+<h2 id="介绍一下你对浏览器内核的理解？">介绍一下你对浏览器内核的理解？<a class="header-anchor" href="#介绍一下你对浏览器内核的理解？">⁍</a></h2>
+<ul>
+<li>主要分成两部分：渲染引擎(layoutengineer或RenderingEngine)和JS引擎。渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。JS引擎则：解析和执行javascript来实现网页的动态效果。最开始渲染引擎和JS引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/595df24f5af2428480ba6ef3c392fc34">Discussion</a></li>
+</ul>
+<h2 id="常见的浏览器内核有哪些？">常见的浏览器内核有哪些？<a class="header-anchor" href="#常见的浏览器内核有哪些？">⁍</a></h2>
+<ul>
+<li>viewsourceprint?</li>
+<li>
+<ol>
+<li></li>
+</ol>
+</li>
+<li>Trident内核：IE,MaxThon,TT,TheWorld,360,搜狗浏览器等。[又称MSHTML]</li>
+<li>
+<ol start="2">
+<li></li>
+</ol>
+</li>
+<li>Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等</li>
+<li>
+<ol start="3">
+<li></li>
+</ol>
+</li>
+<li>Presto内核：Opera7及以上。[Opera内核原为：Presto，现为：Blink;]</li>
+<li>
+<ol start="4">
+<li></li>
+</ol>
+</li>
+<li>Webkit内核：Safari,Chrome等。[Chrome的：Blink（WebKit的分支）]<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/9ed05e37c04e45b2a2d95ebe087c4be5">Discussion</a></li>
+</ul>
+<h2 id="iframe有那些缺点？">iframe有那些缺点？<a class="header-anchor" href="#iframe有那些缺点？">⁍</a></h2>
+<ul>
+<li>*iframe会阻塞主页面的Onload事件；</li>
+<li>*搜索引擎的检索程序无法解读这种页面，不利于SEO;</li>
+<li>*iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。</li>
+<li>使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript</li>
+<li>动态给iframe添加src属性值，这样可以绕开以上两个问题。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/ec1a7ecc8a0c4150b6df6f9a485bc26f">Discussion</a></li>
+</ul>
+<h2 id="label的作用是什么，是怎么用的？">Label的作用是什么，是怎么用的？<a class="header-anchor" href="#label的作用是什么，是怎么用的？">⁍</a></h2>
+<ul>
+<li>label标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。</li>
+<li>&lt;labelfor=‘Name’&gt;Number:&lt;/label&gt;</li>
+<li>&lt;inputtype=“text“name='Name’id=‘Name’/&gt;<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/87786e5d47b9417caa2e1dc93b5f7037">Discussion</a></li>
+</ul>
+<h2 id="如何实现浏览器内多个标签页之间的通信">如何实现浏览器内多个标签页之间的通信?<a class="header-anchor" href="#如何实现浏览器内多个标签页之间的通信">⁍</a></h2>
+<ul>
+<li>WebSocket、SharedWorker；</li>
+<li>我们通过监听事件，控制它的值来进行页面信息通信；</li>
+<li>注意quirks：Safari在无痕模式下设置localstorge值时会抛出QuotaExceededError的异常；<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/cffb77bcd4f54671aa22a861cb8b6bcb">Discussion</a></li>
+</ul>
+<h2 id="如何在页面上实现一个圆形的可点击区域？">如何在页面上实现一个圆形的可点击区域？<a class="header-anchor" href="#如何在页面上实现一个圆形的可点击区域？">⁍</a></h2>
+<ul>
+<li>a、map+area或者svg</li>
+<li>b、border-radius</li>
+<li>c、纯js实现需要求一个点在不在圆上简单算法、获取鼠标坐标等等<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/fe155273580e46dfa2b15875e94a8b96">Discussion</a></li>
+</ul>
+<h2 id="title与h3的区别、b与strong的区别、i与em的区别？">title与h3的区别、b与strong的区别、i与em的区别？<a class="header-anchor" href="#title与h3的区别、b与strong的区别、i与em的区别？">⁍</a></h2>
+<ul>
+<li>title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；</li>
+<li>strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：&lt;strong&gt;会重读，而&lt;B&gt;是展示强调内容。</li>
+<li>i内容展示为斜体，em表示强调的文本；</li>
+<li>PhysicalStyleElements–自然样式标签</li>
+<li>b,i,u,s,pre</li>
+<li>SemanticStyleElements–语义样式标签</li>
+<li>strong,em,ins,del,code</li>
+<li>应该准确使用语义样式标签,但不能滥用,如果不能确定时首选使用自然样式标签。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/ec2d3e0107014c4ca9647ad91d0907c5">Discussion</a></li>
+</ul>
+<h2 id="实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？">实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？<a class="header-anchor" href="#实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？">⁍</a></h2>
+<ul>
+<li>&lt;divstyle=“width:100%;height:1px;background-color:black”&gt;&lt;/div&gt;<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/d92f26f2b98a4e2f9d150c8c123c1724">Discussion</a></li>
+</ul>
+<h2 id="html5标签的作用-用途">HTML5标签的作用?(用途)<a class="header-anchor" href="#html5标签的作用-用途">⁍</a></h2>
+<ul>
+<li>a、使Web页面的内容更加有序和规范</li>
+<li>b、使搜索引擎更加容易按照HTML5规则识别出有效的内容</li>
+<li>c、使Web页面更接近于一种数据字段和表<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/8198277d51e740b290a1ec08d1e5812c">Discussion</a></li>
+</ul>
+<h2 id="简述一下src与href的区别？">简述一下src与href的区别？<a class="header-anchor" href="#简述一下src与href的区别？">⁍</a></h2>
+<ul>
+<li>src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。</li>
+<li>src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。</li>
+<li>&lt;scriptsrc=‘js.js’&gt;&lt;/script&gt;</li>
+<li>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</li>
+<li>href是HypertextReference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加</li>
+<li>&lt;linkhref='common.css’rel=‘stylesheet’/&gt;</li>
+<li>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/9c8efb898bb244f88f2a5ab1b27b972c">Discussion</a></li>
+</ul>
+<h2 id="谈谈你对canvas的理解？">谈谈你对canvas的理解？<a class="header-anchor" href="#谈谈你对canvas的理解？">⁍</a></h2>
+<ul>
+<li>canvas是HTML5中新增一个HTML5标签与操作canvas的javascriptAPI，它可以实现在网页中完成动态的2D与3D图像技术。标记和SVG以及VML之间的一个重要的不同是，有一个基于JavaScript的绘图API，而SVG和VML使用一个XML文档来描述绘图。SVG绘图很容易编辑与生成，但功能明显要弱一些。canvas可以完成动画、游戏、图表、图像处理等原来需要Flash完成的一些功能。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/05745bf27bce4b9a9b19831934a839f9">Discussion</a></li>
+</ul>
+<h2 id="websocket与消息推送？">WebSocket与消息推送？<a class="header-anchor" href="#websocket与消息推送？">⁍</a></h2>
+<ul>
+<li>B/S架构的系统多使用HTTP协议，</li>
+<li>HTTP协议的特点：1无状态协议2用于通过Internet发送请求消息和响应消息3使用端口接收和发送消息，默认为80端口底层通信还是使用Socket完成。</li>
+<li>HTTP协议决定了服务器与客户端之间的连接方式，无法直接实现消息推送（F5已坏）,一些变相的解决办法：</li>
+<li>双向通信与消息推送</li>
+<li>轮询：客户端定时向服务器发送Ajax请求，服务器接到请求后马上返回响应信息并关闭连接。优点：后端程序编写比较容易。缺点：请求中有大半是无用，浪费带宽和服务器资源。实例：适于小型应用。</li>
+<li>长轮询：客户端向服务器发送Ajax请求，服务器接到请求后hold住连接，直到有新消息才返回响应信息并关闭连接，客户端处理完响应信息后再向服务器发送新的请求。优点：在无消息的情况下不会频繁的请求，耗费资小。缺点：服务器hold连接会消耗资源，返回数据顺序无保证，难于管理维护。Comet异步的ashx，实例：WebQQ、Hi网页版、FacebookIM。</li>
+<li>长连接：在页面里嵌入一个隐蔵iframe，将这个隐蔵iframe的src属性设为对一个长连接的请求或是采用xhr请求，服务器端就能源源不断地往客户端输入数据。优点：消息即时到达，不发无用请求；管理起来也相对便。缺点：服务器维护一个长连接会增加开销。实例：Gmail聊天</li>
+<li>FlashSocket：在页面中内嵌入一个使用了Socket类的Flash程序JavaScript通过调用此Flash程序提供的Socket接口与服务器端的Socket接口进行通信，JavaScript在收到服务器端传送的信息后控制页面的显示。优点：实现真正的即时通信，而不是伪即时。缺点：客户端必须安装Flash插件；非HTTP协议，无法自动穿越防火墙。实例：网络互动游戏。</li>
+<li>Websocket:</li>
+<li>WebSocket是HTML5开始提供的一种浏览器与服务器间进行全双工通讯的网络技术。依靠这种技术可以实现客户端和服务器端的长连接，双向实时通信。</li>
+<li>特点:</li>
+<li>a、事件驱动</li>
+<li>b、异步</li>
+<li>c、使用ws或者wss协议的客户端socket</li>
+<li>d、能够实现真正意义上的推送功能</li>
+<li>缺点：少部分浏览器不支持，浏览器支持的程度与方式有区别。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/bd4d40203dd04f048870d5ff76d5d709">Discussion</a></li>
+</ul>
+<h2 id="img的title和alt有什么区别？">img的title和alt有什么区别？<a class="header-anchor" href="#img的title和alt有什么区别？">⁍</a></h2>
+<ul>
+<li>Alt用于图片无法加载时显示Title为该属性提供信息，通常当鼠标滑动到元素上的时候显示<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/01fb7926a0c8462eb5567801c8f67ba3">Discussion</a></li>
+</ul>
+<h2 id="表单的基本组成部分有哪些，表单的主要用途是什么？">表单的基本组成部分有哪些，表单的主要用途是什么？<a class="header-anchor" href="#表单的基本组成部分有哪些，表单的主要用途是什么？">⁍</a></h2>
+<ul>
+<li>组成：表单标签、表单域、表单按钮</li>
+<li>a、表单标签：这里面包含了处理表单数据所用CGI程序的URL,以及数据提交到服务器的方法。</li>
+<li>b、表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框、和文件上传框等。</li>
+<li>c、表单按钮：包括提交按钮，复位按钮和一般按钮；用于将数据传送到服务器上的CGI脚本或者取消输入，还可以用表单按钮来控制其他定义了处理脚本的处理工作。</li>
+<li>主要用途：表单在网页中主要负责数据采集的功能，和向服务器传送数据。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/ce5f3f096db94858bbd96a7d9585a48c">Discussion</a></li>
+</ul>
+<h2 id="表单提交中get和post方式的区别？">表单提交中Get和Post方式的区别？<a class="header-anchor" href="#表单提交中get和post方式的区别？">⁍</a></h2>
+<ul>
+<li>(1)、get是从服务器上获取数据，post是向服务器传送数据。</li>
+<li>(2)、get是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。post是通过HTTPpost机制，将表单内各个字段与其内容放置在HTMLHEADER内一起传送到ACTION属性所指的URL地址,用户看不到这个过程。</li>
+<li>(3)、对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据。</li>
+<li>(4)、get传送的数据量较小，不能大于2KB。post传送的数据量较大，一般被默认为不受限制。但理论上，IIS4中最大量为80KB，IIS5中为100KB。</li>
+<li>(5)、get安全性低，post安全性较高。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/a558b2de11a34d2f83910f7d83220290">Discussion</a></li>
+</ul>
+<h2 id="html5-有哪些新增的表单元素？">HTML5 有哪些新增的表单元素？<a class="header-anchor" href="#html5-有哪些新增的表单元素？">⁍</a></h2>
+<ul>
+<li>HTML5新增了很多表单元素让开发者构建更优秀的Web应用程序，主要有：datalistkeygenoutput<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/7ffb0dfd4a944c2898c98148dee56c55">Discussion</a></li>
+</ul>
+<h2 id="html5-废弃了哪些-html4-标签？">HTML5 废弃了哪些 HTML4 标签？<a class="header-anchor" href="#html5-废弃了哪些-html4-标签？">⁍</a></h2>
+<ul>
+<li>HTML5废弃了一些过时的，不合理的HTML标签：</li>
+<li>·frame</li>
+<li>·frameset</li>
+<li>·noframe</li>
+<li>·applet</li>
+<li>·big</li>
+<li>·center</li>
+<li>·basefont<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/61c01db3031a4d91a3c4df6de1fddd91">Discussion</a></li>
+</ul>
+<h2 id="html5-标准提供了哪些新的-api？">HTML5 标准提供了哪些新的 API？<a class="header-anchor" href="#html5-标准提供了哪些新的-api？">⁍</a></h2>
+<ul>
+<li>HTML5提供的应用程序API主要有：</li>
+<li>·MediaAPI</li>
+<li>·TextTrackAPI</li>
+<li>·ApplicationCacheAPI</li>
+<li>·UserInteraction</li>
+<li>·DataTransferAPI</li>
+<li>·CommandAPI</li>
+<li>·ConstraintValidationAPI</li>
+<li>·HistoryAPI<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/021a9a324bb04123abd2094a085a1865">Discussion</a></li>
+</ul>
+<h2 id="html5-存储类型有什么区别？">HTML5 存储类型有什么区别？<a class="header-anchor" href="#html5-存储类型有什么区别？">⁍</a></h2>
+<ul>
+<li>HTML5能够本地存储数据，在之前都是使用cookies使用的。HTML5提供了下面两种本地存储方案：</li>
+<li>·localStorage用于持久化的本地存储，数据永远不会过期，关闭浏览器也不会丢失。</li>
+<li>·sessionStorage同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/e0ba391887af4cb78d2d7de958f57eac">Discussion</a></li>
+</ul>
+<h2 id="html5-应用程序缓存和浏览器缓存有什么区别？">HTML5 应用程序缓存和浏览器缓存有什么区别？<a class="header-anchor" href="#html5-应用程序缓存和浏览器缓存有什么区别？">⁍</a></h2>
+<ul>
+<li>应用程序缓存是HTML5的重要特性之一，提供了离线使用的功能，让应用程序可以获取本地的网站内容，例如HTML、CSS、图片以及JavaScript。这个特性可以提高网站性能，它的实现借助于manifest文件，如下：</li>
+<li>&lt;!doctypehtml&gt;</li>
+<li>&lt;htmlmanifest=”example.appcache”&gt;</li>
+<li>……</li>
+<li>&lt;/html&gt;</li>
+<li>与传统浏览器缓存相比，它不强制用户访问的网站内容被缓存。<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/af6801e0e4c844e8a07590c58a313784">Discussion</a></li>
+</ul>
+<h2 id="html5-canvas-元素有什么用？">HTML5 Canvas 元素有什么用？<a class="header-anchor" href="#html5-canvas-元素有什么用？">⁍</a></h2>
+<ul>
+<li>Canvas元素用于在网页上绘制图形，该元素标签强大之处在于可以直接在HTML上进行图形操作，</li>
+<li>&lt;canvasid=”canvas1″width=”300″height=”100″&gt;</li>
+<li>&lt;/canvas&gt;<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/77602347b5ea4a7aa1f5d81064176795">Discussion</a></li>
+</ul>
+<h2 id="除了-audio-和-video，html5-还有哪些媒体标签？">除了 audio 和 video，HTML5 还有哪些媒体标签？<a class="header-anchor" href="#除了-audio-和-video，html5-还有哪些媒体标签？">⁍</a></h2>
+<ul>
+<li>HTML5对于多媒体提供了强有力的支持，除了audio和video标签外，还支持以下标签：</li>
+<li>&lt;embed&gt;标签定义嵌入的内容，比如插件。</li>
+<li>&lt;embedtype=”video/quicktime”src=”Fishing.mov”&gt;</li>
+<li>&lt;source&gt;对于定义多个数据源很有用。</li>
+<li>&lt;videowidth=”450″height=”340″controls&gt;</li>
+<li>&lt;sourcesrc=”jamshed.mp4″type=”video/mp4″&gt;</li>
+<li>&lt;sourcesrc=”jamshed.ogg”type=”video/ogg”&gt;</li>
+<li>&lt;/video&gt;</li>
+<li>&lt;track&gt;标签为诸如video元素之类的媒介规定外部文本轨道。用于规定字幕文件或其他包含文本的文件，当媒介播放时，这些文件是可见的。</li>
+<li>&lt;videowidth=”450″height=”340″controls&gt;</li>
+<li>&lt;sourcesrc=”jamshed.mp4″type=”video/mp4″&gt;</li>
+<li>&lt;sourcesrc=”jamshed.ogg”type=”video/ogg”&gt;</li>
+<li>&lt;trackkind=”subtitles”label=”English”src=”jamshed_en.vtt”srclang=”en”default&gt;&lt;/track&gt;</li>
+<li>&lt;trackkind=”subtitles”label=”Arabic”src=”jamshed_ar.vtt”srclang=”ar”&gt;&lt;/track&gt;</li>
+<li>&lt;/video&gt;<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/ccea2548d5994150a77c1f9c869bf674">Discussion</a></li>
+</ul>
+<h2 id="html5-中如何嵌入视频？">HTML5 中如何嵌入视频？<a class="header-anchor" href="#html5-中如何嵌入视频？">⁍</a></h2>
+<ul>
+<li>和音频类似，HTML5支持MP4、WebM和Ogg格式的视频，下面是简单示例：</li>
+<li>&lt;videowidth=”450″height=”340″controls&gt;</li>
+<li>&lt;sourcesrc=”jamshed.mp4″type=”video/mp4″&gt;</li>
+<li>Yourbrowserdoes’ntsupportvideoembeddingfeature.</li>
+<li>&lt;/video&gt;<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/f45c7428912646369697623c00bb4412">Discussion</a></li>
+</ul>
+<h2 id="html5-中如何嵌入音频？">HTML5 中如何嵌入音频？<a class="header-anchor" href="#html5-中如何嵌入音频？">⁍</a></h2>
+<ul>
+<li>HTML5支持MP3、Wav和Ogg格式的音频，下面是在网页中嵌入音频的简单示例：</li>
+<li>&lt;audiocontrols&gt;</li>
+<li>&lt;sourcesrc=”jamshed.mp3″type=”audio/mpeg”&gt;</li>
+<li>Yourbrowserdoes’ntsupportaudioembeddingfeature.</li>
+<li>&lt;/audio&gt;<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/cc8e8d4db9d94d078011c4401dd6ac01">Discussion</a></li>
+</ul>
+<h2 id="新的-html5-文档类型和字符集是？">新的 HTML5 文档类型和字符集是？<a class="header-anchor" href="#新的-html5-文档类型和字符集是？">⁍</a></h2>
+<ul>
+<li>HTML5文档类型很简单：</li>
+<li>&lt;!doctypehtml&gt;</li>
+<li>HTML5使用UTF-8编码示例：</li>
+<li>&lt;metacharset=”UTF-8″&gt;<br>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/31dfd4d499bf4d0cb3362cbae7abeee8">Discussion</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Augu1sto</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://augu1sto.github.io/augu1sto/efb254aacb6e/">https://augu1sto.github.io/augu1sto/efb254aacb6e/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://augu1sto.github.io/augu1sto" target="_blank">若叶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/augu1sto/tags/HTML/">HTML</a></div><div class="post_share"><div class="social-share" data-image="/augu1sto/img/cover02.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/augu1sto/698e04067f30/"><img class="prev-cover" src="/augu1sto/img/cover03.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【FE学习-HTML】HTML重点汇总</div></div></a></div><div class="next-post pull-right"><a href="/augu1sto/46167eae39eb/"><img class="next-cover" src="/augu1sto/img/cover04.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">前端学习资源与计划</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/augu1sto/698e04067f30/" title="【FE学习-HTML】HTML重点汇总"><img class="cover" src="/augu1sto/img/cover03.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-20</div><div class="title">【FE学习-HTML】HTML重点汇总</div></div></a></div><div><a href="/augu1sto/46167eae39eb/" title="前端学习资源与计划"><img class="cover" src="/augu1sto/img/cover04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-16</div><div class="title">前端学习资源与计划</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/augu1sto/img/avatar.png" onerror="this.onerror=null;this.src='/augu1sto/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Augu1sto</div><div class="author-info__description">Articles | Notes | Ideas</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/augu1sto"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/augu1sto" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yingu081@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://codepen.io/augu1sto" target="_blank" title="CodePen"><i class="fab fa-codepen"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">【缓慢重新建站中】https://github.com/augu1sto/e31c317e1400/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9C%89%E5%93%AA%E4%B8%89%E5%B1%82%E6%9E%84%E6%88%90%EF%BC%8C%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">浏览器页面有哪三层构成，分别是什么，作用是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">HTML5的优点与缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#doctype%E4%BD%9C%E7%94%A8-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%B7%B7%E6%9D%82%E6%A8%A1%E5%BC%8F%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%EF%BC%9F%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BD%95%E6%84%8F%E4%B9%89"><span class="toc-number">3.</span> <span class="toc-text">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7%E3%80%81%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">HTML5有哪些新特性、移除了哪些元素？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E5%81%9A%E7%9A%84%E7%BD%91%E9%A1%B5%E5%9C%A8%E5%93%AA%E4%BA%9B%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B5%8B%E8%AF%95%E8%BF%87-%E8%BF%99%E4%BA%9B%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%86%85%E6%A0%B8%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">5.</span> <span class="toc-text">你做的网页在哪些浏览器测试过,这些浏览器的内核分别是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%8F%E4%B8%AAhtml%E6%96%87%E4%BB%B6%E9%87%8C%E5%BC%80%E5%A4%B4%E9%83%BD%E6%9C%89%E4%B8%AA%E5%BE%88%E9%87%8D%E8%A6%81%E7%9A%84%E4%B8%9C%E8%A5%BF%EF%BC%8Cdoctype%EF%BC%8C%E7%9F%A5%E9%81%93%E8%BF%99%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">每个HTML文件里开头都有个很重要的东西，Doctype，知道这是干什么的吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9html5%E8%AE%A4%E8%AF%86-%EF%BC%88%E6%98%AF%E4%BB%80%E4%B9%88-%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">说说你对HTML5认识?（是什么,为什么）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9web%E6%A0%87%E5%87%86%E4%BB%A5%E5%8F%8Aw3c%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E8%AE%A4%E8%AF%86"><span class="toc-number">8.</span> <span class="toc-text">对WEB标准以及W3C的理解与认识?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B-%E7%A9%BA%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">9.</span> <span class="toc-text">HTML5行内元素有哪些,块级元素有哪些, 空元素有哪些?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFwebgl-%E5%AE%83%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9"><span class="toc-number">10.</span> <span class="toc-text">什么是WebGL,它有什么优点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E4%BD%A0%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B-cookies%EF%BC%8Csessionstorage-%E5%92%8C-localstorage-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">11.</span> <span class="toc-text">请你描述一下 cookies，sessionStorage 和 localStorage 的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9html%E8%AF%AD%E4%B9%89%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">12.</span> <span class="toc-text">说说你对HTML语义化的理解?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#link%E5%92%8C-import%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">13.</span> <span class="toc-text">link和@import的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9svg%E7%90%86%E8%A7%A3"><span class="toc-number">14.</span> <span class="toc-text">说说你对SVG理解?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7-global-attribute-%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">15.</span> <span class="toc-text">HTML全局属性(global attribute)有哪些?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4%E8%B6%85%E9%93%BE%E6%8E%A5target%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8F%96%E5%80%BC%E5%92%8C%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">说说超链接target属性的取值和作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#data-%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">data-属性的作用是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">18.</span> <span class="toc-text">介绍一下你对浏览器内核的理解？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">19.</span> <span class="toc-text">常见的浏览器内核有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iframe%E6%9C%89%E9%82%A3%E4%BA%9B%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-number">20.</span> <span class="toc-text">iframe有那些缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#label%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%98%AF%E6%80%8E%E4%B9%88%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="toc-number">21.</span> <span class="toc-text">Label的作用是什么，是怎么用的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="toc-number">22.</span> <span class="toc-text">如何实现浏览器内多个标签页之间的通信?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%8A%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%9C%86%E5%BD%A2%E7%9A%84%E5%8F%AF%E7%82%B9%E5%87%BB%E5%8C%BA%E5%9F%9F%EF%BC%9F"><span class="toc-number">23.</span> <span class="toc-text">如何在页面上实现一个圆形的可点击区域？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#title%E4%B8%8Eh3%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%81b%E4%B8%8Estrong%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%81i%E4%B8%8Eem%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">24.</span> <span class="toc-text">title与h3的区别、b与strong的区别、i与em的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%8D%E4%BD%BF%E7%94%A8-border-%E7%94%BB%E5%87%BA1px%E9%AB%98%E7%9A%84%E7%BA%BF%EF%BC%8C%E5%9C%A8%E4%B8%8D%E5%90%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%A0%87%E5%87%86%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F%E4%B8%8B%E9%83%BD%E8%83%BD%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%E7%9A%84%E6%95%88%E6%9E%9C%EF%BC%9F"><span class="toc-number">25.</span> <span class="toc-text">实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%9C%E7%94%A8-%E7%94%A8%E9%80%94"><span class="toc-number">26.</span> <span class="toc-text">HTML5标签的作用?(用途)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8Bsrc%E4%B8%8Ehref%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">27.</span> <span class="toc-text">简述一下src与href的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9canvas%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">28.</span> <span class="toc-text">谈谈你对canvas的理解？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#websocket%E4%B8%8E%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81%EF%BC%9F"><span class="toc-number">29.</span> <span class="toc-text">WebSocket与消息推送？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#img%E7%9A%84title%E5%92%8Calt%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">30.</span> <span class="toc-text">img的title和alt有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E8%A1%A8%E5%8D%95%E7%9A%84%E4%B8%BB%E8%A6%81%E7%94%A8%E9%80%94%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">31.</span> <span class="toc-text">表单的基本组成部分有哪些，表单的主要用途是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E4%B8%ADget%E5%92%8Cpost%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">32.</span> <span class="toc-text">表单提交中Get和Post方式的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E5%A2%9E%E7%9A%84%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%EF%BC%9F"><span class="toc-number">33.</span> <span class="toc-text">HTML5 有哪些新增的表单元素？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5-%E5%BA%9F%E5%BC%83%E4%BA%86%E5%93%AA%E4%BA%9B-html4-%E6%A0%87%E7%AD%BE%EF%BC%9F"><span class="toc-number">34.</span> <span class="toc-text">HTML5 废弃了哪些 HTML4 标签？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5-%E6%A0%87%E5%87%86%E6%8F%90%E4%BE%9B%E4%BA%86%E5%93%AA%E4%BA%9B%E6%96%B0%E7%9A%84-api%EF%BC%9F"><span class="toc-number">35.</span> <span class="toc-text">HTML5 标准提供了哪些新的 API？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5-%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">36.</span> <span class="toc-text">HTML5 存储类型有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%BC%93%E5%AD%98%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">37.</span> <span class="toc-text">HTML5 应用程序缓存和浏览器缓存有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5-canvas-%E5%85%83%E7%B4%A0%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-number">38.</span> <span class="toc-text">HTML5 Canvas 元素有什么用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E4%BA%86-audio-%E5%92%8C-video%EF%BC%8Chtml5-%E8%BF%98%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AA%92%E4%BD%93%E6%A0%87%E7%AD%BE%EF%BC%9F"><span class="toc-number">39.</span> <span class="toc-text">除了 audio 和 video，HTML5 还有哪些媒体标签？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5-%E4%B8%AD%E5%A6%82%E4%BD%95%E5%B5%8C%E5%85%A5%E8%A7%86%E9%A2%91%EF%BC%9F"><span class="toc-number">40.</span> <span class="toc-text">HTML5 中如何嵌入视频？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html5-%E4%B8%AD%E5%A6%82%E4%BD%95%E5%B5%8C%E5%85%A5%E9%9F%B3%E9%A2%91%EF%BC%9F"><span class="toc-number">41.</span> <span class="toc-text">HTML5 中如何嵌入音频？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E7%9A%84-html5-%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86%E6%98%AF%EF%BC%9F"><span class="toc-number">42.</span> <span class="toc-text">新的 HTML5 文档类型和字符集是？</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/eb3eaf548f9c/" title="test"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test"/></a><div class="content"><a class="title" href="/augu1sto/eb3eaf548f9c/" title="test">test</a><time datetime="2022-12-11T17:32:20.000Z" title="发表于 2022-12-12 01:32:20">2022-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/aba77dc25685/" title="test-12"><img src="/augu1sto/img/cover02.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test-12"/></a><div class="content"><a class="title" href="/augu1sto/aba77dc25685/" title="test-12">test-12</a><time datetime="2022-12-11T15:15:35.000Z" title="发表于 2022-12-11 23:15:35">2022-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING..."><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="【公告】重新建站ING..."/></a><div class="content"><a class="title" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING...">【公告】重新建站ING...</a><time datetime="2022-11-30T13:52:27.000Z" title="发表于 2022-11-30 21:52:27">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解"><img src="/augu1sto/img/cover03.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="Array.prototype.unshift方法详解"/></a><div class="content"><a class="title" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解">Array.prototype.unshift方法详解</a><time datetime="2022-09-05T11:56:53.000Z" title="发表于 2022-09-05 19:56:53">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/4cf012bad379/" title="深拷贝"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="深拷贝"/></a><div class="content"><a class="title" href="/augu1sto/4cf012bad379/" title="深拷贝">深拷贝</a><time datetime="2022-09-03T12:28:50.000Z" title="发表于 2022-09-03 20:28:50">2022-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Augu1sto</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/augu1sto/js/utils.js"></script><script src="/augu1sto/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/augu1sto/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><div class="aplayer no-destroy" data-id="6990698783" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/augu1sto/live2dw/lib/L2Dwidget.min.js?b0f017d930c51acc4f4f9e757bdd83e9"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/augu1sto/live2dw/assets/kasumi_event128.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":30,"vOffset":0},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"text":["kira kira doki doki","大家我全都喜欢","poppipa pippopa"]},"log":false});</script></body></html>

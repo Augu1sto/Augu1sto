@@ -1,0 +1,563 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【论文阅读|TrajGen】KDD21'Generating Mobility Trajectories with Retained Data Utility | 若叶</title><meta name="keywords" content="轨迹,隐私保护,GAN,Seq2Seq"><meta name="author" content="Augu1sto"><meta name="copyright" content="Augu1sto"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="论文基本信息⁍  作者：Chu Cao, Mo Li（南洋理工） 年份：2021 会议&#x2F;期刊：KDD 相关下载：  原文PDF (acm.org) 会议视频 Download (acm.org)   阅读参考：  阅读小记- Generating Mobility Trajectories with Retained Data Utility - 知乎 (zhihu.com) KDD2021论文解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【论文阅读|TrajGen】KDD21&#39;Generating Mobility Trajectories with Retained Data Utility">
+<meta property="og:url" content="https://augu1sto.github.io/augu1sto/514bb2d87420/index.html">
+<meta property="og:site_name" content="若叶">
+<meta property="og:description" content="论文基本信息⁍  作者：Chu Cao, Mo Li（南洋理工） 年份：2021 会议&#x2F;期刊：KDD 相关下载：  原文PDF (acm.org) 会议视频 Download (acm.org)   阅读参考：  阅读小记- Generating Mobility Trajectories with Retained Data Utility - 知乎 (zhihu.com) KDD2021论文解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://augu1sto.github.io/augu1sto/img/cover05.jpg">
+<meta property="article:published_time" content="2021-12-23T08:03:02.000Z">
+<meta property="article:modified_time" content="2022-01-12T14:55:56.557Z">
+<meta property="article:author" content="Augu1sto">
+<meta property="article:tag" content="轨迹">
+<meta property="article:tag" content="隐私保护">
+<meta property="article:tag" content="GAN">
+<meta property="article:tag" content="Seq2Seq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augu1sto.github.io/augu1sto/img/cover05.jpg"><link rel="shortcut icon" href="/augu1sto/img/favicon.png"><link rel="canonical" href="https://augu1sto.github.io/augu1sto/514bb2d87420/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-oEsTyOVPwJ"/><link rel="stylesheet" href="/augu1sto/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/augu1sto/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【论文阅读|TrajGen】KDD21\'Generating Mobility Trajectories with Retained Data Utility',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-12 22:55:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="google-site-verification" content="a1IrzpkO5Jd9_eZl1_IwZSZ779M4c5LPUf7oSBp4G58" /><link rel="stylesheet" href="/self/material.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/augu1sto/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/augu1sto/img/cover05.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/augu1sto/">若叶</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【论文阅读|TrajGen】KDD21'Generating Mobility Trajectories with Retained Data Utility</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-23T08:03:02.000Z" title="发表于 2021-12-23 16:03:02">2021-12-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-12T14:55:56.557Z" title="更新于 2022-01-12 22:55:56">2022-01-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/augu1sto/categories/%E8%BD%A8%E8%BF%B9%E5%90%88%E6%88%90/">轨迹合成</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【论文阅读|TrajGen】KDD21'Generating Mobility Trajectories with Retained Data Utility"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="论文基本信息">论文基本信息<a class="header-anchor" href="#论文基本信息">⁍</a></h2>
+<ul>
+<li>作者：Chu Cao, Mo Li（南洋理工）</li>
+<li>年份：2021</li>
+<li>会议/期刊：KDD</li>
+<li>相关下载：
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/pdf/10.1145/3447548.3467158">原文PDF (acm.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3447548.3467158&amp;file=KDD21-ads2731.mp4">会议视频 Download (acm.org)</a></li>
+</ul>
+</li>
+<li>阅读参考：
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/390626904">阅读小记- Generating Mobility Trajectories with Retained Data Utility - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/388258494">KDD2021论文解读：路段粒度的轨迹生成 - 知乎 (zhihu.com)</a></li>
+</ul>
+</li>
+<li>开源信息： <a target="_blank" rel="noopener" href="https://github.com/caochuntu/KDD2021_guizu">github</a> (仓库尚在更新，未完全开源)</li>
+<li>简介：提出了一种新的时空轨迹生成模型，该模型基于 GAN 与 Seq2Seq 来仿照真实轨迹生成相似的轨迹数据。
+<ul>
+<li>模型名称：TrajGen</li>
+<li>数据集： real-world taxi trajectory data in Singapore.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="简介">简介<a class="header-anchor" href="#简介">⁍</a></h2>
+<p>提出了一种新的轨迹生成模型，该模型基于 GAN 与 Seq2Seq 来仿照真实轨迹生成相似的轨迹数据。</p>
+<ul>
+<li>时空信息的解耦与合并
+<ul>
+<li>空间分布的图像：GAN</li>
+<li>时间信息学习：Seq2Seq</li>
+<li>从GAN生成的图像中提取位置并输入Seq2Seq模型以推断出连接这些位置和轨迹的适当序列轨迹。一个完全连接的ANN将时间戳分配给每个轨迹中的顺序位置。</li>
+</ul>
+</li>
+</ul>
+<h2 id="问题定义">问题定义<a class="header-anchor" href="#问题定义">⁍</a></h2>
+<p>输入：</p>
+<ul>
+<li>
+<p>历史真实轨迹集合 ：</p>
+<p>$${\tau_1,\tau_2,\tau_3,…,\tau_n}$$</p>
+<ul>
+<li>$\tau=(loc_1,loc_2,…)$</li>
+<li>$loc_i=(lat_i,lon_i,t_i)$</li>
+</ul>
+</li>
+<li>
+<p>路网信息，表示路段集合V以及路段间的交点集合E。</p>
+<p>$$G=(V,E)$$</p>
+</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>
+<p>生成的轨迹集合，其分布与原轨迹集合相似。</p>
+<p>$${\hat\tau_1,\hat\tau_2,\hat\tau_3,…,\hat\tau_m}$$</p>
+</li>
+</ul>
+<p>旅行模式：</p>
+<ul>
+<li>
+<p>旅行模式反映了用户的旅行偏好，是一连串的地理上相邻的边</p>
+<p>$${e_1\rightarrow e_2\rightarrow …\rightarrow e_n}$$</p>
+</li>
+</ul>
+<h2 id="算法框架">算法框架<a class="header-anchor" href="#算法框架">⁍</a></h2>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112240043233.png" alt="image-20211224004336149"></p>
+<p>输入：Mobility Trajectories + Mobility Map</p>
+<p>1）生成空间点，学习空间位置的分布，生成一条轨迹的空间点集合；–&gt;DCGAN[]</p>
+<p>2）赋予空间点顺序。对生成的空间点集合，赋予其顺序关系，使空间点集合转为空间点序列；–&gt; map matching[25],seq2seq[32]</p>
+<p>3）赋予每个空间点相应的时间戳信息。–&gt;ANN</p>
+<h3 id="空间分布学习——生成空间点">空间分布学习——生成空间点<a class="header-anchor" href="#空间分布学习——生成空间点">⁍</a></h3>
+<ul>
+<li>
+<p>2D空间映射为图像（可逆）</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112240017437.png" alt=""></p>
+<ul>
+<li>
+<p>将城市整个城市地图$M$进行了网格化（像素化），从而将每个轨迹点映射到了一个网格（像素）中</p>
+<ul>
+<li>城市最小经度 $x_0=\min{longitude_M}$</li>
+<li>城市最小纬度 $y_0 = \min{latitude_M}$</li>
+<li>城市经度跨度 $W = \max{longtitude_M}-x_0$</li>
+<li>城市纬度跨度 $H = \max{latitude_M}-y_0$</li>
+<li>图片像素大小 $\mu$</li>
+</ul>
+</li>
+<li>
+<p>$\tau_i\rightarrow\bar{\tau_i}$:</p>
+<p>$$(lat_i,lon_i,t_i)\rightarrow(\frac{lon_i-x_0}{\mu},\frac{lat_i-y_0}{\mu})$$</p>
+</li>
+<li>
+<p>$\bar{\tau_i}\rightarrow img_i$:坐标像素和周围8个像素都为黑色，其他为白色（时空位置上<strong>都</strong>很接近的块可以<strong>合并</strong>为一个）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>用DCGAN来生成新的图片形式的轨迹，模拟原始轨迹的分布</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112240039640.png" alt="image-20211224003931562"></p>
+</li>
+<li>
+<p>用Harris角落检测器[15]识别生成的图像的角落，并转换为经纬度形式的位置</p>
+</li>
+</ul>
+<h3 id="赋予空间点顺序">赋予空间点顺序<a class="header-anchor" href="#赋予空间点顺序">⁍</a></h3>
+<p>在上一步，该模型生成了一条轨迹对应的、无序的轨迹空间点集合。在本步骤，这些空间点被赋予顺序，使得在此顺序下，空间点序列与真实轨迹序列相近。</p>
+<ul>
+<li>训练模型（seq2seq）： travel pattern</li>
+<li>输入：Mobility Map Embedding</li>
+<li>目标输出：按原始顺序排布的位置路径（Ground Truth）</li>
+</ul>
+<h4 id="数据预处理">数据预处理<a class="header-anchor" href="#数据预处理">⁍</a></h4>
+<p>通过基于距离的路网匹配算法，将轨迹点映射到最近的路段上</p>
+<ul>
+<li>
+<p>如下图(a)，点1-5首先通过路网匹配算法，映射到了i,ii,iii,iv,v五条路段上。</p>
+</li>
+<li>
+<p>路段ID进行排序，得到图(b)的Mobility Map Embedding序列（default序列）</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241606780.png" alt="image-20211224160646681"></p>
+<h4 id="训练">训练<a class="header-anchor" href="#训练">⁍</a></h4>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241105883.png" alt="image-20211224110529810"></p>
+<ul>
+<li>
+<p>每条真实轨迹为Seq2Seq模型提供一个训练样本，即一对源序列和目标序列。</p>
+</li>
+<li>
+<p>Seq2Seq模型将源序列编码为一个向量，并将向量解码为一个目标序列。通过这样一个编码器-解码器结构，Seq2Seq构建了将源序列映射到目标序列的条件概率。</p>
+</li>
+<li>
+<p>利用GRU作为Seq2Seq模型的RNN单元，先用GRU编码器将Mobility Map Embedding序列编码为隐层表征，并用GRU解码器解码，与Ground Truth进行比较，以更新GRU模型参数。此处，各条路段初始状态下被表示为one-hot形式。</p>
+<blockquote>
+<p>一个Seq2Seq模型被训练来学习序列信息。Seq2Seq模型的所有参数都是随机初始化的，并使用Adam优化器进行更新。我们利用GRU作为Seq2Seq模型的RNN单元，因为它比LSTM具有更高的计算效率。在Seq2Seq模型的训练过程中，我们采用了填充技术，以确保所有的输入都是相同的长度，并利用注意力机制使Seq2Seq模型强调重要路段。（Appendix A.2 Implementation）</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="生成">生成<a class="header-anchor" href="#生成">⁍</a></h4>
+<p>给定无序的、生成的空间点集合</p>
+<ul>
+<li>首先经过预处理，得到Mobility Map Embedding序列。</li>
+<li>利用已训练完成的GRU编码器和解码器，推测这些路段的真实顺序。</li>
+<li>得到路段顺序之后，相应地匹配到这些路段上的空间点顺序也可以被得到。</li>
+</ul>
+<h3 id="时序信息学习——推测时间信息">时序信息学习——推测时间信息<a class="header-anchor" href="#时序信息学习——推测时间信息">⁍</a></h3>
+<p>通过上述两步骤，一条生成轨迹可以被表示为空间点序列： ${(lat_1,lon_1),(lat_2,lon_2),…}$</p>
+<p>本步骤对序列中的每个点赋予时间。</p>
+<p>1）推测第一个点的时间 $t_0$。</p>
+<p>这一步通过ANN来实现，其输入特征为轨迹长度，以及轨迹经过的第一条匹配路段，输出为时间$t_0$。由原始真实数据训练得到模型参数。</p>
+<p>2）为任意第i个点赋予时间 $t_i=t_0+i\times\Delta t$</p>
+<blockquote>
+<p>$1/\Delta t$为为真实数据的采样频率 ==&gt; 数据集的采样频率要固定</p>
+<p>time slot $\Delta t = 15s$</p>
+</blockquote>
+<h3 id="结果">结果<a class="header-anchor" href="#结果">⁍</a></h3>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241625280.png" alt="image-20211224162536198"></p>
+<h2 id="实验">实验<a class="header-anchor" href="#实验">⁍</a></h2>
+<ul>
+<li>数据集：新加坡路网以及新加坡出租车轨迹数据执行实验。</li>
+<li>Baseline：
+<ul>
+<li>1）Random Perturbation（RP），将原始轨迹点替换为其2km范围内的随机任一点；</li>
+<li>2）Gaussian Perturbation（GP），将原始轨迹点替换为高斯分布点；</li>
+<li>3）TrajGen-v。与上述方法相同，但DCGAN和Seq2Seq训练数据来自不同数据源，此处论文作者的意图是验证DCGAN和RNN可以被独立训练；</li>
+<li>Raw Data。提取了原始真实数据的一个子集，该方法的实验效果，表示了模型的效果上限。</li>
+<li>Base Data。原始的真实数据。</li>
+</ul>
+</li>
+</ul>
+<h3 id="空间分布的相似性">空间分布的相似性<a class="header-anchor" href="#空间分布的相似性">⁍</a></h3>
+<ul>
+<li>Cosine相似度：把上图中的、带有轨迹点密度信息的网格矩阵向量化，并计算两向量之间的Cosine值。</li>
+</ul>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241655428.png" alt="image-20211224165535225"></p>
+<blockquote>
+<p>上图给出了原始数据（base data）与五种方法的轨迹数据空间分布对比，以热力图形式呈现，其中每个网格代表$1km^2$ 的小区域。由于RP和GP这两个baseline被设计得较为糟糕，原始的轨迹点位置信息被完全模糊化，因此效果非常差。</p>
+</blockquote>
+<ul>
+<li>
+<p>为了克服实验的偶然因素，轨迹集合生成、以及空间分布相似度计算过程，被重复执行500次。</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241659797.png" alt="image-20211224165943704"></p>
+</li>
+</ul>
+<blockquote>
+<p>上图6给出了五种方法生成轨迹与真实轨迹Cosine值在500次重复实验中的分布情况(CDF:分布函数)。可以看出，即使重复实验多次，TrajGen生成轨迹的Cosine值稳定地大于0.9，效果排第二，仅次于从真实数据中选择子样本。</p>
+</blockquote>
+<h3 id="时序分布相似性">时序分布相似性<a class="header-anchor" href="#时序分布相似性">⁍</a></h3>
+<ul>
+<li>
+<p>计算各种方法与base data的分布之间的Cosine相似性</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241706024.png" alt="image-20211224170623937"></p>
+</li>
+</ul>
+<h3 id="统计特征">统计特征<a class="header-anchor" href="#统计特征">⁍</a></h3>
+<p>举了四种例子证明TrajGen模型可以保留统计特征。</p>
+<ol>
+<li>
+<p>到匹配路段的距离（fig.8）</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241727721.png" alt="image-20211224172741628"></p>
+</li>
+<li>
+<p>travel distance(fig.9)</p>
+</li>
+</ol>
+<p>​	$$d_{\tau_i}=\sigma_{k=1}<sup>{m-1}{D_{mm}(loc_k</sup>i,loc_{k+1}^i)},  D_{mm}(a,b)表示a,b两点间路段的距离$$</p>
+<p>​	<img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241727252.png" alt="image-20211224172759164"></p>
+<ol start="3">
+<li>
+<p>每个小时的travel覆盖的范围（km<sup>2</sup>）</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241728953.png" alt="image-20211224172814857"></p>
+</li>
+<li>
+<p>普通道路和快速道路的比例</p>
+<blockquote>
+<p>Based on the <code>#tag</code> information in OpenStreetMap [26]</p>
+</blockquote>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241728942.png" alt="image-20211224172828850"></p>
+</li>
+</ol>
+<h3 id="实用性">实用性<a class="header-anchor" href="#实用性">⁍</a></h3>
+<h4 id="case-1：路网更新">case 1：路网更新<a class="header-anchor" href="#case-1：路网更新">⁍</a></h4>
+<p>利用生成轨迹进行路网更新，测试生成轨迹是否能帮助发现未收录的路网。</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241751680.png" alt="image-20211224175110542"></p>
+<p>如上图所示，灰色路段为原路网，黑色路段是为测试路网更新效果而被删除的路段，红色是被轨迹检测出的路段。可以发现，即使输入路网数据删除了大量路段，TrajGen仍然可以从原始轨迹中感知这些路段的存在，并生成沿着路段移动的轨迹。这从侧面体现了，在该工作的设置下，DCGAN可以捕获输入图片在局部位置频繁出现的线路形状，并在生成阶段也在这些局部位置，相应地形成同样形状的线路。</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241758532.png" alt="image-20211224175852440"></p>
+<h4 id="case-2：起点-终点需求估计">case 2：起点-终点需求估计<a class="header-anchor" href="#case-2：起点-终点需求估计">⁍</a></h4>
+<blockquote>
+<p>OD估计是描述公民出行需求的经典应用。其目的是计算OD矩阵。矩阵的每个值都代表从一个地点（即原点）到另一个地点（即目的地）的旅行需求。</p>
+<ul>
+<li>对出租车的OD需求定义为每个时间间隔内从出发地到目的地的出租车请求总数。</li>
+<li>一段轨迹可能包含多个旅程journey(OD对)：用在小区域内移动或停留在出租车上客站所产生的位置来区分。</li>
+<li>用DBSCAN[17]算法来确定核心位置，切割多个旅程</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>通过比较OD矩阵来评估TrajGen是否保留了OD需求的效用。</p>
+</li>
+<li>
+<p>把OD矩阵reshape成向量</p>
+</li>
+<li>
+<p>计算Cosine相似度</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202112241809206.png" alt="image-20211224180922111"></p>
+<h2 id="总结">总结<a class="header-anchor" href="#总结">⁍</a></h2>
+<ul>
+<li>这个工作主要是将轨迹的空间和时间信息进行解耦，将空间位置信息以图像的形式进行伪造的生成（DCGAN），再推断出时序信息（Seq2Seq），并合并进去</li>
+<li>文中将轨迹进行了可视化处理</li>
+<li>为了证明生成的轨迹的可用性，设计了非常详实的实验，有许多可以借鉴的地方</li>
+<li>没有实验证明生成的轨迹的隐私性（对比TrajGAN，设计了TUL的实验）</li>
+</ul>
+<hr>
+<ul class="contains-task-list">
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 相关工作</p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> background部分有对GAN和seq2seq的介绍</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Augu1sto</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://augu1sto.github.io/augu1sto/514bb2d87420/">https://augu1sto.github.io/augu1sto/514bb2d87420/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://augu1sto.github.io/augu1sto" target="_blank">若叶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/augu1sto/tags/%E8%BD%A8%E8%BF%B9/">轨迹</a><a class="post-meta__tags" href="/augu1sto/tags/%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4/">隐私保护</a><a class="post-meta__tags" href="/augu1sto/tags/GAN/">GAN</a><a class="post-meta__tags" href="/augu1sto/tags/Seq2Seq/">Seq2Seq</a></div><div class="post_share"><div class="social-share" data-image="/augu1sto/img/cover05.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/augu1sto/8cb18cd4baea/"><img class="prev-cover" src="/augu1sto/img/cover02.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【面试-线程相关】i++在两个线程分别执行100次，最大值和最小值分别多少</div></div></a></div><div class="next-post pull-right"><a href="/augu1sto/0e1497f209b4/"><img class="next-cover" src="/augu1sto/img/cover02.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【动手学深度学习】模型选择、欠拟合和过拟合</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/augu1sto/30e8bf2b6dab/" title="【论文阅读】GIScience21-LSTM-TrajGAN·A Deep Learning Approach to Trajectory Privacy Protection"><img class="cover" src="/augu1sto/img/cover02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-24</div><div class="title">【论文阅读】GIScience21-LSTM-TrajGAN·A Deep Learning Approach to Trajectory Privacy Protection</div></div></a></div><div><a href="/augu1sto/b8163cc89113/" title="【论文阅读】TrajGAIL·Generating urban vehicle trajectories using  generative adversarial imitation learning"><img class="cover" src="/augu1sto/img/cover04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-06</div><div class="title">【论文阅读】TrajGAIL·Generating urban vehicle trajectories using  generative adversarial imitation learning</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/augu1sto/img/avatar.png" onerror="this.onerror=null;this.src='/augu1sto/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Augu1sto</div><div class="author-info__description">Articles | Notes | Ideas</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/augu1sto"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/augu1sto" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yingu081@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://codepen.io/augu1sto" target="_blank" title="CodePen"><i class="fab fa-codepen"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">【缓慢重新建站中】https://github.com/augu1sto/e31c317e1400/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">论文基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-number">3.</span> <span class="toc-text">问题定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%A1%86%E6%9E%B6"><span class="toc-number">4.</span> <span class="toc-text">算法框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%88%86%E5%B8%83%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E7%94%9F%E6%88%90%E7%A9%BA%E9%97%B4%E7%82%B9"><span class="toc-number">4.1.</span> <span class="toc-text">空间分布学习——生成空间点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%8B%E4%BA%88%E7%A9%BA%E9%97%B4%E7%82%B9%E9%A1%BA%E5%BA%8F"><span class="toc-number">4.2.</span> <span class="toc-text">赋予空间点顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">4.2.1.</span> <span class="toc-text">数据预处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83"><span class="toc-number">4.2.2.</span> <span class="toc-text">训练</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90"><span class="toc-number">4.2.3.</span> <span class="toc-text">生成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E4%BF%A1%E6%81%AF%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%8E%A8%E6%B5%8B%E6%97%B6%E9%97%B4%E4%BF%A1%E6%81%AF"><span class="toc-number">4.3.</span> <span class="toc-text">时序信息学习——推测时间信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">4.4.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%88%86%E5%B8%83%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7"><span class="toc-number">5.1.</span> <span class="toc-text">空间分布的相似性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%88%86%E5%B8%83%E7%9B%B8%E4%BC%BC%E6%80%A7"><span class="toc-number">5.2.</span> <span class="toc-text">时序分布相似性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E7%89%B9%E5%BE%81"><span class="toc-number">5.3.</span> <span class="toc-text">统计特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E6%80%A7"><span class="toc-number">5.4.</span> <span class="toc-text">实用性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#case-1%EF%BC%9A%E8%B7%AF%E7%BD%91%E6%9B%B4%E6%96%B0"><span class="toc-number">5.4.1.</span> <span class="toc-text">case 1：路网更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#case-2%EF%BC%9A%E8%B5%B7%E7%82%B9-%E7%BB%88%E7%82%B9%E9%9C%80%E6%B1%82%E4%BC%B0%E8%AE%A1"><span class="toc-number">5.4.2.</span> <span class="toc-text">case 2：起点-终点需求估计</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/eb3eaf548f9c/" title="test"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test"/></a><div class="content"><a class="title" href="/augu1sto/eb3eaf548f9c/" title="test">test</a><time datetime="2022-12-11T17:32:20.000Z" title="发表于 2022-12-12 01:32:20">2022-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/aba77dc25685/" title="test-12"><img src="/augu1sto/img/cover02.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test-12"/></a><div class="content"><a class="title" href="/augu1sto/aba77dc25685/" title="test-12">test-12</a><time datetime="2022-12-11T15:15:35.000Z" title="发表于 2022-12-11 23:15:35">2022-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING..."><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="【公告】重新建站ING..."/></a><div class="content"><a class="title" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING...">【公告】重新建站ING...</a><time datetime="2022-11-30T13:52:27.000Z" title="发表于 2022-11-30 21:52:27">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解"><img src="/augu1sto/img/cover03.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="Array.prototype.unshift方法详解"/></a><div class="content"><a class="title" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解">Array.prototype.unshift方法详解</a><time datetime="2022-09-05T11:56:53.000Z" title="发表于 2022-09-05 19:56:53">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/4cf012bad379/" title="深拷贝"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="深拷贝"/></a><div class="content"><a class="title" href="/augu1sto/4cf012bad379/" title="深拷贝">深拷贝</a><time datetime="2022-09-03T12:28:50.000Z" title="发表于 2022-09-03 20:28:50">2022-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Augu1sto</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/augu1sto/js/utils.js"></script><script src="/augu1sto/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/augu1sto/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><div class="aplayer no-destroy" data-id="6990698783" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/augu1sto/live2dw/lib/L2Dwidget.min.js?b0f017d930c51acc4f4f9e757bdd83e9"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/augu1sto/live2dw/assets/kasumi_event128.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":30,"vOffset":0},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"text":["kira kira doki doki","大家我全都喜欢","poppipa pippopa"]},"log":false});</script></body></html>

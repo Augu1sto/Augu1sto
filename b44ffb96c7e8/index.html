@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>python提取Leetbook和Leetcode题解为markdown笔记 | 若叶</title><meta name="keywords" content="Leetcode,GraphQL,python"><meta name="author" content="Augu1sto"><meta name="copyright" content="Augu1sto"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="项目源码地址⁍ Augu1sto&#x2F;leet2md: 将leetcode.cn上面的部分leetbook和solution题解保存为markdown文件 (github.com) 需求分析⁍ 在阅读Leetcode题解、Leetbook（如图解算法数据结构 - LeetBook - 力扣（LeetCode）全球极客挚爱的技术成长平台 (leetcode-cn.com)）要做markdown笔记时，复">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python提取Leetbook和Leetcode题解为markdown笔记">
+<meta property="og:url" content="https://augu1sto.github.io/augu1sto/b44ffb96c7e8/index.html">
+<meta property="og:site_name" content="若叶">
+<meta property="og:description" content="项目源码地址⁍ Augu1sto&#x2F;leet2md: 将leetcode.cn上面的部分leetbook和solution题解保存为markdown文件 (github.com) 需求分析⁍ 在阅读Leetcode题解、Leetbook（如图解算法数据结构 - LeetBook - 力扣（LeetCode）全球极客挚爱的技术成长平台 (leetcode-cn.com)）要做markdown笔记时，复">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://augu1sto.github.io/augu1sto/img/cover01.jpg">
+<meta property="article:published_time" content="2022-01-30T09:51:36.000Z">
+<meta property="article:modified_time" content="2022-01-30T11:23:37.071Z">
+<meta property="article:author" content="Augu1sto">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="GraphQL">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augu1sto.github.io/augu1sto/img/cover01.jpg"><link rel="shortcut icon" href="/augu1sto/img/favicon.png"><link rel="canonical" href="https://augu1sto.github.io/augu1sto/b44ffb96c7e8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-oEsTyOVPwJ"/><link rel="stylesheet" href="/augu1sto/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/augu1sto/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'python提取Leetbook和Leetcode题解为markdown笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-30 19:23:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="google-site-verification" content="a1IrzpkO5Jd9_eZl1_IwZSZ779M4c5LPUf7oSBp4G58" /><link rel="stylesheet" href="/self/material.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/augu1sto/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/augu1sto/img/cover01.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/augu1sto/">若叶</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">python提取Leetbook和Leetcode题解为markdown笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-30T09:51:36.000Z" title="发表于 2022-01-30 17:51:36">2022-01-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-30T11:23:37.071Z" title="更新于 2022-01-30 19:23:37">2022-01-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="python提取Leetbook和Leetcode题解为markdown笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="项目源码地址">项目源码地址<a class="header-anchor" href="#项目源码地址">⁍</a></h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/Augu1sto/leet2md">Augu1sto/leet2md: 将leetcode.cn上面的部分leetbook和solution题解保存为markdown文件 (github.com)</a></p>
+<h2 id="需求分析">需求分析<a class="header-anchor" href="#需求分析">⁍</a></h2>
+<p>在阅读Leetcode题解、Leetbook（如<a target="_blank" rel="noopener" href="https://leetcode-cn.com/leetbook/detail/illustration-of-algorithm/">图解算法数据结构 - LeetBook - 力扣（LeetCode）全球极客挚爱的技术成长平台 (leetcode-cn.com)</a>）要做markdown笔记时，复制粘贴总会出现格式混乱/公式渲染等问题。经过一阵尝试和分析之后，打算直接用python爬取整个网页内容，将文章保存存为markdown格式再进行编辑。</p>
+<h2 id="网页分析">网页分析<a class="header-anchor" href="#网页分析">⁍</a></h2>
+<p>以<a target="_blank" rel="noopener" href="https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/phn3m1/">图解算法数据结构 - LeetBook - 力扣（LeetCode）全球极客挚爱的技术成长平台 (leetcode-cn.com)</a>为例</p>
+<p>通过查看网页源码发现，文章的具体内容是动态加载的，【F12】-<code>网络</code>-<code>Fetch/XHR</code>-刷新，可以查看捕获的数据包。</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202201301801080.png" alt="image-20220130180134972"></p>
+<p>按<code>大小</code>进行排序，在<code>预览</code>里可以看到每个数据包大致的内容，如下图的数据包大致就是整本书的一个目录索引</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202201301803685.png" alt="image-20220130180311633"></p>
+<p>看到大概第4个<code>graphql</code>的时候，就看到目标文章了</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202201301806435.png" alt="image-20220130180656396"></p>
+<blockquote>
+<p>注意这里的<code>type</code>是<code>MARKDOWN</code>，<code>value</code>的内容就是Markdown格式的文章。而有的leetbook的<code>type</code>是其他类型比如HTML，这里就不考虑、不处理了。</p>
+</blockquote>
+<p>接下来的工作重点就是将这个<code>value</code>值爬下来。</p>
+<h2 id="graphql">GraphQL<a class="header-anchor" href="#graphql">⁍</a></h2>
+<p>GraphQL 是一种针对 Graph（图状数据）进行查询特别有优势的 Query Language（查询语言），所以叫做 GraphQL。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>GraphQL 既是一种用于 API 的查询语言也是一个满足你数据查询的运行时。 GraphQL 对你的 API 中的数据提供了一套易于理解的完整描述，使得客户端能够准确地获得它需要的数据，而且没有任何冗余，也让 API 更容易地随着时间推移而演进，还能用于构建强大的开发者工具。<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<p>GrapgQL是Facebook发明的，在Facebook/Github/coursera/…中有广泛应用。</p>
+<p>GraphQL的使用与学习主要集中在描述与请求上，本文设计的问题应该就是要请求查询，可以参考<a target="_blank" rel="noopener" href="https://graphql.cn/code/#python-client">GraphQL Code Libraries, Tools and Services</a>进行学习。</p>
+<p><mark>但文章中选择直接利用requests实现<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>。</mark></p>
+<h2 id="request实现leetbook中markdown类型文章爬取">request实现Leetbook中markdown类型文章爬取<a class="header-anchor" href="#request实现leetbook中markdown类型文章爬取">⁍</a></h2>
+<h3 id="构造post请求">构造POST请求<a class="header-anchor" href="#构造post请求">⁍</a></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">response = requests.request(<span class="hljs-string">&quot;POST&quot;</span>,url,headers=headers,data=json.dumps(payload))<br></code></pre></td></tr></table></figure>
+<h4 id="url">url<a class="header-anchor" href="#url">⁍</a></h4>
+<p>在<a href="#%E7%BD%91%E9%A1%B5%E5%88%86%E6%9E%90">前文</a>提到的捕获的数据包中查看<code>标头</code></p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202201301857021.png" alt="image-20220130185718992"></p>
+<p>所需的url即为<code>https://leetcode-cn.com/graphql/</code></p>
+<blockquote>
+<p>可以发现前面是<code>https://leetcode-cn.com/</code>，也就是整个leetcode网站的url。</p>
+<p>据我观察，大部分<code>url</code>都是<code>[根站点网址]/graphql</code>的形式</p>
+</blockquote>
+<h4 id="headers">headers<a class="header-anchor" href="#headers">⁍</a></h4>
+<p>即<code>请求标头</code>这一栏，其中最为重要的是<code>cookie</code>、<code>origin</code>、<code>refer</code>三个字段</p>
+<ul>
+<li><code>cookie</code>：包含了你的登录ID、session等信息，直接复制下来就可以</li>
+<li><code>origin</code>：网站根地址，这里就是<code>https://leetcode-cn.com/</code></li>
+<li><code>refer</code>：你要爬的文章的地址</li>
+</ul>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202201301903076.png" alt="image-20220130190341031"></p>
+<h4 id="payload">payload<a class="header-anchor" href="#payload">⁍</a></h4>
+<p>选择<code>payload</code>，右击-<code>复制值</code>即可</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202201301908095.png" alt="image-20220130190837060"></p>
+<p><strong>注意，</strong> <code>payload</code>的<code>variables</code>里有一项<code>pageId</code>，即为文章网址最后的一串字符，同时在第一个<code>graphql</code>中也有记录（见下图），我们可以通过这种方式来<mark>爬取整本书的内容</mark>。</p>
+<p><img src="https://gitee.com/Augu1sto/imageHost/raw/master/BlogImg/202201301803685.png" alt="image-20220130180311633"></p>
+<h3 id="解析内容">解析内容<a class="header-anchor" href="#解析内容">⁍</a></h3>
+<p>对<code>response.content</code>进行解码，即可获得<code>预览</code>中的数据</p>
+<p>首先分析该文章是否是markdown形式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> b[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;leetbookPage&quot;</span>][<span class="hljs-string">&quot;blocks&quot;</span>][<span class="hljs-number">0</span>][<span class="hljs-string">&quot;type&quot;</span>]!=<span class="hljs-string">&#x27;MARKDOWN&#x27;</span>:<br>    print(<span class="hljs-string">&quot;非markdown类型\n&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>如果是，我们即可提取出内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">mdtext = b[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;leetbookPage&quot;</span>][<span class="hljs-string">&quot;blocks&quot;</span>][<span class="hljs-number">0</span>][<span class="hljs-string">&quot;value&quot;</span>]<br>mdtitle = b[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;leetbookPage&quot;</span>][<span class="hljs-string">&quot;title&quot;</span>]<br></code></pre></td></tr></table></figure>
+<h3 id="源码">源码<a class="header-anchor" href="#源码">⁍</a></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs java"># <span class="hljs-meta">@author</span>: augu1sto<br># blog: augu1sto.gitee.io<br><br># 将leetbook存为markdown（仅适用于源网页是markdown类型的书籍）<br># 例 图解算法数据结构 https:<span class="hljs-comment">//leetcode-cn.com/leetbook/read/illustration-of-algorithm</span><br><br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> json<br><br><br>url = <span class="hljs-string">&quot;https://leetcode-cn.com/graphql/&quot;</span><br><br><br>headers = &#123;<br><br><span class="hljs-string">&#x27;accept&#x27;</span>: <span class="hljs-string">&#x27;*/*&#x27;</span>,<br><span class="hljs-string">&#x27;accept-encoding&#x27;</span>: <span class="hljs-string">&#x27;gzip, deflate, br&#x27;</span>,<br><span class="hljs-string">&#x27;accept-language&#x27;</span>: <span class="hljs-string">&#x27;zh-CN&#x27;</span>,<br><span class="hljs-string">&#x27;content-type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>,<br><span class="hljs-string">&#x27;cookie&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br><span class="hljs-string">&#x27;origin&#x27;</span>: <span class="hljs-string">&#x27;https://leetcode-cn.com&#x27;</span>,<br><span class="hljs-string">&#x27;referer&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br><span class="hljs-string">&#x27;user-agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55&#x27;</span>,<br><br><br>&#125;<br><br>payload = &#123;<span class="hljs-string">&quot;operationName&quot;</span>:<span class="hljs-string">&quot;leetbookPageDetail&quot;</span>,<br><span class="hljs-string">&quot;variables&quot;</span>:&#123;<span class="hljs-string">&quot;pageId&quot;</span>:<span class="hljs-string">&quot;&quot;</span>&#125;,<br><span class="hljs-string">&quot;query&quot;</span>:<span class="hljs-string">&quot;query leetbookPageDetail($pageId: ID!) &#123;\n  leetbookPage(pageId: $pageId) &#123;\n    title\n    subtitle\n    id\n    pageType\n    blocks &#123;\n      type\n      value\n      __typename\n    &#125;\n    commonTags &#123;\n      nameTranslated\n      name\n      slug\n      __typename\n    &#125;\n    qaQuestionUuid\n    ...leetbookQuestionPageNode\n    __typename\n  &#125;\n&#125;\n\nfragment leetbookQuestionPageNode on LeetbookQuestionPage &#123;\n  question &#123;\n    questionId\n    envInfo\n    judgeType\n    metaData\n    enableRunCode\n    sampleTestCase\n    judgerAvailable\n    langToValidPlayground\n    questionFrontendId\n    style\n    content\n    translatedContent\n    questionType\n    questionTitleSlug\n    editorType\n    mysqlSchemas\n    codeSnippets &#123;\n      lang\n      langSlug\n      code\n      __typename\n    &#125;\n    topicTags &#123;\n      slug\n      name\n      translatedName\n      __typename\n    &#125;\n    __typename\n  &#125;\n  __typename\n&#125;\n&quot;</span>&#125;<br><br><br>site_url = input(<span class="hljs-string">&quot;site_url: &quot;</span>)<br>page_id = input(<span class="hljs-string">&quot;page_id: &quot;</span>)<br>cookie = input(<span class="hljs-string">&quot;cookie: &quot;</span>)<br><br><br>headers[<span class="hljs-string">&#x27;referer&#x27;</span>]= site_url<br>payload[<span class="hljs-string">&#x27;variables&#x27;</span>][<span class="hljs-string">&#x27;pageId&#x27;</span>] = page_id<br>headers[<span class="hljs-string">&#x27;cookie&#x27;</span>] = cookie<br><br>response = requests.request(<span class="hljs-string">&quot;POST&quot;</span>,url,headers=headers,data=json.dumps(payload))<br><br>a=response.content.decode()<br>b=json.loads(a)<br><br><span class="hljs-keyword">if</span> b[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;leetbookPage&quot;</span>][<span class="hljs-string">&quot;blocks&quot;</span>][<span class="hljs-number">0</span>][<span class="hljs-string">&quot;type&quot;</span>]!=<span class="hljs-string">&#x27;MARKDOWN&#x27;</span>:<br>    print(<span class="hljs-string">&quot;非markdown类型\n&quot;</span>)<br><span class="hljs-keyword">else</span>:<br>    mdtext = b[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;leetbookPage&quot;</span>][<span class="hljs-string">&quot;blocks&quot;</span>][<span class="hljs-number">0</span>][<span class="hljs-string">&quot;value&quot;</span>]<br>    mdtitle = b[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;leetbookPage&quot;</span>][<span class="hljs-string">&quot;title&quot;</span>]<br><br>    <span class="hljs-function">with <span class="hljs-title">open</span><span class="hljs-params">(mdtitle+<span class="hljs-string">&#x27;.md&#x27;</span>,<span class="hljs-string">&#x27;w+&#x27;</span>,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)</span> as f:</span><br><span class="hljs-function">        f.<span class="hljs-title">write</span><span class="hljs-params">(<span class="hljs-string">&quot;# &quot;</span>+mdtitle+<span class="hljs-string">&quot;\n\n&quot;</span>)</span></span><br><span class="hljs-function">        f.<span class="hljs-title">write</span><span class="hljs-params">(mdtext)</span></span><br><span class="hljs-function"></span><br></code></pre></td></tr></table></figure>
+<h2 id="request实现leetcode中官方题解的爬取">request实现Leetcode中官方题解的爬取<a class="header-anchor" href="#request实现leetcode中官方题解的爬取">⁍</a></h2>
+<p>通过类似的分析思路，我们也可以爬取leetcode指定链接的题解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs java"># <span class="hljs-meta">@author</span>: augu1sto<br># blog: augu1sto.gitee.io<br><br># 将leetcode的solution存为markdown<br># 仅测试了官方题解<br><br><br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> json<br><br><br>url = <span class="hljs-string">&quot;https://leetcode-cn.com/graphql/&quot;</span><br><br><br>headers = &#123;<br><br><span class="hljs-string">&#x27;accept&#x27;</span>: <span class="hljs-string">&#x27;*/*&#x27;</span>,<br><span class="hljs-string">&#x27;accept-encoding&#x27;</span>: <span class="hljs-string">&#x27;gzip, deflate, br&#x27;</span>,<br><span class="hljs-string">&#x27;accept-language&#x27;</span>: <span class="hljs-string">&#x27;zh-CN&#x27;</span>,<br><span class="hljs-string">&#x27;content-type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>,<br><span class="hljs-string">&#x27;cookie&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br><span class="hljs-string">&#x27;origin&#x27;</span>: <span class="hljs-string">&#x27;https://leetcode-cn.com&#x27;</span>,<br><span class="hljs-string">&#x27;referer&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br><span class="hljs-string">&#x27;user-agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55&#x27;</span>,<br><br><br>&#125;<br><br>payload = &#123;<span class="hljs-string">&quot;operationName&quot;</span>:<span class="hljs-string">&quot;solutionDetailArticle&quot;</span>,<br><span class="hljs-string">&quot;variables&quot;</span>:&#123;<span class="hljs-string">&quot;slug&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;orderBy&quot;</span>:<span class="hljs-string">&quot;DEFAULT&quot;</span>&#125;,<br><span class="hljs-string">&quot;query&quot;</span>:<span class="hljs-string">&quot;query solutionDetailArticle($slug: String!, $orderBy: SolutionArticleOrderBy!) &#123;\n  solutionArticle(slug: $slug, orderBy: $orderBy) &#123;\n    ...solutionArticle\n    content\n    question &#123;\n      questionTitleSlug\n      __typename\n    &#125;\n    position\n    next &#123;\n      slug\n      title\n      __typename\n    &#125;\n    prev &#123;\n      slug\n      title\n      __typename\n    &#125;\n    __typename\n  &#125;\n&#125;\n\nfragment solutionArticle on SolutionArticleNode &#123;\n  rewardEnabled\n  canEditReward\n  uuid\n  title\n  slug\n  sunk\n  chargeType\n  status\n  identifier\n  canEdit\n  canSee\n  reactionType\n  reactionsV2 &#123;\n    count\n    reactionType\n    __typename\n  &#125;\n  tags &#123;\n    name\n    nameTranslated\n    slug\n    tagType\n    __typename\n  &#125;\n  createdAt\n  thumbnail\n  author &#123;\n    username\n    profile &#123;\n      userAvatar\n      userSlug\n      realName\n      __typename\n    &#125;\n    __typename\n  &#125;\n  summary\n  topic &#123;\n    id\n    commentCount\n    viewCount\n    __typename\n  &#125;\n  byLeetcode\n  isMyFavorite\n  isMostPopular\n  isEditorsPick\n  hitCount\n  videosInfo &#123;\n    videoId\n    coverUrl\n    duration\n    __typename\n  &#125;\n  __typename\n&#125;\n&quot;</span>&#125;<br><br><br>site_url = input(<span class="hljs-string">&quot;site_url: &quot;</span>)<br><br>U = site_url.split(<span class="hljs-string">&#x27;/&#x27;</span>)<br><span class="hljs-keyword">if</span> U[-<span class="hljs-number">1</span>]!=<span class="hljs-string">&#x27;&#x27;</span>:<br>    sol_name = U[-<span class="hljs-number">1</span>]<br><span class="hljs-keyword">else</span>:<br>    sol_name = U[-<span class="hljs-number">2</span>]<br><br>cookie = input(<span class="hljs-string">&quot;cookie: &quot;</span>)<br><br><br>headers[<span class="hljs-string">&#x27;referer&#x27;</span>]= site_url<br>payload[<span class="hljs-string">&#x27;variables&#x27;</span>][<span class="hljs-string">&#x27;slug&#x27;</span>] = sol_name<br>headers[<span class="hljs-string">&#x27;cookie&#x27;</span>] = cookie<br><br>response = requests.request(<span class="hljs-string">&quot;POST&quot;</span>,url,headers=headers,data=json.dumps(payload))<br><br>a=response.content.decode()<br>b=json.loads(a)<br><br>mdtext = b[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;solutionArticle&quot;</span>][<span class="hljs-string">&quot;content&quot;</span>]<br>mdtitle = b[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;solutionArticle&quot;</span>][<span class="hljs-string">&quot;title&quot;</span>]<br><br><span class="hljs-function">with <span class="hljs-title">open</span><span class="hljs-params">(mdtitle+<span class="hljs-string">&#x27;.md&#x27;</span>,<span class="hljs-string">&#x27;w+&#x27;</span>,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)</span> as f:</span><br><span class="hljs-function">    f.<span class="hljs-title">write</span><span class="hljs-params">(<span class="hljs-string">&quot;#&quot;</span>+mdtitle+<span class="hljs-string">&quot;\n\n&quot;</span>)</span></span><br><span class="hljs-function">    f.<span class="hljs-title">write</span><span class="hljs-params">(mdtext)</span></span><br><span class="hljs-function"></span><br></code></pre></td></tr></table></figure>
+<h2 id="总结">总结<a class="header-anchor" href="#总结">⁍</a></h2>
+<ul>
+<li>
+<p>通过对leetcode网站数据包的分析，实现了指定链接的markdown文章内容的获取，从而保留完整的文章格式和公式。</p>
+</li>
+<li>
+<p>对graphql可以进行深一步了解，比如用<a target="_blank" rel="noopener" href="https://github.com/graphql-python/gql">GitHub - graphql-python/gql: A GraphQL client in Python</a>改写代码。</p>
+</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/264629587">什么是 GraphQL？ - 知乎 (zhihu.com)</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://graphql.cn/">GraphQL | A query language for your API</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ezrealer/article/details/106664656">【爬虫】requests 实现 graphql 请求_Ezrealer的博客-CSDN博客_graphql 爬虫</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Augu1sto</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://augu1sto.github.io/augu1sto/b44ffb96c7e8/">https://augu1sto.github.io/augu1sto/b44ffb96c7e8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://augu1sto.github.io/augu1sto" target="_blank">若叶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/augu1sto/tags/Leetcode/">Leetcode</a><a class="post-meta__tags" href="/augu1sto/tags/GraphQL/">GraphQL</a><a class="post-meta__tags" href="/augu1sto/tags/python/">python</a></div><div class="post_share"><div class="social-share" data-image="/augu1sto/img/cover01.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/augu1sto/13244dc8c38f/"><img class="prev-cover" src="/augu1sto/img/cover02.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JAVA学习（九）| IO</div></div></a></div><div class="next-post pull-right"><a href="/augu1sto/b8163cc89113/"><img class="next-cover" src="/augu1sto/img/cover04.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【论文阅读】TrajGAIL·Generating urban vehicle trajectories using  generative adversarial imitation learning</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/augu1sto/e55c8c160eac/" title="Leetcode|二叉树"><img class="cover" src="/augu1sto/img/cover04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-17</div><div class="title">Leetcode|二叉树</div></div></a></div><div><a href="/augu1sto/2b4514c3bfcc/" title="Leetcode|位运算"><img class="cover" src="/augu1sto/img/cover04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-24</div><div class="title">Leetcode|位运算</div></div></a></div><div><a href="/augu1sto/536722f65a35/" title="Leetcode|动态规划"><img class="cover" src="/augu1sto/img/cover05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-19</div><div class="title">Leetcode|动态规划</div></div></a></div><div><a href="/augu1sto/44694074b950/" title="Leetcode|单调栈"><img class="cover" src="/augu1sto/img/cover01.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">Leetcode|单调栈</div></div></a></div><div><a href="/augu1sto/d0b5bb44a690/" title="Leetcode|字符串"><img class="cover" src="/augu1sto/img/cover03.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-19</div><div class="title">Leetcode|字符串</div></div></a></div><div><a href="/augu1sto/78b6fa9cea22/" title="Leetcode|回溯算法"><img class="cover" src="/augu1sto/img/cover05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-21</div><div class="title">Leetcode|回溯算法</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/augu1sto/img/avatar.png" onerror="this.onerror=null;this.src='/augu1sto/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Augu1sto</div><div class="author-info__description">Articles | Notes | Ideas</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/augu1sto"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/augu1sto" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yingu081@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://codepen.io/augu1sto" target="_blank" title="CodePen"><i class="fab fa-codepen"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">【缓慢重新建站中】https://github.com/augu1sto/e31c317e1400/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80"><span class="toc-number">1.</span> <span class="toc-text">项目源码地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">网页分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#graphql"><span class="toc-number">4.</span> <span class="toc-text">GraphQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#request%E5%AE%9E%E7%8E%B0leetbook%E4%B8%ADmarkdown%E7%B1%BB%E5%9E%8B%E6%96%87%E7%AB%A0%E7%88%AC%E5%8F%96"><span class="toc-number">5.</span> <span class="toc-text">request实现Leetbook中markdown类型文章爬取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0post%E8%AF%B7%E6%B1%82"><span class="toc-number">5.1.</span> <span class="toc-text">构造POST请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#url"><span class="toc-number">5.1.1.</span> <span class="toc-text">url</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#headers"><span class="toc-number">5.1.2.</span> <span class="toc-text">headers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#payload"><span class="toc-number">5.1.3.</span> <span class="toc-text">payload</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E5%86%85%E5%AE%B9"><span class="toc-number">5.2.</span> <span class="toc-text">解析内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E7%A0%81"><span class="toc-number">5.3.</span> <span class="toc-text">源码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#request%E5%AE%9E%E7%8E%B0leetcode%E4%B8%AD%E5%AE%98%E6%96%B9%E9%A2%98%E8%A7%A3%E7%9A%84%E7%88%AC%E5%8F%96"><span class="toc-number">6.</span> <span class="toc-text">request实现Leetcode中官方题解的爬取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/eb3eaf548f9c/" title="test"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test"/></a><div class="content"><a class="title" href="/augu1sto/eb3eaf548f9c/" title="test">test</a><time datetime="2022-12-11T17:32:20.000Z" title="发表于 2022-12-12 01:32:20">2022-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/aba77dc25685/" title="test-12"><img src="/augu1sto/img/cover02.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test-12"/></a><div class="content"><a class="title" href="/augu1sto/aba77dc25685/" title="test-12">test-12</a><time datetime="2022-12-11T15:15:35.000Z" title="发表于 2022-12-11 23:15:35">2022-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING..."><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="【公告】重新建站ING..."/></a><div class="content"><a class="title" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING...">【公告】重新建站ING...</a><time datetime="2022-11-30T13:52:27.000Z" title="发表于 2022-11-30 21:52:27">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解"><img src="/augu1sto/img/cover03.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="Array.prototype.unshift方法详解"/></a><div class="content"><a class="title" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解">Array.prototype.unshift方法详解</a><time datetime="2022-09-05T11:56:53.000Z" title="发表于 2022-09-05 19:56:53">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/4cf012bad379/" title="深拷贝"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="深拷贝"/></a><div class="content"><a class="title" href="/augu1sto/4cf012bad379/" title="深拷贝">深拷贝</a><time datetime="2022-09-03T12:28:50.000Z" title="发表于 2022-09-03 20:28:50">2022-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Augu1sto</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/augu1sto/js/utils.js"></script><script src="/augu1sto/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/augu1sto/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><div class="aplayer no-destroy" data-id="6990698783" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/augu1sto/live2dw/lib/L2Dwidget.min.js?b0f017d930c51acc4f4f9e757bdd83e9"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/augu1sto/live2dw/assets/kasumi_event128.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":30,"vOffset":0},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"text":["kira kira doki doki","大家我全都喜欢","poppipa pippopa"]},"log":false});</script></body></html>

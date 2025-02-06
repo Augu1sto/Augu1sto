@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SmartNCC-demo|介绍</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css"
+		/>
+        <link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/external-flat-land-kalash/64/000000/external-education-education-and-e-learning-flat-land-kalash.png">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <!-- 侧边菜单 for 响应式 -->
+            <input type="checkbox" id="toggle" class="toggle-box"></input>
+            <label for="toggle" class="toggle-label">
+                <!-- <i class="before fa-solid fa-bars"></i>
+                <i class="after fa-solid fa-xmark"></i> -->
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <!-- logo -->
+            <div class="logo-box">
+                SmartNCC
+            </div>
+            <!-- menu -->
+            <ul class="nav-list">
+                <div class="hover-box"></div>
+                <li class="active"><a href="#welcome-section">概述</a></li>
+                <li>
+                    <a href="#function-section">
+                        <p>主要功能</p>
+                        <span class="submenu-arrow">&#10094;</span>
+
+                    </a>
+                    <ul class="nav-submenu">
+                        <li><a href="#sub1">登录与权限控制</a></li>
+                        <li><a href="#sub2">教室预约</a></li>
+                        <li><a href="#sub3">校车查询</a></li>
+                        <li><a href="#sub4">考勤记录</a></li>
+                        <li><a href="#sub5">校园活动</a></li>
+                        <li><a href="#sub6">修改密码</a></li>
+                    </ul>
+                </li>
+                <li><a href="#develop-section">开发日志</a></li>
+                <li><a href="#tech-section">技术路线</a></li>
+                <li><a href="#contact-section">联系我</a></li>
+            </ul>
+        </nav>
+        <!-- back to top -->
+        <div class="totop">
+            <a href="#welcome-section">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+        <div class="container">
+            <section id="welcome-section">
+                <div class="welcome-wrapper">
+                    <div class="main-title">
+                        <h1>智慧网安</h1>
+                    </div>
+                    <div class="main-content">
+                        <div class="content">
+                            <p>SmartNCC（智慧网安）是针对武汉大学国家网络安全学院和华中科技大学网络空间安全学院共同入驻的国家网络安全人才与创新基地开发的校园生活服务类应用程序。</p>
+                            <p>本项目主要设计了前端部分，使用mockjs和axios对数据和一些请求进行了模拟。</p>
+                            <p>主要功能包括登录、活动查询和报名、教室预约、考勤记录查询、校车时间查询、修改密码等。</p>
+                        </div>
+                        <div class="btn-area">
+                            <div class="btn btn1"><a href="https://augu1sto.github.io/augu1sto/projects/smartncc/demo" target="_blank">H5 demo</a></div>
+                            <div class="btn btn2"><a href="#">查看源码</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="function-section">
+                <div class="function-wrapper">
+                    <div class="section-title">
+                        <h2>主要功能</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="h5-view">
+                            <div class="h5-view_header">
+                                <div class="h5-view_header__left">&#8231;</div>
+                                <div class="h5-view_header__right">&#8210;</div>
+                            </div>
+                            <div class="h5-view_content">
+                                <iframe class="h5-view_frame" title="demo" src="https://augu1sto.github.io/augu1sto/projects/smartncc/demo/#/pages/attendance/index" sandbox="allow-same-origin allow-scripts allow-forms">
+                                    <p>您的浏览器不支持 iframe 标签。</p>
+                                </iframe>
+                            </div>
+                            <div class="h5-view_home">
+                                <div class="h5-view_home-btn"></div>
+                            </div>
+
+                        </div>
+                        <div class="sub-section">
+                            <section class="sub" id="sub1">
+                                <div class="sub_header">
+                                    <h3 class="sub_title">登录权限与控制</h3>
+                                    <span class="sub_arrow">&#10094;</span>
+                                </div>
+                                <div class="sub_content">
+                                    <div class="sub__content">
+                                        <ul>
+                                            <li>首次登录的用户使用用户名（test1）和密码（test12345678），匹配正确即可登录。</li>
+                                            <li>服务器端发送token（有效期一个小时）给客户端，客户端将token与一些基本的不涉密的信息一起保存在localStorage中，直到退出登录。</li>
+                                            <li>如果登录时localStorage中存在token，则向服务器端发送请求，服务器端解析保存在请求头部的Authorization字段里的token，检验token是否有效。如果token有效，客户端即可直接登录，跳转至主页。</li>
+                                            <li>用户登陆后，登录状态均保存在vuex的state中，页面通过state中的字段判断访问者是已登录用户还是游客，从而通过跳转或dom渲染来限制某些页面或功能的使用。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="sub" id="sub2">
+                                <div class="sub_header">
+                                    <h3 class="sub_title">教室预约</h3>
+                                    <span class="sub_arrow">&#10094;</span>
+                                </div>
+                                <div class="sub_content">
+                                    <div class="sub__content">
+                                        <ul>
+                                            <li>只对登录用户开放。</li>
+                                            <li>可以预约7天内的教室。</li>
+                                            <li>一次最多选择某一区域的两个时段。</li>
+                                            <li>预约后生成预约凭证，可在我的预约中查询。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="sub" id="sub3">
+                                <div class="sub_header">
+                                    <h3 class="sub_title">校车查询</h3>
+                                    <span class="sub_arrow">&#10094;</span>
+                                </div>
+                                <div class="sub_content">
+                                    <div class="sub__content">
+                                        <ul>
+                                            <li>根据真实数据导入。</li>
+                                            <li>可查询基地往返武大和华科的班次表。</li>
+                                            <li>根据当前时间，对于当天不可坐/已错过的班次做变灰的处理。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="sub" id="sub4">
+                                <div class="sub_header">
+                                    <h3 class="sub_title">考勤记录</h3>
+                                    <span class="sub_arrow">&#10094;</span>
+                                </div>
+                                <div class="sub_content">
+                                    <div class="sub__content">
+                                        <ul>
+                                            <li>只对登录用户开放。</li>
+                                            <li>首页显示本月已打卡天数（上限20天）。背景波浪高度按比例增长。</li>
+                                            <li>可点击查询打卡日历，查看最近一个月每天的打卡情况。</li>
+                                            <li class="note">注：打卡数据均为mock随机生成，没有对有效无效进行规则的限制。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="sub" id="sub5">
+                                <div class="sub_header">
+                                    <h3 class="sub_title">校园活动</h3>
+                                    <span class="sub_arrow">&#10094;</span>
+                                </div>
+                                <div class="sub_content">
+                                    <div class="sub__content">
+                                        <ul>
+                                            <li>对游客展示活动列表；登录用户则可以展示收藏和已报名的活动。</li>
+                                            <li>可以筛选活动的主办学校或正在进行和已经结束的活动。</li>
+                                            <li>用户可以进行收藏、报名和取消报名的操作。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="sub" id="sub6">
+                                <div class="sub_header">
+                                    <h3 class="sub_title">修改密码</h3>
+                                    <span class="sub_arrow">&#10094;</span>
+                                </div>
+                                <div class="sub_content">
+                                    <div class="sub__content">
+                                        <ul>
+                                            <li>模拟修改密码的流程。修改完需要重新登录。</li>
+                                            <li class="note">注：因为没有真实的服务器，所以刷新后即失效</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="develop-section">
+                <div class="develop-wrapper">
+                    <div class="section-title">
+                        <h2>开发日志</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="doc">
+                            <div class="doc-content">
+                                <div class="row">
+                                    <div class="time">2022-09-02</div>
+                                    <div class="text">写完文档介绍网页</div>
+                                </div>
+                                <div class="row">
+                                    <div class="time">2022-08-28</div>
+                                    <div class="text">补充文档</div>
+                                </div>
+                                <div class="row">
+                                    <div class="time">2022-08-27</div>
+                                    <div class="text">部署并调试初版demo，包含登录、活动查询和报名、考勤记录查询、校车时间查询、修改密码等功能。</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="doc">
+                            <div class="doc-title"><h4>TODO</h4></div>
+                            <div class="doc-content">
+                                <ul>
+                                    <!-- <li>登录时密码加密传输</li>
+                                    <li>用户数据（如预约信息等）与用户id绑定</li>
+                                    <li>修改密码时校验新密码不能与旧密码一致</li> -->
+                                    <li><strong>食堂菜单功能：</strong>每月菜单公示，菜品评价</li>
+                                    <li><strong>论坛功能：</strong>公告通知、失物招领、二手交易等板块；发送帖子</li>
+                                    <li><strong>权益反馈：</strong>基础的一个表单</li>
+                                    <li><strong>请假报备：</strong>请假系统（表单）</li>
+                                    <li><strong>校园地图：</strong>可以双指缩放的地图</li>
+                                    <li>其他...</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="tech-section">
+                <div class="tech-wrapper">
+                    <div class="section-title">
+                        <h2>技术路线</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="card">
+                            <a href="https://www.dcloud.io/hbuilderx.html">
+                                <div class="card-logo">
+                                    <img src="https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-dc-site/c40319b0-6080-11eb-918d-3d24828c498c.png" alt="HbuilderX">
+                                </div>
+                                <div class="card-title">
+                                    HBuilderX
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="https://uniapp.dcloud.net.cn/">
+                                <div class="card-logo">
+                                    <img src="https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-dc-site/9a952c80-6080-11eb-a16f-5b3e54966275.png" alt="uni-app">
+                                </div>
+                                <div class="card-title">
+                                    uni-app
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="https://v2.vuejs.org/">
+                                <div class="card-logo">
+                                    <img src="https://www.javascriptc.com/vue3js/logo.png" alt="Vue.js">
+                                </div>
+                                <div class="card-title">
+                                    Vue.js
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="https://xuqu.gitee.io/">
+                                <div class="card-logo">
+                                    <img src="https://xuqu.gitee.io/common/logo.png" alt="uView">
+                                </div>
+                                <div class="card-title">
+                                    uView
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="https://vuex.vuejs.org/">
+                                <div class="card-logo">
+                                    <img src="https://www.javascriptc.com/vue3js/logo.png" alt="Vuex">
+                                </div>
+                                <div class="card-title">
+                                    Vuex
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="https://www.axios-http.cn/">
+                                <div class="card-logo">
+                                    <img src="https://www.axios-http.cn/assets/logo.png" alt="Axios">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="https://lavyun.github.io/better-mock/">
+                                <div class="card-logo">
+                                    <img src="	https://lavyun.github.io/better-mock/images/logo-hor.png" alt="better-mock">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="contact-section">
+                <div class="contact-wrapper">
+                    <div class="section-title">
+                        <h2>联系我</h2>
+                    </div>
+                    <div class="section-content info">
+                        <a id = "profile-link" href="https://github.com/Augu1sto" target="_blank">
+                            <i class="fab fa-github infopic"></i>
+                            <span>Github</span>
+                        </a>
+                        <a href="https://augu1sto.github.io/augu1sto" target="_blank" id="blog">
+                            <img class="infopic" src="https://augu1sto.github.io/augu1sto/img/avatar.png" alt="avatar">
+                            <span>See my blog</span>
+                        </a>
+                        <a href="mailto:yingu081@163.com">
+                            <i class="fa fa-envelope infopic"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </body>
+</html>

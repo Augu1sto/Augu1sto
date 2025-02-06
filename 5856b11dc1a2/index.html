@@ -1,0 +1,653 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JAVA学习（十）| 日期与时间、正则表达式 | 若叶</title><meta name="keywords" content="JAVA"><meta name="author" content="Augu1sto"><meta name="copyright" content="Augu1sto"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="日期与时间⁍ 计算机通过Locale来针对当地用户习惯格式化日期、时间、数字、货币等。 Locale由语言_国家的字母缩写构成，例如，zh_CN表示中文+中国，en_US表示英文+美国。语言使用小写，国家使用大写。 对于日期来说，不同的Locale，例如，中国和美国的表示方式如下：  zh_CN：2016-11-30 en_US：11&#x2F;30&#x2F;2016  Java有两套日期和时间的API：  旧的D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA学习（十）| 日期与时间、正则表达式">
+<meta property="og:url" content="https://augu1sto.github.io/augu1sto/5856b11dc1a2/index.html">
+<meta property="og:site_name" content="若叶">
+<meta property="og:description" content="日期与时间⁍ 计算机通过Locale来针对当地用户习惯格式化日期、时间、数字、货币等。 Locale由语言_国家的字母缩写构成，例如，zh_CN表示中文+中国，en_US表示英文+美国。语言使用小写，国家使用大写。 对于日期来说，不同的Locale，例如，中国和美国的表示方式如下：  zh_CN：2016-11-30 en_US：11&#x2F;30&#x2F;2016  Java有两套日期和时间的API：  旧的D">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://augu1sto.github.io/augu1sto/img/cover06.jpg">
+<meta property="article:published_time" content="2022-02-15T07:54:59.000Z">
+<meta property="article:modified_time" content="2022-02-21T13:53:42.167Z">
+<meta property="article:author" content="Augu1sto">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augu1sto.github.io/augu1sto/img/cover06.jpg"><link rel="shortcut icon" href="/augu1sto/img/favicon.png"><link rel="canonical" href="https://augu1sto.github.io/augu1sto/5856b11dc1a2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-oEsTyOVPwJ"/><link rel="stylesheet" href="/augu1sto/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/augu1sto/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JAVA学习（十）| 日期与时间、正则表达式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-02-21 21:53:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="google-site-verification" content="a1IrzpkO5Jd9_eZl1_IwZSZ779M4c5LPUf7oSBp4G58" /><link rel="stylesheet" href="/self/material.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/augu1sto/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/augu1sto/img/cover06.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/augu1sto/">若叶</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/augu1sto/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/augu1sto/projects/smartncc/doc/"><i class="fa-fw fas fa-arrow-up-right-from-square"></i><span> 我的项目</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JAVA学习（十）| 日期与时间、正则表达式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-15T07:54:59.000Z" title="发表于 2022-02-15 15:54:59">2022-02-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-02-21T13:53:42.167Z" title="更新于 2022-02-21 21:53:42">2022-02-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/augu1sto/categories/JAVA%E5%AD%A6%E4%B9%A0/">JAVA学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JAVA学习（十）| 日期与时间、正则表达式"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="日期与时间">日期与时间<a class="header-anchor" href="#日期与时间">⁍</a></h2>
+<p>计算机通过<code>Locale</code>来针对当地用户习惯格式化日期、时间、数字、货币等。</p>
+<p><code>Locale</code>由<code>语言_国家</code>的字母缩写构成，例如，<code>zh_CN</code>表示中文+中国，<code>en_US</code>表示英文+美国。语言使用小写，国家使用大写。</p>
+<p>对于日期来说，不同的Locale，例如，中国和美国的表示方式如下：</p>
+<ul>
+<li>zh_CN：2016-11-30</li>
+<li>en_US：11/30/2016</li>
+</ul>
+<p>Java有两套日期和时间的API：</p>
+<ul>
+<li>旧的Date、Calendar和TimeZone；</li>
+<li>新的LocalDateTime、ZonedDateTime、ZoneId等。</li>
+</ul>
+<p>分别位于<code>java.util</code>和<code>java.time</code>包中。</p>
+<p>⭐ 从Java 8开始，<code>java.time</code>包提供了新的日期和时间API，主要涉及的类型有：</p>
+<ul>
+<li>本地日期和时间：<code>LocalDateTime</code>，<code>LocalDate</code>，<code>LocalTime</code>；</li>
+<li>带时区的日期和时间：<code>ZonedDateTime</code>；</li>
+<li>时刻：<code>Instant</code>；</li>
+<li>时区：<code>ZoneId</code>，<code>ZoneOffset</code>；</li>
+<li>时间间隔：<code>Duration</code>。</li>
+</ul>
+<p>以及一套新的用于取代<code>SimpleDateFormat</code>的格式化类型<code>DateTimeFormatter</code>。</p>
+<h3 id="date和calendar-旧api">Date和Calendar(旧API)<a class="header-anchor" href="#date和calendar-旧api">⁍</a></h3>
+<p>计算机表示的时间是以整数表示的时间戳存储的，即<code>Epoch Time</code>，Java使用<code>long</code>型来表示以毫秒为单位的时间戳，通过<code>System.currentTimeMillis()</code>获取当前时间戳。</p>
+<blockquote>
+<p><code>Epoch Time</code>是计算从1970年1月1日零点（格林威治时区／GMT+00:00）到现在所经历的秒数</p>
+</blockquote>
+<h4 id="date">Date<a class="header-anchor" href="#date">⁍</a></h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">Date date = <span class="hljs-keyword">new</span> Date();<br>System.out.println(date.getYear() + <span class="hljs-number">1900</span>); <span class="hljs-comment">// 必须加上1900</span><br>System.out.println(date.getMonth() + <span class="hljs-number">1</span>); <span class="hljs-comment">// 0~11，必须加上1</span><br>System.out.println(date.getDate()); <span class="hljs-comment">// 1~31，不能加1</span><br></code></pre></td></tr></table></figure>
+<p>自定义格式输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">Date date = <span class="hljs-keyword">new</span> Date();<br><span class="hljs-keyword">var</span> sdf = <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);<br>System.out.println(sdf.format(date));<br></code></pre></td></tr></table></figure>
+<p>假设当前月份是9月：</p>
+<ul>
+<li><code>M</code>：输出<code>9</code></li>
+<li><code>MM</code>：输出<code>09</code></li>
+<li><code>MMM</code>：输出<code>Sep</code></li>
+<li><code>MMMM</code>：输出<code>September</code></li>
+</ul>
+<h4 id="calendar">Calendar<a class="header-anchor" href="#calendar">⁍</a></h4>
+<p>和<code>Date</code>比，主要多了一个可以做简单的日期和时间运算的功能。</p>
+<p><code>Calendar</code>的基本用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 获取当前时间:</span><br>Calendar c = Calendar.getInstance();<br><span class="hljs-keyword">int</span> y = c.get(Calendar.YEAR);<br><span class="hljs-keyword">int</span> m = <span class="hljs-number">1</span> + c.get(Calendar.MONTH);<br><span class="hljs-keyword">int</span> d = c.get(Calendar.DAY_OF_MONTH);<br><span class="hljs-keyword">int</span> w = c.get(Calendar.DAY_OF_WEEK);<br></code></pre></td></tr></table></figure>
+<h4 id="timezone">TimeZone<a class="header-anchor" href="#timezone">⁍</a></h4>
+<p><code>Calendar</code>和<code>Date</code>相比，它提供了时区转换的功能。时区用<code>TimeZone</code>对象表示</p>
+<p>利用<code>Calendar</code>进行时区转换的步骤是：</p>
+<ol>
+<li>清除所有字段；</li>
+<li>设定指定时区；</li>
+<li>设定日期和时间；</li>
+<li>创建<code>SimpleDateFormat</code>并设定目标时区；</li>
+<li>格式化获取的<code>Date</code>对象（注意<code>Date</code>对象无时区信息，时区信息存储在<code>SimpleDateFormat</code>中）。</li>
+</ol>
+<h3 id="localdatetime">LocalDateTime<a class="header-anchor" href="#localdatetime">⁍</a></h3>
+<p><mark>import java.time.*;</mark></p>
+<h4 id="获取日期和时间">获取日期和时间<a class="header-anchor" href="#获取日期和时间">⁍</a></h4>
+<ul>
+<li>当前日期：<code>LocalDate d = LocalDate.now();</code> //2022-02-15</li>
+<li>当前时间：<code>LocalTime t = LocalTime.now();</code> //08:51:53.807637953</li>
+<li>当前日期和时间：<code>LocalDateTime dt = LocalDateTime.now();</code> //2022-02-15T08:51:53.807670493</li>
+<li>用标准输出会严格按照ISO 8601格式打印</li>
+</ul>
+<p>如果要在同一个时刻分别输出当前日期和时间，可以采用以下方法：（如果按上述分开写，每一行程序的执行时间可能会带来影响）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">LocalDateTime dt = LocalDateTime.now(); <span class="hljs-comment">// 当前日期和时间</span><br>LocalDate d = dt.toLocalDate(); <span class="hljs-comment">// 转换到当前日期</span><br>LocalTime t = dt.toLocalTime(); <span class="hljs-comment">// 转换到当前时间</span><br></code></pre></td></tr></table></figure>
+<h4 id="创建指定日期和时间">创建指定日期和时间<a class="header-anchor" href="#创建指定日期和时间">⁍</a></h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 指定日期和时间:</span><br>LocalDate d2 = LocalDate.of(<span class="hljs-number">2019</span>, <span class="hljs-number">11</span>, <span class="hljs-number">30</span>); <span class="hljs-comment">// 2019-11-30, 注意11=11月</span><br>LocalTime t2 = LocalTime.of(<span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">17</span>); <span class="hljs-comment">// 15:16:17</span><br>LocalDateTime dt2 = LocalDateTime.of(<span class="hljs-number">2019</span>, <span class="hljs-number">11</span>, <span class="hljs-number">30</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">17</span>);<br>LocalDateTime dt3 = LocalDateTime.of(d2, t2);<br><span class="hljs-comment">//按照ISO 8601格式直接传入字符串</span><br>LocalDateTime dt = LocalDateTime.parse(<span class="hljs-string">&quot;2019-11-19T15:16:17&quot;</span>);<br>LocalDate d = LocalDate.parse(<span class="hljs-string">&quot;2019-11-19&quot;</span>);<br>LocalTime t = LocalTime.parse(<span class="hljs-string">&quot;15:16:17&quot;</span>);<br></code></pre></td></tr></table></figure>
+<p>ISO 8601规定的日期和时间分隔符是<code>T</code>。标准格式如下：</p>
+<ul>
+<li>日期：yyyy-MM-dd</li>
+<li>时间：HH:mm:ss</li>
+<li>带毫秒的时间：HH:mm:ss.SSS</li>
+<li>日期和时间：yyyy-MM-dd’T’HH:mm:ss</li>
+<li>带毫秒的日期和时间：yyyy-MM-dd’T’HH:mm:ss.SSS</li>
+</ul>
+<h4 id="datetimeformatter">DateTimeFormatter<a class="header-anchor" href="#datetimeformatter">⁍</a></h4>
+<p><mark>import java.time.format.*;</mark></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    <span class="hljs-comment">// 自定义格式化:</span><br>    DateTimeFormatter dtf = DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy/MM/dd HH:mm:ss&quot;</span>);<br>    System.out.println(dtf.format(LocalDateTime.now()));<br><br>    <span class="hljs-comment">// 用自定义格式解析:</span><br>    LocalDateTime dt2 = LocalDateTime.parse(<span class="hljs-string">&quot;2019/11/30 15:16:17&quot;</span>, dtf);<br>    System.out.println(dt2);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="时间加减">时间加减<a class="header-anchor" href="#时间加减">⁍</a></h4>
+<p>加5天减3小时：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">LocalDateTime dt2 = dt.plusDays(<span class="hljs-number">5</span>).minusHours(<span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
+<p>减一个月</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">LocalDateTime dt3 = dt2.minusMonths(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+<h4 id="时间调整">时间调整<a class="header-anchor" href="#时间调整">⁍</a></h4>
+<p>对日期和时间进行调整则使用<code>withXxx()</code>方法，例如：<code>withHour(15)</code>会把<code>10:11:12</code>改为<code>15:11:12</code>：</p>
+<ul>
+<li>调整年：withYear()</li>
+<li>调整月：withMonth()</li>
+<li>调整日：withDayOfMonth()</li>
+<li>调整时：withHour()</li>
+<li>调整分：withMinute()</li>
+<li>调整秒：withSecond()</li>
+</ul>
+<p>其他，例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.time.*;<br><span class="hljs-keyword">import</span> java.time.temporal.*;<br><span class="hljs-comment">// 本月最后1天:</span><br>LocalDate lastDay = LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());<br></code></pre></td></tr></table></figure>
+<h4 id="时间比较">时间比较<a class="header-anchor" href="#时间比较">⁍</a></h4>
+<p>可以使用<code>isBefore()</code>、<code>isAfter()</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">LocalDate.now().isBefore(LocalDate.of(<span class="hljs-number">2019</span>, <span class="hljs-number">11</span>, <span class="hljs-number">19</span>))<br></code></pre></td></tr></table></figure>
+<h4 id="duration和period">Duration和Period<a class="header-anchor" href="#duration和period">⁍</a></h4>
+<ul>
+<li>
+<p><code>Duration</code>表示两个时刻之间的时间间隔</p>
+</li>
+<li>
+<p><code>Period</code>表示两个日期之间的天数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Duration d = Duration.between(start_dt, end_dt);<span class="hljs-comment">// PT1235H10M30S</span><br>Period p = LocalDate.of(<span class="hljs-number">2019</span>, <span class="hljs-number">11</span>, <span class="hljs-number">19</span>).until(LocalDate.of(<span class="hljs-number">2020</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>)); <span class="hljs-comment">//P1M21D</span><br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p>利用<code>ofXxx()</code>或者<code>parse()</code>方法也可以直接创建<code>Duration</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Duration d1 = Duration.ofHours(<span class="hljs-number">10</span>); <span class="hljs-comment">// 10 hours</span><br>Duration d2 = Duration.parse(<span class="hljs-string">&quot;P1DT2H3M&quot;</span>); <span class="hljs-comment">// 1 day, 2 hours, 3 minutes</span><br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="zoneddatetime">ZonedDateTime<a class="header-anchor" href="#zoneddatetime">⁍</a></h3>
+<h4 id="获得不同时区的当前时间">获得不同时区的当前时间<a class="header-anchor" href="#获得不同时区的当前时间">⁍</a></h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">ZonedDateTime zbj = ZonedDateTime.now(); <span class="hljs-comment">// 默认时区</span><br>ZonedDateTime zny = ZonedDateTime.now(ZoneId.of(<span class="hljs-string">&quot;America/New_York&quot;</span>)); <span class="hljs-comment">// 用指定时区获取当前时间</span><br></code></pre></td></tr></table></figure>
+<p>表示同一时间</p>
+<h4 id="给当前时间附加不同时区">给当前时间附加不同时区<a class="header-anchor" href="#给当前时间附加不同时区">⁍</a></h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">LocalDateTime ldt = LocalDateTime.of(<span class="hljs-number">2019</span>, <span class="hljs-number">9</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">17</span>);<br>ZonedDateTime zbj = ldt.atZone(ZoneId.systemDefault());<br>ZonedDateTime zny = ldt.atZone(ZoneId.of(<span class="hljs-string">&quot;America/New_York&quot;</span>));<br></code></pre></td></tr></table></figure>
+<p>表示不同时间</p>
+<h4 id="时区转换">时区转换<a class="header-anchor" href="#时区转换">⁍</a></h4>
+<p>将一个<code>ZonedDateTime</code>对象，通过<code>withZoneSameInstant()</code>将关联时区转换到另一个时区</p>
+<p><mark>涉及到时区时，千万不要自己计算时差，否则难以正确处理夏令时。</mark></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 以中国时区获取当前时间:</span><br>ZonedDateTime zbj = ZonedDateTime.now(ZoneId.of(<span class="hljs-string">&quot;Asia/Shanghai&quot;</span>));<br><span class="hljs-comment">// 转换为纽约时间:</span><br>ZonedDateTime zny = zbj.withZoneSameInstant(ZoneId.of(<span class="hljs-string">&quot;America/New_York&quot;</span>));<br></code></pre></td></tr></table></figure>
+<p><code>ZonedDateTime</code>转换为本地时间:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">ZonedDateTime zdt = ...<br>LocalDateTime ldt = zdt.toLocalDateTime(); <span class="hljs-comment">//无时区信息</span><br></code></pre></td></tr></table></figure>
+<h3 id="datetimeformatter-2">DateTimeFormatter<a class="header-anchor" href="#datetimeformatter-2">⁍</a></h3>
+<p>和<code>SimpleDateFormat</code>不同的是，<code>DateTimeFormatter</code>不但是不变对象，它还是线程安全的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm&quot;</span>);<br><br>DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;E, yyyy-MMMM-dd HH:mm&quot;</span>, Locale.US); <span class="hljs-comment">//按照Locale默认习惯格式化(E是星期几)</span><br><br>System.out.println(formatter.format(zdt));<br></code></pre></td></tr></table></figure>
+<h3 id="instant">Instant<a class="header-anchor" href="#instant">⁍</a></h3>
+<p>用<code>Instant.now()</code>获取当前时间戳，效果和<code>System.currentTimeMillis()</code>类似，精度更高</p>
+<p>可以和<code>ZonedDateTime</code>以及<code>long</code>互相转换。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 以指定时间戳创建Instant:</span><br>Instant ins = Instant.ofEpochSecond(<span class="hljs-number">1568568760</span>);<br>ZonedDateTime zdt = ins.atZone(ZoneId.systemDefault());<br>System.out.println(zdt); <span class="hljs-comment">// 2019-09-16T01:32:40+08:00[Asia/Shanghai]</span><br></code></pre></td></tr></table></figure>
+<h3 id="最佳实践——新旧api处理">最佳实践——新旧API处理<a class="header-anchor" href="#最佳实践——新旧api处理">⁍</a></h3>
+<p>处理日期和时间时，尽量使用新的<code>java.time</code>包；</p>
+<p>在数据库中存储时间戳时，尽量使用<code>long</code>型时间戳，它具有省空间，效率高，不依赖数据库的优点。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据库</th>
+<th style="text-align:left">对应Java类（旧）</th>
+<th style="text-align:left">对应Java类（新）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DATETIME</td>
+<td style="text-align:left">java.util.Date</td>
+<td style="text-align:left">LocalDateTime</td>
+</tr>
+<tr>
+<td style="text-align:left">DATE</td>
+<td style="text-align:left">java.sql.Date</td>
+<td style="text-align:left">LocalDate</td>
+</tr>
+<tr>
+<td style="text-align:left">TIME</td>
+<td style="text-align:left">java.sql.Time</td>
+<td style="text-align:left">LocalTime</td>
+</tr>
+<tr>
+<td style="text-align:left">TIMESTAMP</td>
+<td style="text-align:left">java.sql.Timestamp</td>
+<td style="text-align:left">LocalDateTime</td>
+</tr>
+</tbody>
+</table>
+<h2 id="正则表达式">正则表达式<a class="header-anchor" href="#正则表达式">⁍</a></h2>
+<h3 id="匹配规则">匹配规则<a class="header-anchor" href="#匹配规则">⁍</a></h3>
+<p>单个字符的匹配规则如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">正则表达式</th>
+<th style="text-align:left">规则</th>
+<th style="text-align:left">可以匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>A</code></td>
+<td style="text-align:left">指定字符</td>
+<td style="text-align:left"><code>A</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\u548c</code></td>
+<td style="text-align:left">指定Unicode字符</td>
+<td style="text-align:left"><code>和</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.</code></td>
+<td style="text-align:left">任意字符</td>
+<td style="text-align:left"><code>a</code>，<code>b</code>，<code>&amp;</code>，<code>0</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\d</code></td>
+<td style="text-align:left">数字0~9</td>
+<td style="text-align:left"><code>0</code>~<code>9</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\w</code></td>
+<td style="text-align:left">大小写字母，数字和下划线</td>
+<td style="text-align:left"><code>a</code>~<code>z</code>， <code>A</code>~<code>Z</code>， <code>0</code>~<code>9</code>，<code>_</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\s</code></td>
+<td style="text-align:left">空格、Tab键</td>
+<td style="text-align:left">空格，Tab</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\D</code></td>
+<td style="text-align:left">非数字</td>
+<td style="text-align:left"><code>a</code>，<code>A</code>，<code>&amp;</code>，<code>_</code>，……</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\W</code></td>
+<td style="text-align:left">非\w</td>
+<td style="text-align:left"><code>&amp;</code>，<code>@</code>，<code>中</code>，……</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\S</code></td>
+<td style="text-align:left">非\s</td>
+<td style="text-align:left"><code>a</code>，<code>A</code>，<code>&amp;</code>，<code>_</code>，……</td>
+</tr>
+</tbody>
+</table>
+<p>多个字符的匹配规则如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">正则表达式</th>
+<th style="text-align:left">规则</th>
+<th style="text-align:left">可以匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>A*</code></td>
+<td style="text-align:left">任意个数字符</td>
+<td style="text-align:left">空，<code>A</code>，<code>AA</code>，<code>AAA</code>，……</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>A+</code></td>
+<td style="text-align:left">至少1个字符</td>
+<td style="text-align:left"><code>A</code>，<code>AA</code>，<code>AAA</code>，……</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>A?</code></td>
+<td style="text-align:left">0个或1个字符</td>
+<td style="text-align:left">空，<code>A</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>A&#123;3&#125;</code></td>
+<td style="text-align:left">指定个数字符</td>
+<td style="text-align:left"><code>AAA</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>A&#123;2,3&#125;</code></td>
+<td style="text-align:left">指定范围个数字符</td>
+<td style="text-align:left"><code>AA</code>，<code>AAA</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>A&#123;2,&#125;</code></td>
+<td style="text-align:left">至少n个字符</td>
+<td style="text-align:left"><code>AA</code>，<code>AAA</code>，<code>AAAA</code>，……</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>A&#123;0,3&#125;</code></td>
+<td style="text-align:left">最多n个字符</td>
+<td style="text-align:left">空，<code>A</code>，<code>AA</code>，<code>AAA</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="复杂匹配规则">复杂匹配规则<a class="header-anchor" href="#复杂匹配规则">⁍</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">正则表达式</th>
+<th style="text-align:left">规则</th>
+<th style="text-align:left">可以匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>^</code></td>
+<td style="text-align:left">开头</td>
+<td style="text-align:left">字符串开头</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>$</code></td>
+<td style="text-align:left">结尾</td>
+<td style="text-align:left">字符串结束</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[ABC]</code></td>
+<td style="text-align:left">[…]内任意字符</td>
+<td style="text-align:left">A，B，C</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[A-F0-9xy]</code></td>
+<td style="text-align:left">指定范围的字符</td>
+<td style="text-align:left"><code>A</code>，……，<code>F</code>，<code>0</code>，……，<code>9</code>，<code>x</code>，<code>y</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[^A-F]</code></td>
+<td style="text-align:left">指定范围外的任意字符</td>
+<td style="text-align:left">非<code>A</code>~<code>F</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>AB|CD|EF</code></td>
+<td style="text-align:left">AB或CD或EF</td>
+<td style="text-align:left"><code>AB</code>，<code>CD</code>，<code>EF</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="分组匹配">分组匹配<a class="header-anchor" href="#分组匹配">⁍</a></h3>
+<p><mark>引入<code>java.util.regex</code>包</mark>，用<code>Pattern</code>对象匹配，匹配后获得一个<code>Matcher</code>对象，如果匹配成功，就可以直接从<code>Matcher.group(index)</code>返回子串</p>
+<p>正则表达式用<code>(...)</code>分组可以通过<code>Matcher</code>对象快速提取子串：</p>
+<ul>
+<li><code>group(0)</code>表示匹配的整个字符串；</li>
+<li><code>group(1)</code>表示第1个子串，<code>group(2)</code>表示第2个子串，以此类推</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.regex.*;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Pattern p = Pattern.compile(<span class="hljs-string">&quot;(\\d&#123;3,4&#125;)\\-(\\d&#123;7,8&#125;)&quot;</span>);<br>        Matcher m = p.matcher(<span class="hljs-string">&quot;010-12345678&quot;</span>);<br>        <span class="hljs-keyword">if</span> (m.matches()) &#123;<br>            String g1 = m.group(<span class="hljs-number">1</span>);<br>            String g2 = m.group(<span class="hljs-number">2</span>);<br>            System.out.println(g1);<br>            System.out.println(g2);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;匹配失败!&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h3 id="非贪婪匹配">非贪婪匹配<a class="header-anchor" href="#非贪婪匹配">⁍</a></h3>
+<p>正则表达式匹配默认使用贪婪匹配，可以使用<code>?</code>表示对某一规则进行非贪婪匹配。</p>
+<p>例：给定一个字符串表示的数字，判断该数字末尾<code>0</code>的个数。例如：</p>
+<ul>
+<li><code>&quot;123000&quot;</code>：3个<code>0</code></li>
+<li><code>&quot;10100&quot;</code>：2个<code>0</code></li>
+<li><code>&quot;1001&quot;</code>：0个<code>0</code></li>
+</ul>
+<p>正则表达式<code>(\d+?)(0*)</code>，后面<code>?</code>表示非贪婪匹配，让<code>\d+</code>尽量少匹配，让<code>0*</code>尽量多匹配</p>
+<h3 id="搜索和替换">搜索和替换<a class="header-anchor" href="#搜索和替换">⁍</a></h3>
+<p>使用正则表达式可以：</p>
+<ul>
+<li>
+<p>分割字符串：<code>String.split()</code></p>
+</li>
+<li>
+<p>搜索子串：<code>Matcher.find()</code></p>
+</li>
+<li>
+<p>替换字符串：<code>String.replaceAll()</code></p>
+<ul>
+<li>
+<p>反向引用 可以使用<code>$1</code>、<code>$2</code>来反向引用匹配到的子串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ```java">    String s = &quot;the quick brown fox jumps over the lazy dog.&quot;;<br>    <br>    String r = s.replaceAll(&quot;\\s([a-z]&#123;4&#125;)\\s&quot;, &quot; &lt;b&gt;$1&lt;/b&gt; &quot;);<br>    //the quick brown fox jumps &lt;b&gt;over&lt;/b&gt; the &lt;b&gt;lazy&lt;/b&gt; dog.<br><br>[Matcher (Java SE 11 &amp; JDK 11 ) (runoob.com)](https://www.runoob.com/manual/jdk11api/java.base/java/util/regex/Matcher.html)<br><br>&gt; #### 模板引擎<br>&gt;<br>&gt; 模板引擎是指，定义一个字符串作为模板：<br>&gt;<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Hello, ${name}! You are learning ${lang}!</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs plaintext"><br>其中，以`$&#123;key&#125;`表示的是变量，也就是将要被替换的内容<br><br>当传入一个`Map&lt;String, String&gt;`给模板后，需要把对应的key替换为Map的value。<br><br>例如，传入`Map`为：<br><br>```json<br>&#123;<br>&quot;name&quot;: &quot;Bob&quot;,<br>&quot;lang&quot;: &quot;Java&quot;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>然后，<code>$&#123;name&#125;</code>被替换为<code>Map</code>对应的值&quot;Bob”，<code>$&#123;lang&#125;</code>被替换为<code>Map</code>对应的值&quot;Java&quot;，最终输出的结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Hello, Bob! You are learning Java!<br></code></pre></td></tr></table></figure>
+<p><strong>用正则表达式实现：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/manual/jdk11api/java.base/java/util/regex/Matcher.html#appendReplacement(java.lang.StringBuffer,java.lang.String)">Matcher.appendReplacement (Java SE 11 &amp; JDK 11 ) (runoob.com)</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itranswarp.learnjava;<br><br><span class="hljs-keyword">import</span> java.util.Map;<br><span class="hljs-keyword">import</span> java.util.regex.Matcher;<br><span class="hljs-keyword">import</span> java.util.regex.Pattern;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Learn Java from https://www.liaoxuefeng.com/</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> liaoxuefeng</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Template</span> </span>&#123;<br><br>	<span class="hljs-keyword">final</span> String template;<br>	<span class="hljs-keyword">final</span> Pattern pattern = Pattern.compile(<span class="hljs-string">&quot;\\$\\&#123;(\\w+)\\&#125;&quot;</span>);<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Template</span><span class="hljs-params">(String template)</span> </span>&#123;<br>		<span class="hljs-keyword">this</span>.template = template;<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">render</span><span class="hljs-params">(Map&lt;String, Object&gt; data)</span> </span>&#123;<br>		Matcher m = pattern.matcher(template);<br>		<span class="hljs-comment">// <span class="hljs-doctag">TODO:</span></span><br>		StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br>		<span class="hljs-keyword">while</span> (m.find()) &#123;<br>			m.appendReplacement(sb,data.get(m.group(<span class="hljs-number">1</span>)).toString());<br>		&#125;<br>		m.appendTail(sb);<br>		<span class="hljs-keyword">return</span> sb.toString();<br>	&#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Augu1sto</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://augu1sto.github.io/augu1sto/5856b11dc1a2/">https://augu1sto.github.io/augu1sto/5856b11dc1a2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://augu1sto.github.io/augu1sto" target="_blank">若叶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/augu1sto/tags/JAVA/">JAVA</a></div><div class="post_share"><div class="social-share" data-image="/augu1sto/img/cover06.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/augu1sto/ded4a46e4a5c/"><img class="prev-cover" src="/augu1sto/img/cover01.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JAVA学习（十一）| 单元测试</div></div></a></div><div class="next-post pull-right"><a href="/augu1sto/13244dc8c38f/"><img class="next-cover" src="/augu1sto/img/cover02.jpg" onerror="onerror=null;src='/augu1sto/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JAVA学习（九）| IO</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/augu1sto/f3d20640b5a9/" title="JAVA学习（七）| 泛型"><img class="cover" src="/augu1sto/img/cover04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-28</div><div class="title">JAVA学习（七）| 泛型</div></div></a></div><div><a href="/augu1sto/c18facb1815c/" title="JAVA学习（一）| JAVA快速入门"><img class="cover" src="/augu1sto/img/cover06.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-13</div><div class="title">JAVA学习（一）| JAVA快速入门</div></div></a></div><div><a href="/augu1sto/a66cd27703a0/" title="JAVA学习（三）| JAVA核心类"><img class="cover" src="/augu1sto/img/cover05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-27</div><div class="title">JAVA学习（三）| JAVA核心类</div></div></a></div><div><a href="/augu1sto/13244dc8c38f/" title="JAVA学习（九）| IO"><img class="cover" src="/augu1sto/img/cover02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-14</div><div class="title">JAVA学习（九）| IO</div></div></a></div><div><a href="/augu1sto/3043589ab29c/" title="JAVA学习（二）| 面向对象基础"><img class="cover" src="/augu1sto/img/cover02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-14</div><div class="title">JAVA学习（二）| 面向对象基础</div></div></a></div><div><a href="/augu1sto/6d0330a1471e/" title="JAVA学习（五）| 反射"><img class="cover" src="/augu1sto/img/cover01.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-28</div><div class="title">JAVA学习（五）| 反射</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/augu1sto/img/avatar.png" onerror="this.onerror=null;this.src='/augu1sto/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Augu1sto</div><div class="author-info__description">Articles | Notes | Ideas</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/augu1sto/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div><div class="card-info-data-item is-center"><a href="/augu1sto/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/augu1sto"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/augu1sto" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yingu081@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://codepen.io/augu1sto" target="_blank" title="CodePen"><i class="fab fa-codepen"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">【缓慢重新建站中】https://github.com/augu1sto/e31c317e1400/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E4%B8%8E%E6%97%B6%E9%97%B4"><span class="toc-number">1.</span> <span class="toc-text">日期与时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#date%E5%92%8Ccalendar-%E6%97%A7api"><span class="toc-number">1.1.</span> <span class="toc-text">Date和Calendar(旧API)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#date"><span class="toc-number">1.1.1.</span> <span class="toc-text">Date</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#calendar"><span class="toc-number">1.1.2.</span> <span class="toc-text">Calendar</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#timezone"><span class="toc-number">1.1.3.</span> <span class="toc-text">TimeZone</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localdatetime"><span class="toc-number">1.2.</span> <span class="toc-text">LocalDateTime</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4"><span class="toc-number">1.2.1.</span> <span class="toc-text">获取日期和时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%87%E5%AE%9A%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4"><span class="toc-number">1.2.2.</span> <span class="toc-text">创建指定日期和时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#datetimeformatter"><span class="toc-number">1.2.3.</span> <span class="toc-text">DateTimeFormatter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%8A%A0%E5%87%8F"><span class="toc-number">1.2.4.</span> <span class="toc-text">时间加减</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%B0%83%E6%95%B4"><span class="toc-number">1.2.5.</span> <span class="toc-text">时间调整</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%AF%94%E8%BE%83"><span class="toc-number">1.2.6.</span> <span class="toc-text">时间比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#duration%E5%92%8Cperiod"><span class="toc-number">1.2.7.</span> <span class="toc-text">Duration和Period</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zoneddatetime"><span class="toc-number">1.3.</span> <span class="toc-text">ZonedDateTime</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E4%B8%8D%E5%90%8C%E6%97%B6%E5%8C%BA%E7%9A%84%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="toc-number">1.3.1.</span> <span class="toc-text">获得不同时区的当前时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E9%99%84%E5%8A%A0%E4%B8%8D%E5%90%8C%E6%97%B6%E5%8C%BA"><span class="toc-number">1.3.2.</span> <span class="toc-text">给当前时间附加不同时区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E5%8C%BA%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.3.3.</span> <span class="toc-text">时区转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#datetimeformatter-2"><span class="toc-number">1.4.</span> <span class="toc-text">DateTimeFormatter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#instant"><span class="toc-number">1.5.</span> <span class="toc-text">Instant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94%E6%96%B0%E6%97%A7api%E5%A4%84%E7%90%86"><span class="toc-number">1.6.</span> <span class="toc-text">最佳实践——新旧API处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.1.</span> <span class="toc-text">匹配规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.2.</span> <span class="toc-text">复杂匹配规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E5%8C%B9%E9%85%8D"><span class="toc-number">2.3.</span> <span class="toc-text">分组匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E8%B4%AA%E5%A9%AA%E5%8C%B9%E9%85%8D"><span class="toc-number">2.4.</span> <span class="toc-text">非贪婪匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">搜索和替换</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/eb3eaf548f9c/" title="test"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test"/></a><div class="content"><a class="title" href="/augu1sto/eb3eaf548f9c/" title="test">test</a><time datetime="2022-12-11T17:32:20.000Z" title="发表于 2022-12-12 01:32:20">2022-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/aba77dc25685/" title="test-12"><img src="/augu1sto/img/cover02.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="test-12"/></a><div class="content"><a class="title" href="/augu1sto/aba77dc25685/" title="test-12">test-12</a><time datetime="2022-12-11T15:15:35.000Z" title="发表于 2022-12-11 23:15:35">2022-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING..."><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="【公告】重新建站ING..."/></a><div class="content"><a class="title" href="/augu1sto/e31c317e1400/" title="【公告】重新建站ING...">【公告】重新建站ING...</a><time datetime="2022-11-30T13:52:27.000Z" title="发表于 2022-11-30 21:52:27">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解"><img src="/augu1sto/img/cover03.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="Array.prototype.unshift方法详解"/></a><div class="content"><a class="title" href="/augu1sto/45f675fda3f8/" title="Array.prototype.unshift方法详解">Array.prototype.unshift方法详解</a><time datetime="2022-09-05T11:56:53.000Z" title="发表于 2022-09-05 19:56:53">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/augu1sto/4cf012bad379/" title="深拷贝"><img src="/augu1sto/img/cover01.jpg" onerror="this.onerror=null;this.src='/augu1sto/img/404.jpg'" alt="深拷贝"/></a><div class="content"><a class="title" href="/augu1sto/4cf012bad379/" title="深拷贝">深拷贝</a><time datetime="2022-09-03T12:28:50.000Z" title="发表于 2022-09-03 20:28:50">2022-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Augu1sto</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/augu1sto/js/utils.js"></script><script src="/augu1sto/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/augu1sto/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><div class="aplayer no-destroy" data-id="6990698783" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/augu1sto/live2dw/lib/L2Dwidget.min.js?b0f017d930c51acc4f4f9e757bdd83e9"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/augu1sto/live2dw/assets/kasumi_event128.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":30,"vOffset":0},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"text":["kira kira doki doki","大家我全都喜欢","poppipa pippopa"]},"log":false});</script></body></html>
